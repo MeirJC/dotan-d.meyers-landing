@@ -26,3 +26,4 @@ pnpm-debug.log*
 # misc
 copy/
 copyWithPath.sh
+self-docs

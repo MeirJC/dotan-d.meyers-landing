@@ -1,0 +1,26 @@
+---
+import img1 from "@assets/images/temp/img-1.webp";
+import img2 from "@assets/images/temp/img-2.webp";
+import img3 from "@assets/images/temp/img-3.webp";
+import img4 from "@assets/images/temp/img-4.webp";
+import img5 from "@assets/images/temp/img-5.webp";
+import ImageCarousel from "@components/ImageCarousel.astro";
+
+type CarouselItem = {
+  img: string;
+  title: string;
+  description: string;
+};
+const testData: CarouselItem[] = [
+  { img: img1.src, title: "Title 1", description: "Description 1" },
+  { img: img2.src, title: "Title 2", description: "Description 2" },
+  { img: img3.src, title: "Title 3", description: "Description 3" },
+  { img: img4.src, title: "Title 4", description: "Description 4" },
+  { img: img5.src, title: "Title 5", description: "Description 5" }
+];
+---
+
+<section class="mx-auto flex flex-col items-center justify-center bg-primary-50/80 px-12 py-24">
+  <h1 class="mb-8 text-center text-4xl font-bold">Development Section</h1>
+  <ImageCarousel items={testData} autoplay={true} duration={1000} />
+</section>

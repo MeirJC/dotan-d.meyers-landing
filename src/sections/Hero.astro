@@ -18,7 +18,7 @@
           <a
             href="#"
             title=""
-            class="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-full shrink-0 rounded-lg px-5 py-3 text-center text-base font-medium text-white focus:outline-none focus:ring-4 sm:w-[182px]"
+            class="w-full shrink-0 rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 sm:w-[182px] dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             role="button">
             Donate now
           </a>
@@ -26,7 +26,7 @@
           <a
             href="#"
             title=""
-            class="hover:text-primary-700 inline-flex w-full shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 sm:w-[182px] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
+            class="inline-flex w-full shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-center text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200 sm:w-[182px] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
             role="button">
             <svg
               aria-hidden="true"
@@ -40,33 +40,6 @@
             </svg>
             Learn more
           </a>
-        </div>
-
-        <div class="mt-4 sm:mt-8 sm:border-t sm:border-gray-100 sm:pt-8 dark:border-gray-700">
-          <p class="hidden text-base font-medium text-gray-500 sm:block">Partners and backers:</p>
-
-          <div class="mt-3 flex max-w-md items-center">
-            <img
-              class="mr-4 h-8 w-auto md:h-12"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/greenpeace.svg"
-              alt=""
-            />
-            <img
-              class="mr-8 h-8 w-auto md:h-12"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/united-nations.svg"
-              alt=""
-            />
-            <img
-              class="mr-8 h-8 w-auto md:h-12 dark:invert"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/wwf.svg"
-              alt=""
-            />
-            <img
-              class="h-8 w-auto md:h-12"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/oxfam.svg"
-              alt=""
-            />
-          </div>
         </div>
       </div>
 
@@ -196,72 +169,3 @@
     </div>
   </div>
 </section>
-
-<script is:inline>
-  const carouselElement = document.getElementById("default-carousel");
-
-  const items = [
-    {
-      position: 0,
-      el: document.getElementById("carousel-item-1")
-    },
-    {
-      position: 1,
-      el: document.getElementById("carousel-item-2")
-    },
-    {
-      position: 2,
-      el: document.getElementById("carousel-item-3")
-    },
-    {
-      position: 3,
-      el: document.getElementById("carousel-item-4")
-    }
-  ];
-
-  // options with default values
-  const options = {
-    defaultPosition: 1,
-    interval: 3000,
-
-    indicators: {
-      activeClasses: "bg-white dark:bg-gray-800",
-      inactiveClasses: "bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800",
-      items: [
-        {
-          position: 0,
-          el: document.getElementById("carousel-indicator-1")
-        },
-        {
-          position: 1,
-          el: document.getElementById("carousel-indicator-2")
-        },
-        {
-          position: 2,
-          el: document.getElementById("carousel-indicator-3")
-        },
-        {
-          position: 3,
-          el: document.getElementById("carousel-indicator-4")
-        }
-      ]
-    },
-
-    // callback functions
-    onNext: () => {
-      console.log("next slider item is shown");
-    },
-    onPrev: () => {
-      console.log("previous slider item is shown");
-    },
-    onChange: () => {
-      console.log("new slider item has been shown");
-    }
-  };
-
-  // instance options object
-  const instanceOptions = {
-    id: "carousel-example",
-    override: true
-  };
-</script>

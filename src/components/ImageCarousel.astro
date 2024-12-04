@@ -1,0 +1,89 @@
+---
+import "blaze-slider/dist/blaze.css";
+
+interface CarouselItem {
+  img: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: CarouselItem[];
+  autoplay?: boolean;
+  duration?: number;
+  autoplayInterval?: number;
+}
+
+const { items, autoplay = false, duration = 600, autoplayInterval = 5000 } = Astro.props;
+---
+
+<div
+  class="blaze-slider"
+  data-duration={duration}
+  data-autoplay={autoplay}
+  data-autoplay-interval={autoplayInterval}>
+  <div class="blaze-container">
+    <div class="blaze-track-container">
+      <div class="blaze-track">
+        {
+          items.map((item) => (
+            <div class="relative">
+              <img
+                src={item.img}
+                alt={item.title}
+                class="aspect-video h-auto w-full rounded-lg object-cover"
+                draggable="false"
+              />
+              {(item.title || item.description) && (
+                <div class="absolute bottom-0 left-0 right-0 rounded-b-lg bg-black/50 p-4 text-white">
+                  {item.title && <h3 class="text-xl font-bold">{item.title}</h3>}
+                  {item.description && <p class="mt-2">{item.description}</p>}
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Blaze Slider's built-in pagination -->
+      <!-- <div class="blaze-pagination flex justify-center gap-2.5 py-4" role="presentation"></div> -->
+      <div
+        class={"blaze-pagination flex justify-center gap-2.5 py-4 text-[2px] text-xs text-transparent [&>button.active]:bg-black [&>button]:size-3 [&>button]:rounded-full [&>button]:bg-gray-300 -translate-y-10"}
+        role="presentation">
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <button
+    type="button"
+    class="blaze-prev group absolute left-4 top-1/2 z-30 -translate-y-1/2 cursor-pointer focus:outline-none"
+    aria-label="Previous slide">
+    <span
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 transition group-hover:bg-white/50">
+      <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+    </span>
+  </button>
+
+  <button
+    type="button"
+    class="blaze-next group absolute right-4 top-1/2 z-30 -translate-y-1/2 cursor-pointer focus:outline-none"
+    aria-label="Next slide">
+    <span
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 transition group-hover:bg-white/50">
+      <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+        ></path>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<style>
+  :global(.blaze-pagination) {
+    @apply [&>button.active]:bg-gray-800 [&>button]:size-3 [&>button]:rounded-full [&>button]:bg-gray-300;
+  }
+</style>
