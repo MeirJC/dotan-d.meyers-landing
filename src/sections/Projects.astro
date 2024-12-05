@@ -1,117 +1,152 @@
+---
+import type { ProjectCardItem } from "@data/types";
+import ProjectCard from "@components/ProjectCard.astro";
+
+type ProjectSectionData = {
+  title: string;
+  description: string;
+  cards: ProjectCardItem[];
+};
+
+const sectionData: ProjectSectionData = {
+  title: "Our Blog",
+  description:
+    "We use an agile approach to test assumptions and connect with the needs of your audience early and often.",
+  cards: [
+    {
+      id: 1,
+      title: "Our first office",
+      subTitle:
+        "Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.",
+      description:
+        "Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.",
+      tags: ["Article"],
+      images: [
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          description: "office laptop working",
+          title: "office laptop working"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          description: "Google HQ",
+          title: "Google HQ"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          description: "office laptops",
+          title: "office laptops"
+        }
+      ], // carousel items - image description and title
+      items: ["we moved to our new office", "we got a new logo", "we changed our name"],
+      location: "New York, NY",
+      date: "2021-08-15",
+      projectPrice: "$10,000,000"
+    },
+    {
+      id: 2,
+      title: "We partnered up with Google",
+      subTitle:
+        "Over the past year, Some Company has undergone many changes! After months of preparation and some hard work, they moved to their new office.",
+      description:
+        "Company has undergone many changes! After months of preparation and some hard work, they moved to their new office.",
+      tags: ["Article", "Recipe"],
+      images: [
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          description: "office laptop working",
+          title: "office laptop working"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          description: "Google HQ",
+          title: "Google HQ"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          description: "office laptops",
+          title: "office laptops"
+        }
+      ],
+      items: ["we moved to out of space", "we got sick", "we changed our gender"],
+      location: "London, UK",
+      date: "2023-02-25",
+      projectPrice: "€80,000,000"
+    },
+    {
+      id: 3,
+      title: "Our first project with React",
+      subTitle:
+        "Dummy Company has undergone many changes! After months of preparation and some hard work, they moved to somewhere.",
+      description: "After months of preparation and some hard work, they moved to somewhere.",
+      tags: ["Article", "React"],
+      images: [
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          description: "office laptop working",
+          title: "office laptop title"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          description: "office laptops",
+          title: "office laptops"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          description: "Google HQ",
+          title: "Google HQ"
+        }
+      ],
+      items: ["we moved to somewhere", "we got corn", "we painted our name"],
+      location: "Tel Aviv, IL ",
+      date: "2023-04-15",
+      projectPrice: "₪120,000,000"
+    },
+    {
+      id: 4,
+      title: "We are making up dummy data",
+      subTitle:
+        "Dummy Company has undergone many changes! After months of preparation and some hard work, they moved to somewhere.",
+      description: "After months of preparation and some hard work, they moved to somewhere.",
+      tags: ["Article", "Dummy Data"],
+      images: [
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          description: "Google HQ",
+          title: "Google HQ"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          description: "office laptop working",
+          title: "office laptop working"
+        },
+        {
+          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          description: "office laptops",
+          title: "office laptops"
+        }
+      ],
+      items: ["we destroyed the world", "we got cookies", "we discovered a new planet"],
+      location: "Tel Aviv, IL ",
+      date: "2024-08-10",
+      projectPrice: "₪26,500,000"
+    }
+  ]
+};
+---
+
 <section class="bg-white dark:bg-gray-900">
   <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
     <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
       <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-        Our Blog
+        {sectionData.title}
       </h2>
       <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
-        We use an agile approach to test assumptions and connect with the needs of your audience
-        early and often.
+        {sectionData.description}
       </p>
     </div>
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <article
-        class="rounded-lg border border-gray-200 bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800">
-        <a href="#">
-          <img
-            class="mb-5 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png"
-            alt="office laptop working"
-          />
-        </a>
-        <span
-          class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800 dark:bg-purple-200 dark:text-purple-900"
-          >Article</span
-        >
-        <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <a href="#">Our first office</a>
-        </h2>
-        <p class="mb-4 font-light text-gray-500 dark:text-gray-400">
-          Over the past year, Volosoft has undergone many changes! After months of preparation and
-          some hard work, we moved to our new office.
-        </p>
-        <div class="flex items-center space-x-4">
-          <img
-            class="h-10 w-10 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-            alt="Jese Leos avatar"
-          />
-          <div class="font-medium dark:text-white">
-            <div>Jese Leos</div>
-            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Aug 15, 2021 · 16 min read
-            </div>
-          </div>
-        </div>
-      </article>
-      <article
-        class="rounded-lg border border-gray-200 bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800">
-        <a href="#">
-          <img
-            class="mb-5 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png"
-            alt="Google HQ"
-          />
-        </a>
-        <span
-          class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800 dark:bg-purple-200 dark:text-purple-900"
-          >Article</span
-        >
-        <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <a href="#">We partnered up with Google</a>
-        </h2>
-        <p class="mb-4 font-light text-gray-500 dark:text-gray-400">
-          Over the past year, Volosoft has undergone many changes! After months of preparation and
-          some hard work, we moved to our new office.
-        </p>
-        <div class="flex items-center space-x-4">
-          <img
-            class="h-10 w-10 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
-            alt="Roberta Casas avatar"
-          />
-          <div class="font-medium dark:text-white">
-            <div>Roberta Casas</div>
-            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Aug 15, 2021 · 16 min read
-            </div>
-          </div>
-        </div>
-      </article>
-      <article
-        class="rounded-lg border border-gray-200 bg-white p-4 shadow-md dark:border-gray-700 dark:bg-gray-800">
-        <a href="#">
-          <img
-            class="mb-5 rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png"
-            alt="office laptops"
-          />
-        </a>
-        <span
-          class="mr-2 rounded bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800 dark:bg-purple-200 dark:text-purple-900"
-          >Article</span
-        >
-        <h2 class="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <a href="#">Our first project with React</a>
-        </h2>
-        <p class="mb-4 font-light text-gray-500 dark:text-gray-400">
-          Over the past year, Volosoft has undergone many changes! After months of preparation and
-          some hard work, we moved to our new office.
-        </p>
-        <div class="flex items-center space-x-4">
-          <img
-            class="h-10 w-10 rounded-full"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-            alt="Sofia McGuire avatar"
-          />
-          <div class="font-medium dark:text-white">
-            <div>Sofia McGuire</div>
-            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Aug 15, 2021 · 16 min read
-            </div>
-          </div>
-        </div>
-      </article>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {sectionData.cards.map((card) => <ProjectCard data={card} />)}
     </div>
   </div>
 </section>

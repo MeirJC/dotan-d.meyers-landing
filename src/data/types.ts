@@ -14,3 +14,16 @@ export type FeatureCardItem = {
   reverse: boolean;
   message: string;
 };
+
+export type ProjectCardItem = {
+  id: number;
+  title: string;
+  subTitle: string;
+  description: string;
+  images: CarouselItem[];
+  items?: string[];
+  location?: string;
+  date?: string;
+  projectPrice?: string;
+  tags?: string[];
+};
