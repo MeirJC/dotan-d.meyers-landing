@@ -1,5 +1,48 @@
+---
+import IconCheck from "@components/IconCheck.astro";
+import type { FeatureCardItem } from "@data/types";
+import FeatureCard from "@components/FeatureCard.astro";
+const sectionData: { cards: FeatureCardItem[] } = {
+  cards: [
+    {
+      id: 1,
+      title: "Work with tools you already use",
+      description:
+        "Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.",
+      list: [
+        "Continuous integration and deployment",
+        "Development workflow",
+        "Knowledge management"
+      ],
+      image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/features/feature-office-1.png",
+      alt: "office feature image",
+      reverse: false,
+      message:
+        "Deliver great service experiences fast - without the complexity of traditional ITSM solutions."
+    },
+    {
+      id: 2,
+      title: "We invest in the world’s potential",
+      description:
+        "Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.",
+      list: ["Dynamic reports and dashboards", "Templates for everyone", "Development workflow"],
+      image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/features/feature-office-2.png",
+      alt: "office feature image 2",
+      reverse: true,
+      message:
+        "Deliver great service experiences fast - without the complexity of traditional ITSM solutions."
+    }
+  ]
+};
+---
+
 <section class="bg-white dark:bg-gray-900">
   <div class="mx-auto max-w-screen-xl space-y-12 px-4 py-8 sm:py-16 lg:space-y-20 lg:px-6">
+    {
+      sectionData.cards.map((card) => {
+        return <FeatureCard data={card} />;
+      })
+    }
     <!-- Row -->
     <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
       <div class="text-gray-500 sm:text-lg dark:text-gray-400">
@@ -15,48 +58,21 @@
         <ul role="list" class="my-7 space-y-5 border-t border-gray-200 pt-8 dark:border-gray-700">
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Continuous integration and deployment</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Development workflow</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Knowledge management</span
             >
@@ -73,7 +89,7 @@
         alt="office feature image"
       />
     </div>
-    <!-- Row -->
+    <!-- Reversed Row -->
     <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
       <img
         class="mb-4 hidden w-full rounded-lg lg:mb-0 lg:flex"
@@ -93,80 +109,35 @@
         <ul role="list" class="my-7 space-y-5 border-t border-gray-200 pt-8 dark:border-gray-700">
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Dynamic reports and dashboards</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Templates for everyone</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Development workflow</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Limitless business automation</span
             >
           </li>
           <li class="flex space-x-3">
             <!-- Icon -->
-            <svg
-              class="text-primary-600 dark:text-primary-500 h-5 w-5 flex-shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-              ><path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"></path></svg
-            >
+            <IconCheck />
             <span class="text-base font-medium leading-tight text-gray-900 dark:text-white"
               >Knowledge management</span
             >
