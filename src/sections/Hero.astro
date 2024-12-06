@@ -1,38 +1,36 @@
 ---
-import img1 from "@assets/images/temp/img-1.webp";
+import img1 from "@assets/images/temp/img-1.webp"; // Keep temp images until real ones provided
 import img2 from "@assets/images/temp/img-2.webp";
 import img3 from "@assets/images/temp/img-3.webp";
 import img4 from "@assets/images/temp/img-4.webp";
-import img5 from "@assets/images/temp/img-5.webp";
 import ImageCarousel from "@components/ImageCarousel.astro";
 import type { CarouselItem } from "@data/types";
 
-const testData: CarouselItem[] = [
-  { img: img1.src, title: "Title 1", description: "Description 1" },
-  { img: img2.src, title: "Title 2", description: "Description 2" },
-  { img: img3.src, title: "Title 3", description: "Description 3" },
-  { img: img4.src, title: "Title 4", description: "Description 4" },
-  { img: img5.src, title: "Title 5", description: "Description 5" }
+const carouselData: CarouselItem[] = [
+  { img: img1.src, title: "ייעוץ איטום", description: "פתרונות איטום מתקדמים" },
+  { img: img2.src, title: "ציפויי רצפה", description: "ציפויי רצפה תעשייתיים ודקורטיביים" },
+  { img: img3.src, title: "חיפויי גרניט", description: "פתרונות חיפוי מתקדמים" },
+  { img: img4.src, title: "נגרות אומן", description: "נגרות מותאמת אישית" }
 ];
 
 const sectionData = {
-  title: "Making earth cooler for people, nature, climate",
+  title: "פתרונות מתקדמים לתעשיית הבניה",
   description:
-    "Protecting the planet and its natural resources for future generations, by reducing pollution, promoting sustainability, and conserving energy and resources.",
+    "החברה מציעה מגוון פתרונות, החל משלב תכנון המבנה ועד להשלמתו, בהתאם לצרכים הספציפיים של כל לקוח. בין הפתרונות שמספקת החברה ניתן למצוא: ייעוץ בתחום האיטום, ביצוע ציפוי רצפות תעשייתיות ודקורטיביות, אספקת לוחות פורצלן ושיש טבעי וכן אספקת ריהוט לפרויקטים ציבוריים.",
   button: {
-    text: "Donate now",
-    href: "#"
+    text: "תיאום פגישת ייעוץ",
+    href: "#contact"
   },
   learnMore: {
-    text: "Learn more",
-    href: "#"
+    text: "הפרויקטים שלנו",
+    href: "#projects"
   }
 };
 ---
 
 <section class="bg-gray-900 antialiased">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6 lg:py-24">
-    <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
+    <div class="flex flex-col gap-8 lg:flex-row lg:gap-16">
       <div class="lg:max-w-xl xl:shrink-0">
         <div>
           <h2 class="text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl">
@@ -57,25 +55,14 @@ const sectionData = {
             title={sectionData.learnMore.text}
             class="inline-flex w-full shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gray-800 px-5 py-3 text-center text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-700 sm:w-[182px]"
             role="button">
-            <svg
-              aria-hidden="true"
-              class="-ml-1 mr-2 h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor">
-              <path
-                d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"
-              ></path>
-            </svg>
             {sectionData.learnMore.text}
           </a>
         </div>
       </div>
 
       <div class="relative w-full">
-        <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <ImageCarousel items={testData} autoplay={true} duration={1000} />
+          <ImageCarousel items={carouselData} autoplay={true} duration={1000} />
         </div>
       </div>
     </div>

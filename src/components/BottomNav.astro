@@ -2,67 +2,44 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<!-- PREVIOUS <svg> CLASSES FOR FURTHER REFERENCE --><!-- <svg
-        class="mb-1 h-5 w-5 text-gray-500 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-500"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 20 20">
-      </svg> --><!-- END OF PREVIOUS <svg> CLASSES FOR FURTHER REFERENCE -->
 <div
   class="fixed bottom-4 left-1/2 z-50 h-16 w-full max-w-sm -translate-x-1/2 rounded-full border border-gray-600 bg-gray-700">
   <div class="mx-auto grid h-full max-w-lg grid-cols-3">
-    <!-- WhatsApp -->
-    <button
-      data-tooltip-target="tooltip-whatsapp"
-      type="button"
-      class="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-800">
+    <a
+      href="https://wa.me/972524270479"
+      class="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-800"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="שלח
+    הודעת וואטסאפ">
       <Icon
         name="ic:sharp-whatsapp"
+        class="mb-1 text-gray-400 group-hover:text-green-500"
+        size="32"
+      />
+      <span class="sr-only">WhatsApp</span>
+    </a>
+    <a
+      href="tel:+972524270479"
+      class="group inline-flex flex-col items-center justify-center px-5 hover:bg-gray-800"
+      title="התקשר אלינו">
+      <Icon
+        name="ic:baseline-call"
         class="mb-1 text-gray-400 group-hover:text-blue-500"
         size="32"
       />
-      <!-- <svg> REPLACED INLINE SVG WITH ICON COMPONENT</svg> -->
-      <span class="sr-only">WhatsApp</span>
-    </button>
-    <div
-      id="tooltip-whatsapp"
-      role="tooltip"
-      class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-700 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300">
-      Send us a WhatsApp Message
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-    <!-- Phone Call -->
-    <button
-      data-tooltip-target="tooltip-call"
-      type="button"
-      class="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-800">
-      <Icon name="ic:baseline-call" />
-      <!-- <svg> REPLACED INLINE SVG WITH ICON COMPONENT</svg> -->
-      <span class="sr-only">Call Us</span>
-    </button>
-    <div
-      id="tooltip-call"
-      role="tooltip"
-      class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
-      Give us a Call
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-    <!-- Email -->
-    <button
-      data-tooltip-target="tooltip-email"
-      type="button"
-      class="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-800">
-      <Icon name="ic:outline-email" />
-      <!-- <svg> REPLACED INLINE SVG WITH ICON COMPONENT</svg> -->
-      <span class="sr-only">Email Us</span>
-    </button>
-    <div
-      id="tooltip-email"
-      role="tooltip"
-      class="tooltip invisible absolute z-10 inline-block rounded-lg bg-gray-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-gray-700">
-      Send us an Email
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
+      <span class="sr-only">Call</span>
+    </a>
+    <a
+      href="mailto:dotan.meyer@gmail.com"
+      class="group inline-flex flex-col items-center justify-center rounded-e-full px-5 hover:bg-gray-800"
+      title="שלח אימייל">
+      <Icon
+        name="ic:outline-email"
+        class="mb-1 text-gray-400 group-hover:text-yellow-500"
+        size="32"
+      />
+      <span class="sr-only">Email</span>
+    </a>
   </div>
 </div>
