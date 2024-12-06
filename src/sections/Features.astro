@@ -2,36 +2,10 @@
 import type { FeatureCardItem } from "@data/types";
 import FeatureCard from "@components/FeatureCard.astro";
 
-// {
-//       id: 1,
-//       title: "Work with tools you already use",
-//       description:
-//         "Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.",
-//       list: [
-//         "Continuous integration and deployment",
-//         "Development workflow",
-//         "Knowledge management"
-//       ],
-//       image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/features/feature-office-1.png",
-//       alt: "office feature image",
-//       reverse: false,
-//       message:
-//         "Deliver great service experiences fast - without the complexity of traditional ITSM solutions."
-//     },
-//     {
-//       id: 2,
-//       title: "We invest in the world’s potential",
-//       description:
-//         "Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate toil, and deploy changes with ease.",
-//       list: ["Dynamic reports and dashboards", "Templates for everyone", "Development workflow"],
-//       image: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/features/feature-office-2.png",
-//       alt: "office feature image 2",
-//       reverse: true,
-//       message:
-//         "Deliver great service experiences fast - without the complexity of traditional ITSM solutions."
-//     }
-
-const sectionData: { cards: FeatureCardItem[] } = {
+const sectionData: { title: string; description: string; cards: FeatureCardItem[] } = {
+  title: "השירותים שלנו",
+  description:
+    "החברה מציעה מגוון פתרונות מתקדמים לתעשיית הבניה, החל משלב התכנון ועד להשלמתו, בהתאם לצרכים הספציפיים של כל לקוח.",
   cards: [
     {
       id: 1,
@@ -97,7 +71,15 @@ const sectionData: { cards: FeatureCardItem[] } = {
 };
 ---
 
-<section class="bg-gray-900">
+<section class="bg-gray-900" id="services">
+  <div class="mx-auto max-w-screen-sm text-center">
+    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white">
+      {sectionData.title}
+    </h2>
+    <p class="font-light text-gray-400 sm:text-xl">
+      {sectionData.description}
+    </p>
+  </div>
   <div class="mx-auto max-w-screen-xl space-y-12 px-4 py-8 sm:py-16 lg:space-y-20 lg:px-6">
     {sectionData.cards.map((card) => <FeatureCard data={card} />)}
   </div>
