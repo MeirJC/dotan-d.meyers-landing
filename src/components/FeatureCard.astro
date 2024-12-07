@@ -1,7 +1,7 @@
 ---
 import IconCheck from "@components/IconCheck.astro";
 import type { FeatureCardItem } from "@data/types";
-
+import { Image } from "astro:assets";
 interface Props {
   data: FeatureCardItem;
 }
@@ -12,7 +12,15 @@ const { data } = Astro.props;
 <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
   {
     data.reverse && (
-      <img class="mb-4 hidden w-full rounded-lg lg:mb-0 lg:flex" src={data.image} alt={data.alt} />
+      <Image
+        class="mb-4 hidden w-full rounded-lg lg:mb-0 lg:flex"
+        src={data.image}
+        alt={data.alt}
+        quality={95}
+        loading="lazy"
+        width={data.image.width}
+        height={data.image.height}
+      />
     )
   }
   <div class="text-gray-400 sm:text-lg">
@@ -40,7 +48,15 @@ const { data } = Astro.props;
   </div>
   {
     !data.reverse && (
-      <img class="mb-4 hidden w-full rounded-lg lg:mb-0 lg:flex" src={data.image} alt={data.alt} />
+      <Image
+        class="mb-4 hidden w-full rounded-lg lg:mb-0 lg:flex"
+        src={data.image}
+        alt={data.alt}
+        quality={95}
+        loading="lazy"
+        width={data.image.width}
+        height={data.image.height}
+      />
     )
   }
 </div>

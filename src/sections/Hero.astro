@@ -6,12 +6,12 @@ import img4 from "@assets/images/temp/img-4.webp";
 import ImageCarousel from "@components/ImageCarousel.astro";
 import type { CarouselItem } from "@data/types";
 import logo from "@assets/images/logos/dmeyers.webp";
-
+import { Image } from "astro:assets";
 const carouselData: CarouselItem[] = [
-  { img: img1.src, title: "ייעוץ איטום", description: "פתרונות איטום מתקדמים" },
-  { img: img2.src, title: "ציפויי רצפה", description: "ציפויי רצפה תעשייתיים ודקורטיביים" },
-  { img: img3.src, title: "חיפויי גרניט", description: "פתרונות חיפוי מתקדמים" },
-  { img: img4.src, title: "נגרות אומן", description: "נגרות מותאמת אישית" }
+  { img: img1, title: "ייעוץ איטום", description: "פתרונות איטום מתקדמים" },
+  { img: img2, title: "ציפויי רצפה", description: "ציפויי רצפה תעשייתיים ודקורטיביים" },
+  { img: img3, title: "חיפויי גרניט", description: "פתרונות חיפוי מתקדמים" },
+  { img: img4, title: "נגרות אומן", description: "נגרות מותאמת אישית" }
 ];
 
 const sectionData = {
@@ -38,10 +38,14 @@ const sectionData = {
           <div
             class="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-75 blur-sm">
           </div>
-          <img
-            src={logo.src}
+          <Image
+            src={logo}
             alt="D.Meyer's Logo"
             class="relative size-44 rounded-full border-2 border-gray-700 object-cover sm:size-52"
+            quality={95}
+            loading="lazy"
+            width={logo.width}
+            height={logo.height}
           />
         </div>
         <div class="text-center">

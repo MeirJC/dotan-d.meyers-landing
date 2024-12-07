@@ -1,5 +1,7 @@
+import type { ImageMetadata } from "astro";
+
 export type CarouselItem = {
-  img: string;
+  img: ImageMetadata;
   title: string;
   description: string;
 };
@@ -9,7 +11,7 @@ export type FeatureCardItem = {
   title: string;
   description: string;
   list: string[];
-  image: string;
+  image: ImageMetadata;
   alt: string;
   reverse: boolean;
   message: string;

@@ -1,6 +1,6 @@
 ---
 import logo from "@assets/images/logos/dmeyers.webp";
-
+import { Image } from "astro:assets";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,10 +10,14 @@ const currentYear = new Date().getFullYear();
       <!-- Logo and Company Info -->
       <div class="flex flex-col items-center text-center lg:items-start lg:text-start">
         <div class="flex items-center gap-4">
-          <img
-            src={logo.src}
+          <Image
+            src={logo}
             alt="D.Meyer's Logo"
             class="size-16 rounded-full border border-gray-600"
+            quality={95}
+            loading="lazy"
+            width={logo.width}
+            height={logo.height}
           />
           <div>
             <h3

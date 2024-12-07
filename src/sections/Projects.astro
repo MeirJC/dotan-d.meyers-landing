@@ -2,6 +2,10 @@
 import type { ProjectCardItem } from "@data/types";
 import ProjectCard from "@components/ProjectCard.astro";
 
+import project1 from "@assets/images/temp/project-1.webp";
+import project2 from "@assets/images/temp/project-2.webp";
+import project3 from "@assets/images/temp/project-3.webp";
+
 interface ProjectSectionData {
   title: string;
   description: string;
@@ -22,17 +26,17 @@ const sectionData: ProjectSectionData = {
       tags: ["ציפוי רצפה", "MMA"],
       images: [
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          img: project1,
           description: "ביצוע ציפוי רצפה מיוחד MMA",
           title: "מערכת ציפוי עמידה לכימיקלים"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          img: project2,
           description: "תהליך היישום המורכב",
           title: "שלבי העבודה"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          img: project3,
           description: "התוצאה הסופית המרשימה",
           title: "לאחר השלמת הפרויקט"
         }
@@ -50,17 +54,17 @@ const sectionData: ProjectSectionData = {
       tags: ["איטום", "שיקום בטון"],
       images: [
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          img: project2,
           description: "איטום מתקדם של בורות האיסוף",
           title: "מערכות איטום היברידיות"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          img: project3,
           description: "שיקום בטונים בסביבה קורוזיבית",
           title: "טיפול בתשתית"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          img: project1,
           description: "יישום שכבת הגנה סופית",
           title: "השלמת העבודה"
         }
@@ -78,17 +82,17 @@ const sectionData: ProjectSectionData = {
       tags: ["נגרות אומן", "ריהוט מותאם"],
       images: [
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          img: project3,
           description: "דלפקי שירות מעוצבים",
           title: "ריהוט מותאם אישית"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          img: project1,
           description: "פתרונות אחסון יעודיים",
           title: "מערכות אחסון"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          img: project2,
           description: "חיפויי קיר דקורטיביים",
           title: "גימורים מיוחדים"
         }
@@ -106,17 +110,17 @@ const sectionData: ProjectSectionData = {
       tags: ["גרניט פורצלן", "שיש טבעי", "יבוא ישיר"],
       images: [
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png",
+          img: project1,
           description: "מגוון לוחות פורצלן בגימורים שונים",
           title: "תצוגת מוצרים"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png",
+          img: project3,
           description: "משטחי שיש טבעי ביבוא אישי",
           title: "קולקציית שיש"
         },
         {
-          img: "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png",
+          img: project2,
           description: "יישום בפרויקט יוקרה",
           title: "פרויקט לדוגמה"
         }
