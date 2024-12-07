@@ -1,32 +1,8 @@
 ---
-import img1 from "@assets/images/temp/img-1.webp"; // Keep temp images until real ones provided
-import img2 from "@assets/images/temp/img-2.webp";
-import img3 from "@assets/images/temp/img-3.webp";
-import img4 from "@assets/images/temp/img-4.webp";
 import ImageCarousel from "@components/ImageCarousel.astro";
-import type { CarouselItem } from "@data/types";
 import logo from "@assets/images/logos/dmeyers.webp";
 import { Image } from "astro:assets";
-const carouselData: CarouselItem[] = [
-  { img: img1, title: "ייעוץ איטום", description: "פתרונות איטום מתקדמים" },
-  { img: img2, title: "ציפויי רצפה", description: "ציפויי רצפה תעשייתיים ודקורטיביים" },
-  { img: img3, title: "חיפויי גרניט", description: "פתרונות חיפוי מתקדמים" },
-  { img: img4, title: "נגרות אומן", description: "נגרות מותאמת אישית" }
-];
-
-const sectionData = {
-  title: "פתרונות מתקדמים לתעשיית הבניה",
-  description:
-    "החברה מציעה מגוון פתרונות, החל משלב תכנון המבנה ועד להשלמתו, בהתאם לצרכים הספציפיים של כל לקוח. בין הפתרונות שמספקת החברה ניתן למצוא: ייעוץ בתחום האיטום, ביצוע ציפוי רצפות תעשייתיות ודקורטיביות, אספקת לוחות פורצלן ושיש טבעי וכן אספקת ריהוט לפרויקטים ציבוריים.",
-  button: {
-    text: "תיאום פגישת ייעוץ",
-    href: "#contact"
-  },
-  learnMore: {
-    text: "הפרויקטים שלנו",
-    href: "#projects"
-  }
-};
+import { heroData } from "@data/heroData";
 ---
 
 <section class="bg-gray-900 antialiased">
@@ -51,10 +27,10 @@ const sectionData = {
         <div class="text-center">
           <h1
             class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text py-4 text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
-            D.meyer's
+            {heroData.brandName}
           </h1>
           <p class="mt-2 text-xl font-medium text-gray-400 sm:text-2xl">
-            מובילים בפתרונות מתקדמים לתעשיית הבניה
+            {heroData.brandDescription}
           </p>
         </div>
       </div>
@@ -65,17 +41,17 @@ const sectionData = {
       <div class="lg:max-w-xl xl:shrink-0">
         <div>
           <h2 class="text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl">
-            {sectionData.title}
+            {heroData.title}
           </h2>
           <p class="mt-5 text-base font-normal text-gray-400 sm:text-xl md:max-w-3xl">
-            {sectionData.description}
+            {heroData.description}
           </p>
         </div>
       </div>
 
       <div class="relative w-full">
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <ImageCarousel items={carouselData} autoplay={true} duration={1000} />
+          <ImageCarousel items={heroData.images} autoplay={true} duration={1000} />
         </div>
       </div>
     </div>

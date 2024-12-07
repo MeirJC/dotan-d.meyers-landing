@@ -29,3 +29,30 @@ export type ProjectCardItem = {
   projectPrice?: string;
   tags?: string[];
 };
+
+export interface HeroSectionData {
+  brandName: string;
+  brandDescription: string;
+  title: string;
+  description: string;
+  button: {
+    text: string;
+    href: string;
+  };
+  learnMore: {
+    text: string;
+    href: string;
+  };
+  images: CarouselItem[];
+}
+
+export interface FeaturesSectionData {
+  title: string;
+  description: string;
+  cards: FeatureCardItem[];
+}
+export interface ProjectSectionData {
+  title: string;
+  description: string;
+  cards: ProjectCardItem[];
+}
