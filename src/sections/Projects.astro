@@ -14,7 +14,7 @@ import ProjectCard from "@components/ProjectCard.astro";
       </p>
     </div>
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-      {projectsData.cards.map((card) => <ProjectCard data={card} />)}
+      {projectsData.cards.map((card) => <ProjectCard data={card} addDescription={true} />)}
     </div>
   </div>
 </section>

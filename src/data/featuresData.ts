@@ -1,6 +1,8 @@
-import office1 from "@assets/images/temp/office-1.webp";
-import office2 from "@assets/images/temp/office-2.webp";
 import type { FeaturesSectionData } from "@data/types";
+import feature1 from "@assets/images/features/feat-1.webp";
+import feature2 from "@assets/images/features/feat-2.webp";
+import feature3 from "@assets/images/features/feat-3.webp";
+import feature4 from "@assets/images/features/feat-4.webp";
 
 export const featuresData: FeaturesSectionData = {
   title: "השירותים שלנו",
@@ -17,7 +19,7 @@ export const featuresData: FeaturesSectionData = {
         "פתרונות איטום מתקדמים לגגות ומרתפים",
         "מערכות איטום בהזרקה ושיקום מבנים"
       ],
-      image: office1,
+      image: feature1,
       alt: "ייעוץ איטום",
       reverse: false,
       message: "אנו מלווים את הפרויקט משלב התכנון ועד לביצוע, עם דגש על איכות ועמידות לאורך זמן."
@@ -28,11 +30,11 @@ export const featuresData: FeaturesSectionData = {
       description:
         "מגוון פתרונות ציפוי מתקדמים המותאמים לדרישות התעשייה המודרנית, תוך שילוב של עמידות גבוהה ואסתטיקה מושלמת.",
       list: [
-        "ציפויי אפוקסי ו-MMA מתקדמים",
-        "מערכות PU Cement לתעשיית המזון",
+        "ציפויי אפוקסי ו-MMA מתקדמים ואנטי סטטיים",
+        "מערכות PU Cement לתעשיות המזון, התרופות והנשק",
         "פתרונות דקורטיביים למבני ציבור"
       ],
-      image: office2,
+      image: feature2,
       alt: "ציפויי רצפה",
       reverse: true,
       message: "מספקים פתרונות ציפוי העומדים בסטנדרטים המחמירים ביותר של התעשייה."
@@ -47,7 +49,7 @@ export const featuresData: FeaturesSectionData = {
         "פתרונות Outer/Double Skin למבנים",
         "משטחי עבודה למטבחים"
       ],
-      image: office1,
+      image: feature3,
       alt: "חיפויי גרניט ושיש",
       reverse: false,
       message: "מביאים את חומרי הגמר האיכותיים ביותר, בהתאמה מושלמת לצרכי הפרויקט."
@@ -62,7 +64,7 @@ export const featuresData: FeaturesSectionData = {
         "מערכות ישיבה לאודיטוריומים",
         "ריהוט מוסדי בהתאמה אישית"
       ],
-      image: office2,
+      image: feature4,
       alt: "נגרות אומן",
       reverse: true,
       message: "מתמחים בתכנון וייצור ריהוט איכותי בהתאמה מדויקת לדרישות הפרויקט."

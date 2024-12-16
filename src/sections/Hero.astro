@@ -43,9 +43,10 @@ import { heroData } from "@data/heroData";
           <h2 class="text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl">
             {heroData.title}
           </h2>
-          <p class="mt-5 text-base font-normal text-gray-400 sm:text-xl md:max-w-3xl">
-            {heroData.description}
-          </p>
+          <p
+            class="mt-5 text-base font-normal text-gray-400 sm:text-xl md:max-w-3xl"
+            set:html={heroData.description}
+          />
         </div>
       </div>
 

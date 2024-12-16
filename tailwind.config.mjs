@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+import defaultTheme from "tailwindcss/defaultTheme";
+
 export default {
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
@@ -21,6 +23,9 @@ export default {
           900: "#1e3a8a",
           950: "#172554"
         }
+      },
+      fontFamily: {
+        sans: ['"Heebo Variable"', ...defaultTheme.fontFamily.sans]
       }
     }
   },

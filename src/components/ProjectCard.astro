@@ -4,9 +4,10 @@ import type { ProjectCardItem } from "@data/types";
 
 interface Props {
   data: ProjectCardItem;
+  addDescription?: boolean;
 }
 
-const { data } = Astro.props as Props;
+const { data, addDescription = false } = Astro.props as Props;
 
 const interval = Math.min(7500, 4000 + data.id * 750);
 ---
@@ -18,6 +19,7 @@ const interval = Math.min(7500, 4000 + data.id * 750);
       autoplay={true}
       duration={1000}
       autoplayInterval={interval}
+      {addDescription}
     />
   </div>
   {

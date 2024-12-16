@@ -8,9 +8,16 @@ interface Props {
   autoplay?: boolean;
   duration?: number;
   autoplayInterval?: number;
+  addDescription?: boolean;
 }
 
-const { items, autoplay = false, duration = 600, autoplayInterval = 5000 } = Astro.props;
+const {
+  items,
+  autoplay = false,
+  duration = 600,
+  autoplayInterval = 5000,
+  addDescription = false
+} = Astro.props;
 ---
 
 <div
@@ -34,7 +41,7 @@ const { items, autoplay = false, duration = 600, autoplayInterval = 5000 } = Ast
                 width={item.img.width}
                 height={item.img.height}
               />
-              {(item.title || item.description) && (
+              {addDescription && (item.title || item.description) && (
                 <div class="absolute bottom-0 left-0 right-0 rounded-b-lg bg-black/50 p-4 text-white">
                   {item.title && <h3 class="text-xl font-bold">{item.title}</h3>}
                   {item.description && <p class="mt-2">{item.description}</p>}

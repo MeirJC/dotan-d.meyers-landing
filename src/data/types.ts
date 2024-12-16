@@ -35,11 +35,11 @@ export interface HeroSectionData {
   brandDescription: string;
   title: string;
   description: string;
-  button: {
+  button?: {
     text: string;
     href: string;
   };
-  learnMore: {
+  learnMore?: {
     text: string;
     href: string;
   };
