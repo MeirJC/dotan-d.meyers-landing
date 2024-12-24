@@ -1,8 +1,38 @@
 import type { ProjectSectionData } from "@data/types";
-
-import project1 from "@assets/images/temp/project-1.webp";
-import project2 from "@assets/images/temp/project-2.webp";
-import project3 from "@assets/images/temp/project-3.webp";
+// consulting
+import consulting1 from "@assets/images/consulting/image-1.webp";
+import consulting2 from "@assets/images/consulting/image-2.webp";
+import consulting3 from "@assets/images/consulting/image-3.webp";
+import consulting4 from "@assets/images/consulting/image-4.webp";
+import consulting5 from "@assets/images/consulting/image-5.webp";
+// carpentery
+import carpentery1 from "@assets/images/carpentery/image-1.webp";
+import carpentery2 from "@assets/images/carpentery/image-2.webp";
+import carpentery3 from "@assets/images/carpentery/image-3.webp";
+import carpentery4 from "@assets/images/carpentery/image-4.webp";
+import carpentery5 from "@assets/images/carpentery/image-5.webp";
+import carpentery6 from "@assets/images/carpentery/image-6.webp";
+import carpentery7 from "@assets/images/carpentery/image-7.webp";
+// surfaces
+import surface1 from "@assets/images/kitchen-surfaces/image-1.webp";
+import surface2 from "@assets/images/kitchen-surfaces/image-2.webp";
+import surface3 from "@assets/images/kitchen-surfaces/image-3.webp";
+import surface4 from "@assets/images/kitchen-surfaces/image-4.webp";
+import surface5 from "@assets/images/kitchen-surfaces/image-5.webp";
+import surface6 from "@assets/images/kitchen-surfaces/image-6.webp";
+import surface7 from "@assets/images/kitchen-surfaces/image-7.webp";
+import surface8 from "@assets/images/kitchen-surfaces/image-8.webp";
+import surface9 from "@assets/images/kitchen-surfaces/image-9.webp";
+import surface10 from "@assets/images/kitchen-surfaces/image-10.webp";
+import surface11 from "@assets/images/kitchen-surfaces/image-11.webp";
+// floor coating
+import floorCoating1 from "@assets/images/floor-coatings/image-1.webp";
+import floorCoating2 from "@assets/images/floor-coatings/image-2.webp";
+import floorCoating3 from "@assets/images/floor-coatings/image-3.webp";
+import floorCoating4 from "@assets/images/floor-coatings/image-4.webp";
+import floorCoating5 from "@assets/images/floor-coatings/image-5.webp";
+import floorCoating6 from "@assets/images/floor-coatings/image-6.webp";
+import floorCoating7 from "@assets/images/floor-coatings/image-7.webp";
 
 export const projectsData: ProjectSectionData = {
   title: "הפרויקטים שלנו",
@@ -18,19 +48,29 @@ export const projectsData: ProjectSectionData = {
       tags: ["ציפוי רצפה", "MMA"],
       images: [
         {
-          img: project1,
-          description: "ביצוע ציפוי רצפה מיוחד MMA",
-          title: "מערכת ציפוי עמידה לכימיקלים"
+          img: consulting1,
+          title: "מפעל למחזור נוזלים",
+          description: "איטום בור ספיגת נוזלים"
         },
         {
-          img: project2,
-          description: "תהליך היישום המורכב",
-          title: "שלבי העבודה"
+          img: consulting2,
+          title: "מפעל למחזור נוזלים",
+          description: "איטום תעלת הולכת נוזלים"
         },
         {
-          img: project3,
-          description: "התוצאה הסופית המרשימה",
-          title: "לאחר השלמת הפרויקט"
+          img: consulting3,
+          title: "מפעל למחזור נוזלים",
+          description: "איטום תעלת הולכת נוזלים"
+        },
+        {
+          img: consulting4,
+          title: "מפעל ציפויים",
+          description: "איטום וציפויי בור איסוף"
+        },
+        {
+          img: consulting5,
+          title: "מפעל ציפויים",
+          description: "איטום וציפויי בור איסוף"
         }
       ],
       location: "מפעל למחזור נוזלים כימיים",
@@ -46,19 +86,39 @@ export const projectsData: ProjectSectionData = {
       tags: ["איטום", "שיקום בטון"],
       images: [
         {
-          img: project2,
-          description: "איטום מתקדם של בורות האיסוף",
-          title: "מערכות איטום היברידיות"
+          img: floorCoating1,
+          title: "ציפויי רצפת חנות",
+          description: "מעדניית בשר מערכת מולטירלייר"
         },
         {
-          img: project3,
-          description: "שיקום בטונים בסביבה קורוזיבית",
-          title: "טיפול בתשתית"
+          img: floorCoating2,
+          title: "ציפויי רצפת מפעל מחזור",
+          description: "ציפויי רמפת עלית משאיות מערכת צמנט פוליאוריטני"
         },
         {
-          img: project1,
-          description: "יישום שכבת הגנה סופית",
-          title: "השלמת העבודה"
+          img: floorCoating3,
+          title: "ציפויי רצפת מפעל",
+          description: "ציפויי רצפת מעבדות מערכת מולטילייר"
+        },
+        {
+          img: floorCoating4,
+          title: "ציפויי רצפת מפעל מחזור",
+          description: "ציפויי רצפת מפעל מחזור"
+        },
+        {
+          img: floorCoating5,
+          title: "ציפויי רצפת מפעל מחזור",
+          description: "ציפויי רצפת מפעל מחזור מערכת מולטילייר שחורה"
+        },
+        {
+          img: floorCoating6,
+          title: "ציפויי רצפת מפעל",
+          description: "ציפויי רצפת מפעל מולטילייר שחורה"
+        },
+        {
+          img: floorCoating7,
+          title: "ציפויי רצפת מעבדות",
+          description: "ציפויי במערכת מולטילייר אנטי סטטי"
         }
       ],
       location: "כרמיאל",
@@ -74,19 +134,39 @@ export const projectsData: ProjectSectionData = {
       tags: ["נגרות אומן", "ריהוט מותאם"],
       images: [
         {
-          img: project3,
-          description: "דלפקי שירות מעוצבים",
-          title: "ריהוט מותאם אישית"
+          img: carpentery1,
+          title: "נגרות - תמונה 1",
+          description: "קטגוריה: דלפקי שירות מעוצבים"
         },
         {
-          img: project1,
-          description: "פתרונות אחסון יעודיים",
-          title: "מערכות אחסון"
+          img: carpentery2,
+          title: "נגרות - תמונה 2",
+          description: "קטגוריה: פתרונות אחסון יעודיים"
         },
         {
-          img: project2,
-          description: "חיפויי קיר דקורטיביים",
-          title: "גימורים מיוחדים"
+          img: carpentery3,
+          title: "נגרות - תמונה 3",
+          description: "קטגוריה: חיפויי קיר דקורטיביים"
+        },
+        {
+          img: carpentery4,
+          title: "נגרות - תמונה 4",
+          description: "קטגוריה: גימורים מיוחדים"
+        },
+        {
+          img: carpentery5,
+          title: "נגרות - תמונה 5",
+          description: "קטגוריה: גימורים מיוחדים"
+        },
+        {
+          img: carpentery6,
+          title: "נגרות - תמונה 6",
+          description: "קטגוריה: גימורים מיוחדים"
+        },
+        {
+          img: carpentery7,
+          title: "נגרות - תמונה 7",
+          description: "קטגוריה: גימורים מיוחדים"
         }
       ],
       location: "סניף בנק",
@@ -102,19 +182,59 @@ export const projectsData: ProjectSectionData = {
       tags: ["גרניט פורצלן", "שיש טבעי", "יבוא ישיר"],
       images: [
         {
-          img: project1,
-          description: "מגוון לוחות פורצלן בגימורים שונים",
-          title: "תצוגת מוצרים"
+          img: surface1,
+          title: "משטחי מטבח - תמונה 1",
+          description: "קטגוריה: משטחי מטבח"
         },
         {
-          img: project3,
-          description: "משטחי שיש טבעי ביבוא אישי",
-          title: "קולקציית שיש"
+          img: surface2,
+          title: "משטחי מטבח - תמונה 2",
+          description: "קטגוריה: משטחי מטבח"
         },
         {
-          img: project2,
-          description: "יישום בפרויקט יוקרה",
-          title: "פרויקט לדוגמה"
+          img: surface3,
+          title: "משטחי מטבח - תמונה 3",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface4,
+          title: "משטחי מטבח - תמונה 4",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface5,
+          title: "משטחי מטבח - תמונה 5",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface6,
+          title: "משטחי מטבח - תמונה 6",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface7,
+          title: "משטחי מטבח - תמונה 7",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface8,
+          title: "משטחי מטבח - תמונה 8",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface9,
+          title: "משטחי מטבח - תמונה 9",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface10,
+          title: "משטחי מטבח - תמונה 10",
+          description: "קטגוריה: משטחי מטבח"
+        },
+        {
+          img: surface11,
+          title: "משטחי מטבח - תמונה 11",
+          description: "קטגוריה: משטחי מטבח"
         }
       ],
       location: "מגוון פרויקטים ארצי",
