@@ -94,6 +94,7 @@ export const projectsData: ProjectSectionData = {
       description:
         "איטום מקיף של בורות האיסוף וקווי הייצור כולל יישום מערכות איטום היברידיות מתקדמות ושיקום בטון אגרסיבי",
       tags: ["איטום", "שיקום בטון"],
+
       images: [
         {
           img: consulting1,
