@@ -35,9 +35,9 @@ import floorCoating6 from "@assets/images/floor-coatings/image-6.webp";
 import floorCoating7 from "@assets/images/floor-coatings/image-7.webp";
 
 export const projectsData: ProjectSectionData = {
-  title: "הפרויקטים שלנו",
+  title: "הפרויקטים שלנו | די מאיירס - דותן מאיר",
   description:
-    "אנו גאים להציג מבחר מהפרויקטים המובילים שביצענו. כל פרויקט מדגים את המומחיות והניסיון העשיר שלנו בתחומי האיטום, הציפוי והבנייה.",
+    "אנו גאים להציג מבחר מהפרויקטים המובילים שביצענו בתחומי ייעוץ האיטום, ציפויי רצפה, חיפויי קירות ונגרות אומן. כל פרויקט מדגים את המומחיות והניסיון העשיר שלנו בתחומי האיטום, הציפוי והבנייה.",
   cards: [
     {
       id: 1,

@@ -4,19 +4,20 @@ import BottomNav from "../components/BottomNav.astro";
 import "@fontsource-variable/heebo";
 
 const layoutContent = {
-  title: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה",
+  title: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר",
   description:
-    "פתרונות מקצועיים לתעשיית הבניה: ייעוץ איטום, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש, ונגרות מותאמת אישית למגזר המוסדי",
+    "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום מקצועי, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש, נגרות מותאמת אישית למגזר המוסדי וחיפויי קירות מתקדמים",
   keywords:
-    "איטום, ציפויי רצפה, גרניט פורצלן, נגרות מוסדית, פתרונות בנייה, די מאיירס, תעשיית הבניה",
-  author: "D.Meyer's",
-  ogTitle: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה",
+    "דותן מאיר, ייעוץ איטום, חומרי איטום, שיש למטבחים, נגרות אומן, חיפויי קירות, אבן לחיפויי קירות, מומחה לאיטום, איטום, ציפויי רצפה, גרניט פורצלן, נגרות מוסדית, פתרונות בנייה, די מאיירס, תעשיית הבניה",
+  author: "דותן מאיר - D.Meyer's",
+  ogTitle: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר",
   ogDescription:
-    "מובילים בפתרונות מקצועיים לתעשיית הבניה: איטום, ציפויי רצפה, חיפויי גרניט ונגרות מוסדית",
+    "מובילים בפתרונות מקצועיים לתעשיית הבניה: ייעוץ איטום מקצועי, ציפויי רצפה, חיפויי גרניט ונגרות מוסדית. בהובלת דותן מאיר - מומחה לפתרונות איטום מתקדמים",
   ogImage: "/dmeyers-og.jpg",
-  ogUrl: "https://www.dmeyer.co.il", // Replace with actual domain
+  ogUrl: "https://www.dmeyers.pro",
   twitterCard: "summary_large_image",
-  themeColor: "#111827"
+  themeColor: "#111827",
+  canonicalUrl: "https://www.dmeyers.pro"
 };
 ---
 
@@ -51,6 +52,34 @@ const layoutContent = {
 
     <!-- Theme Color -->
     <meta name="theme-color" content={layoutContent.themeColor} />
+
+    <!-- Additional meta tags -->
+    <link rel="canonical" href={layoutContent.canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:site_name" content="D.Meyer's" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "D.Meyer's",
+        "alternateName": "די מאיירס",
+        "url": "https://www.dmeyers.pro",
+        "logo": "https://www.dmeyers.pro/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+972-XXX-XXXXXX",
+          "contactType": "customer service",
+          "areaServed": "IL",
+          "availableLanguage": ["Hebrew", "English"]
+        },
+        "sameAs": ["https://www.facebook.com/dmeyers", "https://www.instagram.com/dmeyers.pro"]
+      }
+    </script>
 
     <!-- Preconnect to domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
