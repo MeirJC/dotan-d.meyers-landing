@@ -135,38 +135,38 @@ export const projectsData: ProjectSectionData = {
       images: [
         {
           img: carpentery1,
-          title: "נגרות - תמונה 1",
-          description: "קטגוריה: דלפקי שירות מעוצבים"
+          title: "נגרות",
+          description: "דלפקי שירות מעוצבים"
         },
         {
           img: carpentery2,
-          title: "נגרות - תמונה 2",
-          description: "קטגוריה: פתרונות אחסון יעודיים"
+          title: "נגרות",
+          description: "פתרונות אחסון יעודיים"
         },
         {
           img: carpentery3,
-          title: "נגרות - תמונה 3",
-          description: "קטגוריה: חיפויי קיר דקורטיביים"
+          title: "נגרות",
+          description: "חיפויי קיר דקורטיביים"
         },
         {
           img: carpentery4,
-          title: "נגרות - תמונה 4",
-          description: "קטגוריה: גימורים מיוחדים"
+          title: "נגרות",
+          description: "גימורים מיוחדים"
         },
         {
           img: carpentery5,
-          title: "נגרות - תמונה 5",
-          description: "קטגוריה: גימורים מיוחדים"
+          title: "נגרות",
+          description: "גימורים מיוחדים"
         },
         {
           img: carpentery6,
-          title: "נגרות - תמונה 6",
-          description: "קטגוריה: גימורים מיוחדים"
+          title: "נגרות",
+          description: "גימורים מיוחדים"
         },
         {
           img: carpentery7,
-          title: "נגרות - תמונה 7",
-          description: "קטגוריה: גימורים מיוחדים"
+          title: "נגרות",
+          description: "גימורים מיוחדים"
         }
       ],
       location: "סניף בנק",
