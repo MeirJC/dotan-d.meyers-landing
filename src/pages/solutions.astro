@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import Features from "@sections/Features.astro";
+
+const pageTitle = "פתרונות איטום ובדק בית | דותן מאיר";
+const pageDescription =
+  "פתרונות מקצועיים בתחום האיטום, בדק בית, וייעוץ ציפויים. שירותי מומחה לאיטום וביקורת מבנה מאת דותן מאיר";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <PageHeader title="הפתרונות שלנו" description="שירותים מקצועיים בתחום האיטום ובדק בית" />
+  <Features />
+</Layout>
+

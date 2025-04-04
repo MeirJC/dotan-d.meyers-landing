@@ -28,6 +28,7 @@ export type ProjectCardItem = {
   date?: string;
   projectPrice?: string;
   tags?: string[];
+  featured?: boolean;
 };
 
 export interface HeroSectionData {
@@ -51,8 +52,20 @@ export interface FeaturesSectionData {
   description: string;
   cards: FeatureCardItem[];
 }
+
 export interface ProjectSectionData {
   title: string;
   description: string;
   cards: ProjectCardItem[];
 }
+
+export type ArticleItem = {
+  id: number;
+  slug: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  content: string;
+  image: ImageMetadata;
+};

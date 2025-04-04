@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+
+const pageTitle = "אודות | דותן מאיר - יועץ איטום ובדק בית";
+const pageDescription =
+  "דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון רב בתחום. מידע נוסף על השירותים המקצועיים והניסיון";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <PageHeader title="אודות" description="מידע נוסף על דותן מאיר והשירותים המקצועיים" />
+
+  <section class="bg-gray-800 py-12">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl">
+        <div class="rounded-lg bg-gray-700 p-6 shadow-lg md:p-8">
+          <h2 class="mb-6 text-3xl font-bold text-white">
+            דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית
+          </h2>
+
+          <div class="prose prose-lg prose-invert max-w-none">
+            <p>
+              דותן מאיר הינו יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון רב בתחום. כיועץ מקצועי, דותן
+              מספק שירותי ייעוץ איטום מתקדמים לבניינים ומבנים, תוך שימוש בטכנולוגיות חדשניות ושיטות
+              יישום מוכחות.
+            </p>
+
+            <p>
+              הניסיון הרב שנצבר במגוון פרויקטים מאפשר לדותן לזהות אזורים בעייתיים ולהציע פתרונות
+              איטום מתאימים. כמומחה בבדק בית, דותן מבצע בדיקות מקיפות לזיהוי ליקויי בנייה ומספק
+              פתרונות יעילים.
+            </p>
+
+            <p>
+              ההתמחות של דותן משלבת ידע טכני מעמיק ומומחיות בתקני מכון התקנים הישראלי, מה שמאפשר לו
+              להציע ללקוחותיו שירות מקצועי ואמין בכל פרויקט.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+

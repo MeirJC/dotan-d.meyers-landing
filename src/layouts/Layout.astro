@@ -1,18 +1,28 @@
 ---
 import Footer from "../components/Footer.astro";
 import BottomNav from "../components/BottomNav.astro";
+import Navbar from "../components/Navbar.astro";
 import "@fontsource-variable/heebo";
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
 const layoutContent = {
-  title: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר",
+  title: title || "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית",
   description:
-    "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום מקצועי, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש, נגרות מותאמת אישית למגזר המוסדי וחיפויי קירות מתקדמים",
+    description ||
+    "דותן מאיר מציע שירותי ייעוץ איטום מקצועיים ובדק בית, תוך שימוש בטכנולוגיות מתקדמות ושיטות איטום מוכחות",
   keywords:
-    "דותן מאיר, ייעוץ איטום, חומרי איטום, שיש למטבחים, נגרות אומן, חיפויי קירות, אבן לחיפויי קירות, מומחה לאיטום, איטום, ציפויי רצפה, גרניט פורצלן, נגרות מוסדית, פתרונות בנייה, די מאיירס, תעשיית הבניה",
-  author: "דותן מאיר - D.Meyer's",
-  ogTitle: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר",
+    "דותן מאיר, ייעוץ איטום, חומרי איטום, בדק בית, מומחה לאיטום, איטום, בדיקת מבנה, איטום גגות, איטום מרתפים, איטום חדרים רטובים",
+  author: "דותן מאיר",
+  ogTitle: title || "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית",
   ogDescription:
-    "מובילים בפתרונות מקצועיים לתעשיית הבניה: ייעוץ איטום מקצועי, ציפויי רצפה, חיפויי גרניט ונגרות מוסדית. בהובלת דותן מאיר - מומחה לפתרונות איטום מתקדמים",
+    description ||
+    "שירותי ייעוץ איטום מקצועיים ובדק בית מאת דותן מאיר - מומחה לפתרונות איטום מתקדמים",
   ogImage: "/dmeyers-og.jpg",
   ogUrl: "https://www.dmeyers.pro",
   twitterCard: "summary_large_image",
@@ -59,17 +69,17 @@ const layoutContent = {
     <meta name="googlebot" content="index, follow" />
     <meta name="format-detection" content="telephone=no" />
     <meta property="og:locale" content="he_IL" />
-    <meta property="og:site_name" content="D.Meyer's" />
+    <meta property="og:site_name" content="דותן מאיר - יועץ איטום" />
 
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "D.Meyer's",
-        "alternateName": "די מאיירס",
+        "@type": "ProfessionalService",
+        "name": "דותן מאיר - יועץ איטום",
         "url": "https://www.dmeyers.pro",
         "logo": "https://www.dmeyers.pro/logo.png",
+        "description": "שירותי ייעוץ איטום מקצועיים ובדק בית, כולל פתרונות איטום מתקדמים לגגות, מרתפים וחדרים רטובים",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+972-XXX-XXXXXX",
@@ -77,7 +87,12 @@ const layoutContent = {
           "areaServed": "IL",
           "availableLanguage": ["Hebrew", "English"]
         },
-        "sameAs": ["https://www.facebook.com/dmeyers", "https://www.instagram.com/dmeyers.pro"]
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IL",
+          "addressLocality": "בארי"
+        },
+        "sameAs": ["https://www.facebook.com/dotan.meir", "https://www.instagram.com/dotan.meir"]
       }
     </script>
 
@@ -86,6 +101,7 @@ const layoutContent = {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body class="scroll-smooth bg-gray-900 antialiased" dir="rtl">
+    <Navbar />
     <slot />
     <Footer />
     <BottomNav />

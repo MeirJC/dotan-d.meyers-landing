@@ -1,10 +1,13 @@
 import type { ProjectSectionData } from "@data/types";
-// consulting
+// consulting / waterproofing
 import consulting1 from "@assets/images/consulting/image-1.webp";
 import consulting2 from "@assets/images/consulting/image-2.webp";
 import consulting3 from "@assets/images/consulting/image-3.webp";
 import consulting4 from "@assets/images/consulting/image-4.webp";
 import consulting5 from "@assets/images/consulting/image-5.webp";
+// building inspection
+import inspection1 from "@assets/images/consulting/image-1.webp"; // Placeholder - should be replaced with actual inspection images
+import inspection2 from "@assets/images/consulting/image-2.webp"; // Placeholder - should be replaced with actual inspection images
 // carpentery
 import carpentery1 from "@assets/images/carpentery/image-1.webp";
 import carpentery2 from "@assets/images/carpentery/image-2.webp";
@@ -35,60 +38,12 @@ import floorCoating6 from "@assets/images/floor-coatings/image-6.webp";
 import floorCoating7 from "@assets/images/floor-coatings/image-7.webp";
 
 export const projectsData: ProjectSectionData = {
-  title: "הפרויקטים שלנו | די מאיירס - דותן מאיר",
+  title: "הפרויקטים שלנו | דותן מאיר - יועץ איטום",
   description:
-    "אנו גאים להציג מבחר מהפרויקטים המובילים שביצענו בתחומי ייעוץ האיטום, ציפויי רצפה, חיפויי קירות ונגרות אומן. כל פרויקט מדגים את המומחיות והניסיון העשיר שלנו בתחומי האיטום, הציפוי והבנייה.",
+    "פרויקטים נבחרים בתחום ייעוץ האיטום ובדק בית. כל פרויקט מדגים את המומחיות והניסיון העשיר שלנו בתחומי האיטום ובדיקות מבנה.",
   cards: [
     {
       id: 1,
-      title: "מפעל למחזור נוזלים כימיים",
-      subTitle: "ציפוי רצפות תעשייתיות במערכת multilayer MMA",
-      description:
-        "התקנת מערכת ציפוי MMA + PU Cement עם עמידות בטמפרטורות קיצון ובחומרי ניקוי אגרסיביים",
-      tags: ["ציפוי רצפה", "MMA"],
-      images: [
-        {
-          img: floorCoating1,
-          title: "ציפויי רצפת חנות",
-          description: "מעדניית בשר מערכת מולטירלייר"
-        },
-        {
-          img: floorCoating2,
-          title: "ציפויי רצפת מפעל מחזור",
-          description: "ציפויי רמפת עלית משאיות מערכת צמנט פוליאוריטני"
-        },
-        {
-          img: floorCoating3,
-          title: "ציפויי רצפת מפעל",
-          description: "ציפויי רצפת מעבדות מערכת מולטילייר"
-        },
-        {
-          img: floorCoating4,
-          title: "ציפויי רצפת מפעל מחזור",
-          description: "ציפויי רצפת מפעל מחזור"
-        },
-        {
-          img: floorCoating5,
-          title: "ציפויי רצפת מפעל מחזור",
-          description: "ציפויי רצפת מפעל מחזור מערכת מולטילייר שחורה"
-        },
-        {
-          img: floorCoating6,
-          title: "ציפויי רצפת מפעל",
-          description: "ציפויי רצפת מפעל מולטילייר שחורה"
-        },
-        {
-          img: floorCoating7,
-          title: "ציפויי רצפת מעבדות",
-          description: "ציפויי במערכת מולטילייר אנטי סטטי"
-        }
-      ],
-      location: "מפעל למחזור נוזלים כימיים",
-      date: "2023",
-      projectPrice: "₪300,000"
-    },
-    {
-      id: 2,
       title: "מפעל כרמוכרום כרמיאל",
       subTitle: "פתרונות איטום מתקדמים",
       description:
@@ -123,123 +78,114 @@ export const projectsData: ProjectSectionData = {
       ],
       location: "כרמיאל",
       date: "2024",
-      projectPrice: "₪120,000"
+      projectPrice: "₪120,000",
+      featured: true
+    },
+    {
+      id: 2,
+      title: "איטום גג בבניין מגורים",
+      subTitle: "פתרון איטום מקיף לגג שטוח",
+      description:
+        "ייעוץ ופיקוח על ביצוע איטום מקיף לגג שטוח עם בעיות רטיבות חוזרות. כולל התקנת שיפועים חדשים ומערכת איטום ביטומנית משוכללת",
+      tags: ["איטום גגות", "ייעוץ מקצועי", "פיקוח"],
+      images: [
+        {
+          img: consulting3,
+          title: "איטום גג",
+          description: "לפני ביצוע האיטום"
+        },
+        {
+          img: consulting4,
+          title: "איטום גג",
+          description: "במהלך עבודות האיטום"
+        },
+        {
+          img: consulting5,
+          title: "איטום גג",
+          description: "לאחר השלמת עבודות האיטום"
+        }
+      ],
+      location: "רמת גן",
+      date: "2023",
+      projectPrice: "₪45,000",
+      featured: true
     },
     {
       id: 3,
-      title: "נגרות אומן - סניף בנק",
-      subTitle: "ביצוע מגוון פרטי נגרות",
+      title: "בדק בית לדירה חדשה",
+      subTitle: "ביקורת מקיפה לדירה לפני מסירה מקבלן",
       description:
-        "ייצור ריהוט מותאם לדרישות משרד הבריאות, כולל פתרונות אחסון חכמים וריהוט מותאם לצרכים מיוחדים",
-      tags: ["נגרות אומן", "ריהוט מותאם"],
+        "ביצוע בדיקה מקיפה של דירה חדשה לפני קבלתה מהקבלן. איתור ליקויי בנייה והכנת דוח מפורט לצורך תיקון הליקויים",
+      tags: ["בדק בית", "ביקורת איכות", "ליקויי בנייה"],
       images: [
         {
-          img: carpentery1,
-          title: "נגרות",
-          description: "דלפקי שירות מעוצבים"
+          img: inspection1,
+          title: "בדק בית",
+          description: "בדיקת איכות הבנייה"
         },
         {
-          img: carpentery2,
-          title: "נגרות",
-          description: "פתרונות אחסון יעודיים"
-        },
-        {
-          img: carpentery3,
-          title: "נגרות",
-          description: "חיפויי קיר דקורטיביים"
-        },
-        {
-          img: carpentery4,
-          title: "נגרות",
-          description: "גימורים מיוחדים"
-        },
-        {
-          img: carpentery5,
-          title: "נגרות",
-          description: "גימורים מיוחדים"
-        },
-        {
-          img: carpentery6,
-          title: "נגרות",
-          description: "גימורים מיוחדים"
-        },
-        {
-          img: carpentery7,
-          title: "נגרות",
-          description: "גימורים מיוחדים"
+          img: inspection2,
+          title: "בדק בית",
+          description: "בדיקת איטום בחדרים רטובים"
         }
       ],
-      location: "סניף בנק",
-      date: "2023",
-      projectPrice: "₪1,900,000"
+      location: "תל אביב",
+      date: "2024",
+      projectPrice: "₪3,500",
+      featured: false
     },
     {
       id: 4,
-      title: "אספקת משטחי גרניט פורצלן ושיש טבעי",
-      subTitle: "יבוא ומכירה של לוחות גרניט פורצלן במגוון גימורים ועוביים",
+      title: "איטום מרתף עם בעיות רטיבות",
+      subTitle: "פתרון לרטיבות כרונית במרתף",
       description:
-        'אספקת לוחות באיכות גבוהה לפרויקטים מובילים, כולל מגוון רחב של גימורים, מרקמים וגדלים. התמחות מיוחדת בפורצלן בעובי 20 מ"מ לריצוף חוץ ומשטחי עבודה.',
-      tags: ["גרניט פורצלן", "שיש טבעי", "יבוא ישיר"],
+        "ייעוץ וליווי פרויקט שיקום איטום במרתף עם בעיות רטיבות כרוניות. יישום שיטות איטום מתקדמות ופתרונות ניקוז לפתרון ארוך טווח",
+      tags: ["איטום מרתפים", "טיפול ברטיבות", "שיקום מבנים"],
       images: [
         {
-          img: surface1,
-          title: "לוח אבן קוורצית",
-          description: "לומיקס אייסברג"
+          img: consulting1,
+          title: "איטום מרתף",
+          description: "נזקי רטיבות במרתף"
         },
         {
-          img: surface2,
-          title: "לוח אבן טבעי",
-          description: "קוליאן גריי"
+          img: consulting2,
+          title: "איטום מרתף",
+          description: "ביצוע עבודות האיטום"
         },
         {
-          img: surface3,
-          title: "לוח אבן טבעי",
-          description: "פטגוניה קפוצ'ינו"
-        },
-        {
-          img: surface4,
-          title: "לוח אבן טבעי",
-          description: "טיטניום גולד"
-        },
-        {
-          img: surface5,
-          title: "לוח אבן טבעי",
-          description: "רומא אימפריאל"
-        },
-        {
-          img: surface6,
-          title: "לוח אבן טבעי",
-          description: "סהרה פאנטזי"
-        },
-        {
-          img: surface7,
-          title: "לוח קוורצית",
-          description: "לומיקס"
-        },
-        {
-          img: surface8,
-          title: "לוח אבן טבעי",
-          description: "אושין בלו"
-        },
-        {
-          img: surface9,
-          title: "לוח אבן טבעי",
-          description: "מונבלאן"
-        },
-        {
-          img: surface10,
-          title: "לוח רניט פורצלן",
-          description: "מאגמה גולד"
-        },
-        {
-          img: surface11,
-          title: "לוח אבן טבעי",
-          description: "צ'אנטילי"
+          img: consulting5,
+          title: "איטום מרתף",
+          description: "לאחר השלמת האיטום"
         }
       ],
-      location: "מגוון פרויקטים ארצי",
-      date: "2022",
-      projectPrice: "₪4,500,000"
+      location: "הרצליה",
+      date: "2023",
+      projectPrice: "₪75,000",
+      featured: true
+    },
+    {
+      id: 5,
+      title: "ייעוץ איטום למבנה ציבור",
+      subTitle: "תכנון מערכות איטום למבנה חדש",
+      description:
+        "ייעוץ מקצועי לתכנון מערכות איטום במבנה ציבורי חדש, כולל פרטי איטום מיוחדים, מפרטים טכניים ופיקוח עליון במהלך הביצוע",
+      tags: ["ייעוץ איטום", "מבני ציבור", "תכנון מערכות איטום"],
+      images: [
+        {
+          img: consulting3,
+          title: "ייעוץ איטום",
+          description: "תכניות איטום למבנה ציבור"
+        },
+        {
+          img: consulting4,
+          title: "ייעוץ איטום",
+          description: "ביקור באתר במהלך הביצוע"
+        }
+      ],
+      location: "חיפה",
+      date: "2023",
+      projectPrice: "₪38,000",
+      featured: false
     }
   ]
 };

@@ -4,13 +4,13 @@ import Hero from "@sections/Hero.astro";
 import Features from "@sections/Features.astro";
 import Projects from "@sections/Projects.astro";
 
-const pageTitle = "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר";
+const pageTitle = "ייעוץ איטום ובדק בית | דותן מאיר - מומחה לפתרונות איטום מתקדמים";
 const pageDescription =
-  "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום, ציפויי רצפה, חיפויי גרניט ושיש, ונגרות מותאמת אישית";
+  "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית. שירותי ייעוץ איטום מקצועי, בדיקות מבנה, ופתרונות איטום מתקדמים";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <Hero />
   <Features />
-  <Projects />
+  <Projects featuredOnly={true} />
 </Layout>

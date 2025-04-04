@@ -1,0 +1,105 @@
+<form class="space-y-6" id="contact-form" method="POST" action="#" onsubmit="handleSubmit(event)">
+  <div>
+    <label for="name" class="mb-1 block text-sm font-medium text-gray-300">שם מלא *</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="w-full rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+
+  <div>
+    <label for="email" class="mb-1 block text-sm font-medium text-gray-300">דוא״ל *</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="w-full rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+
+  <div>
+    <label for="phone" class="mb-1 block text-sm font-medium text-gray-300">טלפון *</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      required
+      class="w-full rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+
+  <div>
+    <label for="subject" class="mb-1 block text-sm font-medium text-gray-300">נושא</label>
+    <select
+      id="subject"
+      name="subject"
+      class="w-full rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option value="ייעוץ איטום">ייעוץ איטום</option>
+      <option value="בדק בית">בדק בית</option>
+      <option value="ייעוץ ציפויים">ייעוץ ציפויים</option>
+      <option value="אחר">אחר</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="message" class="mb-1 block text-sm font-medium text-gray-300">הודעה *</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="w-full rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+    ></textarea>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      class="w-full rounded-md bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      שליחה
+    </button>
+  </div>
+
+  <div id="form-status" class="hidden rounded-md px-4 py-2 text-center"></div>
+</form>
+
+<script is:inline>
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const formStatus = document.getElementById("form-status");
+    const formData = new FormData(form);
+
+    // In a real implementation, you would send this data to your server/API
+    // For now, we'll just simulate a successful submission
+
+    // Disable the submit button and show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "שולח...";
+
+    // Simulate API call
+    setTimeout(() => {
+      // Show success message
+      formStatus.textContent = "ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.";
+      formStatus.classList.remove("hidden", "bg-red-500");
+      formStatus.classList.add("block", "bg-green-600", "text-white");
+
+      // Reset form
+      form.reset();
+
+      // Reset button state after a delay
+      setTimeout(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }, 2000);
+    }, 1500);
+  }
+</script>
+
