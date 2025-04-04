@@ -1,7 +1,7 @@
 import type { ArticleItem } from "./types";
-import waterproofingImg from "@assets/images/articles/waterproofing.jpg";
-import inspectionImg from "@assets/images/articles/building-inspection.jpg";
-import leakageImg from "@assets/images/articles/leak-detection.jpg";
+import waterproofingImg from "@assets/images/carpentery/image-1.webp";
+import inspectionImg from "@assets/images/carpentery/image-2.webp";
+import leakageImg from "@assets/images/carpentery/image-3.webp";
 
 export const articlesData: ArticleItem[] = [
   {
