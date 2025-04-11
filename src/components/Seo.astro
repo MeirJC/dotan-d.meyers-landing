@@ -1,0 +1,53 @@
+---
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../seo/seoData";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  openGraph?: any;
+  twitter?: any;
+  structuredData?: any;
+  noindex?: boolean;
+  nofollow?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  openGraph,
+  twitter,
+  structuredData,
+  noindex = false,
+  nofollow = false
+} = Astro.props;
+
+// Generate SEO data for this specific page
+const pageSeoData = generateSeoData({
+  title,
+  description,
+  canonical,
+  openGraph,
+  twitter,
+  structuredData,
+  noindex,
+  nofollow
+});
+---
+
+<SEO
+  title={pageSeoData.title}
+  description={pageSeoData.description}
+  canonical={pageSeoData.canonical}
+  noindex={pageSeoData.noindex}
+  nofollow={pageSeoData.nofollow}
+  openGraph={pageSeoData.openGraph}
+  twitter={pageSeoData.twitter}
+  extend={{
+    meta: seoData.additionalMetaTags,
+    link: seoData.additionalLinkTags
+  }}
+/>
+<script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />

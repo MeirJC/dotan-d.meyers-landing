@@ -18,6 +18,7 @@
     "@fontsource-variable/heebo": "^5.1.0",
     "astro": "^5.1.9",
     "astro-icon": "^1.1.4",
+    "astro-seo": "^0.8.4",
     "blaze-slider": "^1.9.3",
     "flowbite": "^2.5.2",
     "sharp": "^0.33.5",

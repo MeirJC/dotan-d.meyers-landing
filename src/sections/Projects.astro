@@ -20,11 +20,11 @@ const projects = featuredOnly
       <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white">
         {projectsData.title}
       </h2>
-      <p class="font-light text-gray-400 sm:text-xl">
+      <p class="font-light text-gray-300 sm:text-xl">
         {projectsData.description}
       </p>
     </div>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       {projects.map((card) => <ProjectCard data={card} addDescription={true} />)}
     </div>
 

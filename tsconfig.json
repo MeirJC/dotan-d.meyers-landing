@@ -11,7 +11,8 @@
       "@data/*": ["src/data/*"],
       "@utils/*": ["src/utils/*"],
       "@sections/*": ["src/sections/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@seo/*": ["src/seo/*"]
     }
   }
 }

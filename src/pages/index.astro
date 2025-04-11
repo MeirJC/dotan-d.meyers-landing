@@ -3,13 +3,49 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "@sections/Hero.astro";
 import Features from "@sections/Features.astro";
 import Projects from "@sections/Projects.astro";
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../seo/seoData";
 
 const pageTitle = "ייעוץ איטום ובדק בית | דותן מאיר - מומחה לפתרונות איטום מתקדמים";
 const pageDescription =
   "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית. שירותי ייעוץ איטום מקצועי, בדיקות מבנה, ופתרונות איטום מתקדמים";
+
+// Generate page-specific SEO data
+const pageSeoData = generateSeoData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.dmeyers.pro/",
+  openGraph: {
+    basic: {
+      title: pageTitle,
+      description: pageDescription,
+      image: "/dmeyers-og.jpg"
+    }
+  },
+  twitter: {
+    title: pageTitle,
+    description: pageDescription,
+    image: "/dmeyers-og.jpg"
+  }
+});
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
+  <SEO
+    title={pageSeoData.title}
+    description={pageSeoData.description}
+    canonical={pageSeoData.canonical}
+    noindex={pageSeoData.noindex}
+    nofollow={pageSeoData.nofollow}
+    openGraph={pageSeoData.openGraph}
+    twitter={pageSeoData.twitter}
+    extend={{
+      meta: seoData.additionalMetaTags,
+      link: seoData.additionalLinkTags
+    }}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
+
   <Hero />
   <Features />
   <Projects featuredOnly={true} />

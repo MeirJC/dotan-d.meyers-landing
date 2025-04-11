@@ -6,8 +6,8 @@ import image4 from "@assets/images/hero-carusel/img-4.webp";
 import image5 from "@assets/images/hero-carusel/img-5.webp";
 
 export const heroData: HeroSectionData = {
-  brandName: "דותן מאיר",
-  brandDescription: "יועץ איטום מקצועי ומומחה לבדק בית",
+  brandName: "D.Meyer's",
+  brandDescription: "דותן מאיר - יועץ איטום מקצועי ומומחה לבדק בית",
   title: "שירותים מקצועיים באיטום ובדק בית",
   description:
     "דותן מאיר מספק שירותי ייעוץ איטום מקצועיים ובדק בית, תוך שימוש בטכנולוגיות מתקדמות ושיטות מוכחות.<br/><br/> השירותים כוללים: ייעוץ איטום מקצועי, תכנון מערכות איטום, פיקוח על פרויקטים, בדיקות בדק בית מקיפות, וייעוץ ציפויים.",
