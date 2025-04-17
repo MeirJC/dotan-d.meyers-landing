@@ -38,9 +38,8 @@ import floorCoating6 from "@assets/images/floor-coatings/image-6.webp";
 import floorCoating7 from "@assets/images/floor-coatings/image-7.webp";
 
 export const projectsData: ProjectSectionData = {
-  title: "הפרויקטים שלנו | D.Meyers - יועץ איטום",
-  description:
-    "פרויקטים נבחרים בתחום ייעוץ האיטום ובדק בית. כל פרויקט מדגים את המומחיות והניסיון העשיר שלנו בתחומי האיטום ובדיקות מבנה.",
+  title: "הפרויקטים שלנו",
+  description: "פרויקטים נבחרים בתחום ייעוץ האיטום, בדק בית ואפיון ציפויים לתעשיה.",
   cards: [
     {
       id: 1,
