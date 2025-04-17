@@ -34,7 +34,7 @@ export type ProjectCardItem = {
 export interface HeroSectionData {
   brandName: string;
   brandDescription: string;
-  title: string;
+  // title: string;
   description: string;
   button?: {
     text: string;

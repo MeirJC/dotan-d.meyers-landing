@@ -6,7 +6,7 @@ import feature3 from "@assets/images/features/feat-3.webp";
 export const featuresData: FeaturesSectionData = {
   title: "השירותים שלנו",
   description:
-    "דותן מאיר מציע שירותים מקצועיים בתחום האיטום ובדק בית, החל משלב התכנון ועד לביצוע, בהתאם לצרכים הספציפיים של כל לקוח.",
+    "D.Meyers מציע שירותים מקצועיים בתחום האיטום ובדק בית, החל משלב התכנון ועד לביצוע, בהתאם לצרכים הספציפיים של כל לקוח.",
   cards: [
     {
       id: 1,
