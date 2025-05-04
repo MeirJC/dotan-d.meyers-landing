@@ -33,11 +33,11 @@ export const featuresData: FeaturesSectionData = {
       list: [
         "בדק בית לפני רכישת דירה חדשה או יד שנייה",
         "זיהוי ליקויי בנייה ופתרונות יעילים",
-        "ייעוץ מקצועי בסכסוכים משפטיים כמומחה איטום",
+        "ייעוץ מקצועי בסכסוכים משפטיים כמומחה בדק בית",
         "בדיקות איכות לעבודות בנייה",
         "דוחות מפורטים עם המלצות לתיקונים"
       ],
-      image: feature2,
+      image: feature3,
       alt: "בדק בית",
       reverse: true,
       message:
@@ -55,7 +55,7 @@ export const featuresData: FeaturesSectionData = {
         "ייעוץ לציפויי רצפה עמידים",
         "פיקוח על עבודות ציפוי"
       ],
-      image: feature3,
+      image: feature2,
       alt: "ייעוץ ציפויים",
       reverse: false,
       message:
