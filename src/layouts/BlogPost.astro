@@ -1,0 +1,75 @@
+---
+import Layout from "./Layout.astro";
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../seo/seoData";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  category?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, updatedDate, heroImage, category, tags } = Astro.props;
+
+// Generate page-specific SEO data
+const pageSeoData = generateSeoData({
+  title,
+  description,
+  canonical: `https://www.dmeyers.pro/blog/${Astro.params.slug}`,
+  openGraph: {
+    basic: {
+      title,
+      description,
+      image: heroImage || "/dmeyers-og.jpg"
+    }
+  },
+  twitter: {
+    title,
+    description,
+    image: heroImage || "/dmeyers-og.jpg"
+  }
+});
+---
+
+<Layout {title} {description}>
+  <SEO
+    title={pageSeoData.title}
+    description={pageSeoData.description}
+    canonical={pageSeoData.canonical}
+    noindex={pageSeoData.noindex}
+    nofollow={pageSeoData.nofollow}
+    openGraph={pageSeoData.openGraph}
+    twitter={pageSeoData.twitter}
+    extend={{
+      meta: seoData.additionalMetaTags,
+      link: seoData.additionalLinkTags
+    }}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
+
+  <article class="prose prose-invert mx-auto max-w-4xl px-4 py-12 text-white">
+    <header class="mb-8">
+      <div class="mb-4 flex items-center justify-between">
+        <span class="text-sm text-blue-400">
+          {pubDate.toLocaleDateString("he-IL")}
+        </span>
+        {
+          category && (
+            <span class="rounded-full bg-blue-600 px-2 py-1 text-xs text-white">{category}</span>
+          )
+        }
+      </div>
+      <h1 class="mb-4 text-4xl font-bold text-white">{title}</h1>
+      {
+        heroImage && (
+          <img src={heroImage} alt={title} class="mb-8 h-96 w-full rounded-lg object-cover" />
+        )
+      }
+    </header>
+    <slot />
+  </article>
+</Layout>

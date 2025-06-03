@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import ProjectsSection from "@sections/Projects.astro";
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../seo/seoData";
+
+const pageTitle = "פרויקטים | דותן מאיר - יועץ איטום ובדק בית";
+const pageDescription =
+  "פרויקטים נבחרים בתחום האיטום ובדק בית בהובלת דותן מאיר. פתרונות איטום מקצועיים וביקורות מבנה";
+
+// Generate page-specific SEO data
+const pageSeoData = generateSeoData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.dmeyers.pro/projects",
+  openGraph: {
+    basic: {
+      title: pageTitle,
+      description: pageDescription,
+      image: "/dmeyers-og.jpg"
+    }
+  },
+  twitter: {
+    title: pageTitle,
+    description: pageDescription,
+    image: "/dmeyers-og.jpg"
+  }
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <SEO
+    title={pageSeoData.title}
+    description={pageSeoData.description}
+    canonical={pageSeoData.canonical}
+    noindex={pageSeoData.noindex}
+    nofollow={pageSeoData.nofollow}
+    openGraph={pageSeoData.openGraph}
+    twitter={pageSeoData.twitter}
+    extend={{
+      meta: seoData.additionalMetaTags,
+      link: seoData.additionalLinkTags
+    }}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
+
+  <PageHeader
+    title="הפרויקטים שלנו"
+    description="פרויקטים נבחרים בתחום ייעוץ האיטום, בדק בית ואפיון ציפויים לתעשיה."
+  />
+  <ProjectsSection featuredOnly={false} />
+</Layout>

@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../seo/seoData";
+
+const pageTitle = "בלוג | דותן מאיר - יועץ איטום ובדק בית";
+const pageDescription =
+  "מאמרים מקצועיים בנושאי איטום, בדק בית וציפויים מאת דותן מאיר. מידע וטיפים מקצועיים";
+
+// Generate page-specific SEO data
+const pageSeoData = generateSeoData({
+  title: pageTitle,
+  description: pageDescription,
+  canonical: "https://www.dmeyers.pro/blog",
+  openGraph: {
+    basic: {
+      title: pageTitle,
+      description: pageDescription,
+      image: "/dmeyers-og.jpg"
+    }
+  },
+  twitter: {
+    title: pageTitle,
+    description: pageDescription,
+    image: "/dmeyers-og.jpg"
+  }
+});
+
+// Get all blog posts
+const posts = (await getCollection("blog")).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <SEO
+    title={pageSeoData.title}
+    description={pageSeoData.description}
+    canonical={pageSeoData.canonical}
+    noindex={pageSeoData.noindex}
+    nofollow={pageSeoData.nofollow}
+    openGraph={pageSeoData.openGraph}
+    twitter={pageSeoData.twitter}
+    extend={{
+      meta: seoData.additionalMetaTags,
+      link: seoData.additionalLinkTags
+    }}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
+
+  <PageHeader title="בלוג מקצועי" description="מידע וטיפים מקצועיים בנושאי איטום ובדק בית" />
+
+  <div class="bg-gray-800 py-12">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl">
+        <ul class="grid gap-8 md:grid-cols-2">
+          {
+            posts.map((post) => (
+              <li>
+                <article class="overflow-hidden rounded-lg bg-gray-700 shadow-xl transition-transform hover:scale-105">
+                  {post.data.heroImage && (
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class="h-48 w-full object-cover"
+                    />
+                  )}
+                  <div class="p-6">
+                    <div class="mb-4 flex items-center justify-between">
+                      <span class="text-sm text-blue-400">
+                        {post.data.pubDate.toLocaleDateString("he-IL")}
+                      </span>
+                      {post.data.category && (
+                        <span class="rounded-full bg-blue-600 px-2 py-1 text-xs text-white">
+                          {post.data.category}
+                        </span>
+                      )}
+                    </div>
+                    <h2 class="mb-2 text-xl font-bold text-white">
+                      <a href={`/blog/${post.slug}`} class="hover:text-blue-400">
+                        {post.data.title}
+                      </a>
+                    </h2>
+                    <p class="mb-4 text-gray-300">{post.data.description}</p>
+                    <a
+                      href={`/blog/${post.slug}`}
+                      class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                      קרא עוד
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="ml-1 h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

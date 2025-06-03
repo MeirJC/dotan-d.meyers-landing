@@ -5,53 +5,80 @@ import { Image } from "astro:assets";
 import { heroData } from "@data/heroData";
 ---
 
-<section class="bg-gray-900 antialiased">
-  <!-- Enhanced Logo Section -->
-  <div class="border-b border-gray-800">
-    <div class="mx-auto max-w-screen-xl px-4 py-12">
-      <div class="flex flex-col items-center gap-6">
-        <div class="relative">
-          <div
-            class="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-75 blur-sm">
+<section class="relative bg-gray-900">
+  <!-- Background gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-gray-900/80"></div>
+
+  <div class="relative mx-auto max-w-screen-xl">
+    <!-- Hero Header -->
+    <div class="border-b border-gray-800">
+      <div class="mx-auto px-4 py-16 sm:py-20">
+        <div class="flex flex-col items-center gap-8">
+          <div class="relative">
+            <div
+              class="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-75 blur-sm">
+            </div>
+            <Image
+              src={logo}
+              alt="D.Meyer's Logo"
+              class="relative size-64 rounded-full border-2 border-gray-700 object-cover sm:size-72"
+              quality={95}
+              loading="lazy"
+              format="webp"
+              width={logo.width}
+              height={logo.height}
+            />
           </div>
-          <Image
-            src={logo}
-            alt="D.Meyer's Logo"
-            class="relative size-44 rounded-full border-2 border-gray-700 object-cover sm:size-52"
-            quality={95}
-            loading="lazy"
-            width={logo.width}
-            height={logo.height}
-          />
-        </div>
-        <div class="text-center">
-          <h1
-            class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text py-4 text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
-            {heroData.brandName}
-          </h1>
-          <p class="mt-2 text-xl font-medium text-gray-400 sm:text-2xl">
-            {heroData.brandDescription}
-          </p>
+          <div class="text-center">
+            <h1
+              class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl lg:text-7xl">
+              {heroData.brandName}
+            </h1>
+            <p class="mt-4 text-xl font-medium text-gray-300 sm:text-2xl">
+              {heroData.brandDescription}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6 lg:py-24" id="about">
-    <div class="flex flex-col gap-8 lg:flex-row lg:gap-16">
-      <div class="lg:max-w-xl xl:shrink-0">
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 gap-8 px-4 py-12 lg:grid-cols-2 lg:gap-16 lg:px-6 lg:py-16">
+      <!-- Left column: Content -->
+      <div class="flex flex-col space-y-8">
         <div>
-          <h2 class="text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl">
+          <!-- <h2 class="text-3xl font-extrabold leading-tight text-white sm:text-4xl">
             {heroData.title}
-          </h2>
-          <p
-            class="mt-5 text-base font-normal text-gray-400 sm:text-xl md:max-w-3xl"
-            set:html={heroData.description}
-          />
+          </h2> -->
+          <p class="text-lg font-normal text-gray-300 sm:text-xl" set:html={heroData.description} />
+        </div>
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+          {
+            heroData.button && (
+              <a
+                href={heroData.button.href}
+                class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-center text-lg font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-800">
+                {heroData.button.text}
+              </a>
+            )
+          }
+          {
+            heroData.learnMore && (
+              <a
+                href={heroData.learnMore.href}
+                class="inline-flex items-center justify-center rounded-lg border border-gray-600 px-8 py-4 text-center text-lg font-medium text-gray-300 transition-colors hover:border-gray-500 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-700">
+                {heroData.learnMore.text}
+              </a>
+            )
+          }
         </div>
       </div>
 
-      <div class="relative w-full">
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <!-- Right column: Carousel -->
+      <div class="relative flex items-start justify-center">
+        <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
           <ImageCarousel items={heroData.images} autoplay={true} duration={1000} />
         </div>
       </div>

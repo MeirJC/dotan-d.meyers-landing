@@ -3,7 +3,6 @@ import type { ImageMetadata } from "astro";
 export type CarouselItem = {
   img: ImageMetadata;
   title: string;
-  description: string;
 };
 
 export type FeatureCardItem = {
@@ -26,14 +25,13 @@ export type ProjectCardItem = {
   items?: string[];
   location?: string;
   date?: string;
-  projectPrice?: string;
   tags?: string[];
 };
 
 export interface HeroSectionData {
   brandName: string;
   brandDescription: string;
-  title: string;
+  // title: string;
   description: string;
   button?: {
     text: string;
@@ -51,8 +49,20 @@ export interface FeaturesSectionData {
   description: string;
   cards: FeatureCardItem[];
 }
+
 export interface ProjectSectionData {
   title: string;
   description: string;
   cards: ProjectCardItem[];
 }
+
+export type ArticleItem = {
+  id: number;
+  slug: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  content: string;
+  image: ImageMetadata;
+};
