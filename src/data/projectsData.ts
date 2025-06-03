@@ -1,41 +1,41 @@
 import type { ProjectSectionData } from "@data/types";
-// consulting / waterproofing
-import consulting1 from "@assets/images/consulting/image-1.webp";
-import consulting2 from "@assets/images/consulting/image-2.webp";
-import consulting3 from "@assets/images/consulting/image-3.webp";
-import consulting4 from "@assets/images/consulting/image-4.webp";
-import consulting5 from "@assets/images/consulting/image-5.webp";
-// building inspection
-import inspection1 from "@assets/images/consulting/image-1.webp"; // Placeholder - should be replaced with actual inspection images
-import inspection2 from "@assets/images/consulting/image-2.webp"; // Placeholder - should be replaced with actual inspection images
-// carpentery
-import carpentery1 from "@assets/images/carpentery/image-1.webp";
-import carpentery2 from "@assets/images/carpentery/image-2.webp";
-import carpentery3 from "@assets/images/carpentery/image-3.webp";
-import carpentery4 from "@assets/images/carpentery/image-4.webp";
-import carpentery5 from "@assets/images/carpentery/image-5.webp";
-import carpentery6 from "@assets/images/carpentery/image-6.webp";
-import carpentery7 from "@assets/images/carpentery/image-7.webp";
-// surfaces
-import surface1 from "@assets/images/kitchen-surfaces/image-1.webp";
-import surface2 from "@assets/images/kitchen-surfaces/image-2.webp";
-import surface3 from "@assets/images/kitchen-surfaces/image-3.webp";
-import surface4 from "@assets/images/kitchen-surfaces/image-4.webp";
-import surface5 from "@assets/images/kitchen-surfaces/image-5.webp";
-import surface6 from "@assets/images/kitchen-surfaces/image-6.webp";
-import surface7 from "@assets/images/kitchen-surfaces/image-7.webp";
-import surface8 from "@assets/images/kitchen-surfaces/image-8.webp";
-import surface9 from "@assets/images/kitchen-surfaces/image-9.webp";
-import surface10 from "@assets/images/kitchen-surfaces/image-10.webp";
-import surface11 from "@assets/images/kitchen-surfaces/image-11.webp";
-// floor coating
-import floorCoating1 from "@assets/images/floor-coatings/image-1.webp";
-import floorCoating2 from "@assets/images/floor-coatings/image-2.webp";
-import floorCoating3 from "@assets/images/floor-coatings/image-3.webp";
-import floorCoating4 from "@assets/images/floor-coatings/image-4.webp";
-import floorCoating5 from "@assets/images/floor-coatings/image-5.webp";
-import floorCoating6 from "@assets/images/floor-coatings/image-6.webp";
-import floorCoating7 from "@assets/images/floor-coatings/image-7.webp";
+// מפעל כרמוכרום כרמיאל
+import consulting1 from "@assets/images/carmochrome/image-1.webp";
+import consulting2 from "@assets/images/carmochrome/image-2.webp";
+import consulting3 from "@assets/images/carmochrome/image-3.webp";
+import consulting4 from "@assets/images/carmochrome/image-4.webp";
+import consulting5 from "@assets/images/carmochrome/image-5.webp";
+// ייעוץ איטום - מבני אגודה בית יצחק
+import itzhak1 from "@assets/images/beit-itzhak/image-1.webp";
+import itzhak2 from "@assets/images/beit-itzhak/image-2.webp";
+import itzhak3 from "@assets/images/beit-itzhak/image-3.webp";
+import itzhak4 from "@assets/images/beit-itzhak/image-4.webp";
+import itzhak5 from "@assets/images/beit-itzhak/image-5.webp";
+import itzhak6 from "@assets/images/beit-itzhak/image-6.webp";
+import itzhak7 from "@assets/images/beit-itzhak/image-7.webp";
+import itzhak8 from "@assets/images/beit-itzhak/image-8.webp";
+import itzhak9 from "@assets/images/beit-itzhak/image-9.webp";
+import itzhak10 from "@assets/images/beit-itzhak/image-10.webp";
+// מפעל י.מ.א"
+import yma1 from "@assets/images/yma/image-1.webp";
+import yma2 from "@assets/images/yma/image-2.webp";
+import yma3 from "@assets/images/yma/image-3.webp";
+import yma4 from "@assets/images/yma/image-4.webp";
+import yma5 from "@assets/images/yma/image-5.webp";
+import yma6 from "@assets/images/yma/image-6.webp";
+import yma7 from "@assets/images/yma/image-7.webp";
+// מפעל למחזור נוזלים
+import recycle1 from "@assets/images/liq-recycle/image-1.webp";
+import recycle2 from "@assets/images/liq-recycle/image-2.webp";
+import recycle3 from "@assets/images/liq-recycle/image-3.webp";
+import recycle4 from "@assets/images/liq-recycle/image-4.webp";
+import recycle5 from "@assets/images/liq-recycle/image-5.webp";
+// בריכת אפק
+import afek1 from "@assets/images/afek/image-1.webp";
+import afek2 from "@assets/images/afek/image-2.webp";
+import afek3 from "@assets/images/afek/image-3.webp";
+import afek4 from "@assets/images/afek/image-4.webp";
+import afek5 from "@assets/images/afek/image-5.webp";
 
 export const projectsData: ProjectSectionData = {
   title: "הפרויקטים שלנו",
@@ -51,140 +51,183 @@ export const projectsData: ProjectSectionData = {
       images: [
         {
           img: consulting1,
-          title: "מפעל למחזור נוזלים",
-          description: "איטום בור ספיגת נוזלים"
+          title: "מפעל כרמוכרום כרמיאל"
         },
         {
           img: consulting2,
-          title: "מפעל למחזור נוזלים",
-          description: "איטום תעלת הולכת נוזלים"
+          title: "מפעל כרמוכרום כרמיאל"
         },
         {
           img: consulting3,
-          title: "מפעל למחזור נוזלים",
-          description: "איטום תעלת הולכת נוזלים"
+          title: "מפעל כרמוכרום כרמיאל"
         },
         {
           img: consulting4,
-          title: "מפעל ציפויים",
-          description: "איטום וציפויי בור איסוף"
+          title: "מפעל כרמוכרום כרמיאל"
         },
         {
           img: consulting5,
-          title: "מפעל ציפויים",
-          description: "איטום וציפויי בור איסוף"
+          title: "מפעל כרמוכרום כרמיאל"
         }
       ],
       location: "כרמיאל",
-      date: "2024",
-      projectPrice: "₪120,000",
-      featured: true
+      date: "2024"
     },
     {
       id: 2,
-      title: "איטום גג בבניין מגורים",
-      subTitle: "פתרון איטום מקיף לגג שטוח",
+      title: "ייעוץ איטום - מבני אגודה בית יצחק",
+      subTitle: "פתרון איטום מקיף לגגות המבנה",
       description:
-        "ייעוץ ופיקוח על ביצוע איטום מקיף לגג שטוח עם בעיות רטיבות חוזרות. כולל התקנת שיפועים חדשים ומערכת איטום ביטומנית משוכללת",
+        "ייעוץ ופיקוח על ביצוע איטום מקיף לגגות עם בעיות רטיבות חוזרות. כולל התקנת שיפועים חדשים ומערכות איטום מתקדמות",
       tags: ["איטום גגות", "ייעוץ מקצועי", "פיקוח"],
       images: [
         {
-          img: consulting3,
-          title: "איטום גג",
-          description: "לפני ביצוע האיטום"
+          img: itzhak1,
+          title: "איטום גג"
         },
         {
-          img: consulting4,
-          title: "איטום גג",
-          description: "במהלך עבודות האיטום"
+          img: itzhak2,
+          title: "איטום גג"
         },
         {
-          img: consulting5,
-          title: "איטום גג",
-          description: "לאחר השלמת עבודות האיטום"
+          img: itzhak3,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak4,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak5,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak6,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak7,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak8,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak9,
+          title: "איטום גג"
+        },
+        {
+          img: itzhak10,
+          title: "איטום גג"
         }
       ],
-      location: "רמת גן",
-      date: "2023",
-      projectPrice: "₪45,000",
-      featured: true
+      location: "בית יצחק",
+      date: "2025"
     },
     {
       id: 3,
-      title: "בדק בית לדירה חדשה",
-      subTitle: "ביקורת מקיפה לדירה לפני מסירה מקבלן",
+      title: "מפעל י.מ.א",
+      subTitle: "אפיון מערכת איטום לגג אסכורית כהכנה למערכות סולאריות",
       description:
-        "ביצוע בדיקה מקיפה של דירה חדשה לפני קבלתה מהקבלן. איתור ליקויי בנייה והכנת דוח מפורט לצורך תיקון הליקויים",
-      tags: ["בדק בית", "ביקורת איכות", "ליקויי בנייה"],
+        "ייעוץ מקצועי ופיקוח על ביצוע איטום גג אסכורית במפעל י.מ.א כהכנה להתקנת מערכות סולאריות. כולל אפיון מערכת האיטום, הכנת מפרטים טכניים ופיקוח על היישום להבטחת עמידות לאורך זמן",
+      tags: ["איטום גגות", "ייעוץ מקצועי", "פיקוח"],
       images: [
         {
-          img: inspection1,
-          title: "בדק בית",
-          description: "בדיקת איכות הבנייה"
+          img: yma1,
+          title: "בדק בית"
         },
         {
-          img: inspection2,
-          title: "בדק בית",
-          description: "בדיקת איטום בחדרים רטובים"
+          img: yma2,
+          title: "בדק בית"
+        },
+        {
+          img: yma3,
+          title: "בדק בית"
+        },
+        {
+          img: yma4,
+          title: "בדק בית"
+        },
+        {
+          img: yma5,
+          title: "בדק בית"
+        },
+        {
+          img: yma6,
+          title: "בדק בית"
+        },
+        {
+          img: yma7,
+          title: "בדק בית"
         }
       ],
-      location: "תל אביב",
-      date: "2024",
-      projectPrice: "₪3,500",
-      featured: false
+      location: "עין המפרץ",
+      date: "2025"
     },
     {
       id: 4,
-      title: "איטום מרתף עם בעיות רטיבות",
-      subTitle: "פתרון לרטיבות כרונית במרתף",
+      title: "מפעל למחזור נוזלים",
+      subTitle: "אפיון ציפויים לרצפות המפעל",
       description:
-        "ייעוץ וליווי פרויקט שיקום איטום במרתף עם בעיות רטיבות כרוניות. יישום שיטות איטום מתקדמות ופתרונות ניקוז לפתרון ארוך טווח",
-      tags: ["איטום מרתפים", "טיפול ברטיבות", "שיקום מבנים"],
+        "אפיון וייעוץ מקצועי לבחירת ציפויי רצפה עמידים לכימיקלים במפעל למחזור נוזלים. כולל בדיקות מעבדה, הכנת מפרטים טכניים ופיקוח על היישום להבטחת עמידות לאורך זמן",
+      tags: ["איטום בורות", "טיפול בבטון", "אפיון ציפויים"],
       images: [
         {
-          img: consulting1,
-          title: "איטום מרתף",
-          description: "נזקי רטיבות במרתף"
+          img: recycle1,
+          title: "ציפוי רצפה תעשייתי עמיד לכימיקלים"
         },
         {
-          img: consulting2,
-          title: "איטום מרתף",
-          description: "ביצוע עבודות האיטום"
+          img: recycle2,
+          title: "בדיקת עמידות ציפוי במפעל מחזור"
         },
         {
-          img: consulting5,
-          title: "איטום מרתף",
-          description: "לאחר השלמת האיטום"
+          img: recycle3,
+          title: "יישום ציפוי אפוקסי מיוחד לרצפת מפעל"
+        },
+        {
+          img: recycle4,
+          title: "פיקוח על עבודות ציפוי במפעל מחזור נוזלים"
+        },
+        {
+          img: recycle5,
+          title: "בדיקת איכות ציפוי רצפה תעשייתי"
         }
       ],
-      location: "הרצליה",
-      date: "2023",
-      projectPrice: "₪75,000",
-      featured: true
+      location: "כרמיאל",
+      date: "2023"
     },
     {
       id: 5,
-      title: "ייעוץ איטום למבנה ציבור",
-      subTitle: "תכנון מערכות איטום למבנה חדש",
+      title: "בריכת אפק",
+      subTitle: "אפיון איטום לתעלות הגלישה בגג הבריכה",
       description:
-        "ייעוץ מקצועי לתכנון מערכות איטום במבנה ציבורי חדש, כולל פרטי איטום מיוחדים, מפרטים טכניים ופיקוח עליון במהלך הביצוע",
+        "ייעוץ מקצועי לתכנון מערכות איטום לתעלות הגלישה בגג בריכת השחייה, כולל פתרונות מותאמים לתנאי לחות גבוהים, בחירת חומרים עמידים למים וכלור, והכנת מפרטים טכניים מפורטים לביצוע. הפרויקט כלל גם פיקוח עליון במהלך העבודות להבטחת יישום נכון של מערכות האיטום",
       tags: ["ייעוץ איטום", "מבני ציבור", "תכנון מערכות איטום"],
       images: [
         {
-          img: consulting3,
-          title: "ייעוץ איטום",
-          description: "תכניות איטום למבנה ציבור"
+          img: afek1,
+          title: "ייעוץ איטום"
         },
         {
-          img: consulting4,
-          title: "ייעוץ איטום",
-          description: "ביקור באתר במהלך הביצוע"
+          img: afek2,
+          title: "ייעוץ איטום"
+        },
+        {
+          img: afek3,
+          title: "ייעוץ איטום"
+        },
+        {
+          img: afek4,
+          title: "ייעוץ איטום"
+        },
+        {
+          img: afek5,
+          title: "ייעוץ איטום"
         }
       ],
-      location: "חיפה",
-      date: "2023",
-      projectPrice: "₪38,000",
-      featured: false
+      location: "קריית ביאליק",
+      date: "2024"
     }
   ]
 };

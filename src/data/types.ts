@@ -3,7 +3,6 @@ import type { ImageMetadata } from "astro";
 export type CarouselItem = {
   img: ImageMetadata;
   title: string;
-  description: string;
 };
 
 export type FeatureCardItem = {
@@ -26,9 +25,7 @@ export type ProjectCardItem = {
   items?: string[];
   location?: string;
   date?: string;
-  projectPrice?: string;
   tags?: string[];
-  featured?: boolean;
 };
 
 export interface HeroSectionData {

@@ -1,0 +1,58 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+import { render } from "astro:content";
+import { SEO } from "astro-seo";
+import { seoData, generateSeoData } from "../../seo/seoData";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post: CollectionEntry<"blog">) => ({
+    params: { slug: post.slug },
+    props: post
+  }));
+}
+
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+// Generate page-specific SEO data
+const pageSeoData = generateSeoData({
+  title: post.data.title,
+  description: post.data.description,
+  canonical: `https://www.dmeyers.pro/blog/${post.slug}`,
+  openGraph: {
+    basic: {
+      title: post.data.title,
+      description: post.data.description,
+      image: post.data.heroImage || "/dmeyers-og.jpg"
+    }
+  },
+  twitter: {
+    title: post.data.title,
+    description: post.data.description,
+    image: post.data.heroImage || "/dmeyers-og.jpg"
+  }
+});
+---
+
+<BlogPost {...post.data}>
+  <SEO
+    title={pageSeoData.title}
+    description={pageSeoData.description}
+    canonical={pageSeoData.canonical}
+    noindex={pageSeoData.noindex}
+    nofollow={pageSeoData.nofollow}
+    openGraph={pageSeoData.openGraph}
+    twitter={pageSeoData.twitter}
+    extend={{
+      meta: seoData.additionalMetaTags,
+      link: seoData.additionalLinkTags
+    }}
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
+
+  <Content />
+</BlogPost>

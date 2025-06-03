@@ -9,23 +9,13 @@ interface Props {
 const { featuredOnly = false } = Astro.props;
 
 // Filter projects if featuredOnly is true, otherwise show all
-const projects = featuredOnly
-  ? projectsData.cards.filter((project) => project.featured)
-  : projectsData.cards;
+const projects = projectsData.cards;
 ---
 
 <section class="bg-gray-900" id="projects">
   <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
-    <div class="mx-auto mb-8 max-w-screen-sm text-center lg:mb-16">
-      <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white">
-        {projectsData.title}
-      </h2>
-      <p class="font-light text-gray-300 sm:text-xl">
-        {projectsData.description}
-      </p>
-    </div>
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      {projects.map((card) => <ProjectCard data={card} addDescription={true} />)}
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      {projects.map((card) => <ProjectCard data={card} />)}
     </div>
 
     {

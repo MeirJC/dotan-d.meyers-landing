@@ -14,9 +14,10 @@
     "format:diff": "prettier --list-different --cache \"src/**/*.{js,jsx,ts,tsx,astro,svelte,json,md,css}\""
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/heebo": "^5.1.0",
-    "astro": "^5.7.10",
+    "astro": "^5.8.1",
     "astro-icon": "^1.1.4",
     "astro-seo": "^0.8.4",
     "blaze-slider": "^1.9.3",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@iconify-json/ic": "^1.2.2",
+    "@tailwindcss/typography": "^0.5.16",
     "prettier": "^3.4.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.9"
