@@ -9,5 +9,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), icon(), mdx(), react()]
+  integrations: [tailwind(), icon(), mdx(), react()],
+  site: "https://www.dmeyers.pro"
 });
