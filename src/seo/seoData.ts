@@ -191,7 +191,7 @@ export const seoData = {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
         opens: "08:00",
         closes: "18:00"
       },
