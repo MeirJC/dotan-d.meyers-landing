@@ -167,7 +167,6 @@ export const seoData = {
   // Additional link tags
   additionalLinkTags: [
     { rel: "icon", href: "/favicon.svg" },
-    { rel: "canonical", href: "https://www.dmeyers.pro" },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
     { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }
   ],
