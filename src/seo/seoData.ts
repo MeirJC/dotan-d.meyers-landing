@@ -175,17 +175,72 @@ export const seoData = {
   // Structured data (JSON-LD)
   structuredData: {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "D.Meyer's",
-    alternateName: "די מאיירס",
+    "@type": "LocalBusiness",
+    name: "דותן מאיר - יועץ איטום ובדק בית",
+    alternateName: "D.Meyer's",
+    image: "https://www.dmeyers.pro/dmeyers-og.jpg",
+    description:
+      "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום מקצועי, בדק בית, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש וחיפויי קירות מתקדמים",
     url: "https://www.dmeyers.pro",
-    logo: "https://www.dmeyers.pro/logo.png",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+972-XXX-XXXXXX",
-      contactType: "customer service",
-      areaServed: "IL",
-      availableLanguage: ["Hebrew", "English"]
+    telephone: "052-427-0479",
+    email: "d.meyers.cons@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IL"
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Friday",
+        opens: "08:00",
+        closes: "13:00"
+      }
+    ],
+    priceRange: "₪₪₪",
+    areaServed: "IL",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "שירותים מקצועיים",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "דוחות בדק בית למבנים",
+            description: "בדיקות מקצועיות למבנים כולל דוחות מפורטים"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "יעוצי איטום",
+            description: "ייעוץ מקצועי לאיטום לפרויקטים ציבוריים ופרטיים"
+          }
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "יעוץ לציפויי רצפות",
+            description: "ייעוץ מקצועי לציפויי רצפות לפרוייקטים שונים"
+          }
+        }
+      ]
+    },
+    founder: {
+      "@type": "Person",
+      name: "דותן מאיר",
+      jobTitle: "יועץ איטום ובדק בית",
+      description:
+        "דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון של מעל 23 שנים בתעשיית הבניה",
+      knowsAbout: ["איטום", "בדק בית", "ציפויי רצפות", "הנדסת בניין", "בטיחות בבנייה"]
     },
     sameAs: ["https://www.facebook.com/dmeyers", "https://www.instagram.com/dmeyers.pro"]
   },
@@ -196,7 +251,7 @@ export const seoData = {
     titleTemplate: "%s | D.Meyer's",
     defaultTitle: "D.Meyer's - פתרונות מתקדמים לתעשיית הבניה | דותן מאיר",
     defaultDescription:
-      "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום מקצועי, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש, נגרות מותאמת אישית למגזר המוסדי וחיפויי קירות מתקדמים",
+      "פתרונות מקצועיים לתעשיית הבניה בהובלת דותן מאיר: ייעוץ איטום מקצועי, בדק בית, ציפויי רצפה תעשייתיים, חיפויי גרניט ושיש וחיפויי קירות מתקדמים",
     defaultImage: "/dmeyers-og.jpg"
   }
 };
