@@ -35,6 +35,11 @@ const pageSeoData = generateSeoData({
   noindex,
   nofollow
 });
+
+// Filter out the default canonical link if a page-specific canonical URL is provided
+const additionalLinkTags = canonical
+  ? seoData.additionalLinkTags.filter((tag) => tag.rel !== "canonical")
+  : seoData.additionalLinkTags;
 ---
 
 <SEO
@@ -47,7 +52,7 @@ const pageSeoData = generateSeoData({
   twitter={pageSeoData.twitter}
   extend={{
     meta: seoData.additionalMetaTags,
-    link: seoData.additionalLinkTags
+    link: additionalLinkTags
   }}
 />
 <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
