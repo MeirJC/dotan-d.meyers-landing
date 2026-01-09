@@ -483,6 +483,13 @@ video {
     min-width: 44px;
   }
 
+  /* Exclude small indicators (carousel dots) from touch target sizing */
+  [role="tab"],
+  .carousel-dot {
+    min-height: unset;
+    min-width: unset;
+  }
+
   /* Larger tap targets for navigation */
   nav a,
   nav button {
