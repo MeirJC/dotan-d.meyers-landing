@@ -1,5 +1,5 @@
 ---
-import ImageCarousel from "./ImageCarousel.astro";
+import ImageCarousel from "./ImageCarousel.tsx";
 import type { ProjectCardItem } from "@data/types";
 
 interface Props {
@@ -9,37 +9,56 @@ interface Props {
 const { data } = Astro.props as Props;
 
 const interval = Math.min(7500, 4000 + data.id * 750);
+
+// Convert Astro images to carousel format
+const carouselImages = data.images.map((item) => ({
+  src: item.img.src,
+  alt: item.title,
+  width: item.img.width,
+  height: item.img.height,
+  tag: item.tag,
+  tmpTag: item.tmpTag
+}));
 ---
 
-<article class="rounded-lg border border-gray-700 bg-gray-800 p-4 shadow-md">
-  <div class="relative">
+<article
+  class="group border-border bg-surface hover:border-border-hover rounded-xl border p-4 shadow-md transition-all duration-300 hover:shadow-lg">
+  <div class="relative overflow-hidden rounded-lg">
     <ImageCarousel
-      items={data.images}
+      client:visible
+      images={carouselImages}
       autoplay={true}
-      duration={1000}
-      autoplayInterval={interval}
+      autoplayDelay={interval}
+      showControls={true}
+      showDots={true}
     />
   </div>
-  {
-    data.tags?.map((tag) => (
-      <span class="mr-2 rounded bg-purple-200 px-2.5 py-0.5 text-xs font-semibold text-purple-900">
-        {tag}
-      </span>
-    ))
-  }
-  <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
+
+  <!-- Tags -->
+  <div class="mt-4 flex flex-wrap gap-2">
+    {
+      data.tags?.map((tag) => (
+        <span class="bg-accent-light text-accent-foreground rounded-md px-2.5 py-1 text-xs font-semibold">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+
+  <h2 class="text-text-primary mt-3 text-2xl font-bold tracking-tight">
     {data.title}
   </h2>
-  <p class="mb-4 font-light text-gray-300">
-    {data.subTitle}
-  </p>
-  <p class="mb-4 font-light text-gray-300">
+
+  {data.subTitle && <p class="text-text-secondary mt-1 font-medium">{data.subTitle}</p>}
+
+  <p class="text-text-secondary mt-2">
     {data.description}
   </p>
-  <div class="flex items-center space-x-4">
-    <div class="font-medium text-white">
-      <div>{data.location}</div>
-      <div class="text-sm font-normal text-gray-300">
+
+  <div class="border-border mt-4 flex items-center justify-between border-t pt-4">
+    <div class="text-text-primary">
+      <div class="font-medium">{data.location}</div>
+      <div class="text-text-tertiary text-sm">
         {data.date}
       </div>
     </div>

@@ -1,8 +1,14 @@
 ---
+/**
+ * Main Layout Component
+ * Provides the base HTML structure for all pages
+ * SEO is handled by the SEOHead component on individual pages
+ */
 import Footer from "../components/Footer.astro";
 import BottomNav from "../components/BottomNav.astro";
 import Navbar from "../components/Navbar.astro";
 import "@fontsource-variable/heebo";
+import "../styles/globals.css";
 
 interface Props {
   title?: string;
@@ -11,143 +17,47 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-const layoutContent = {
-  title: title || "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית",
-  description:
-    description ||
-    "דותן מאיר מציע שירותי ייעוץ איטום מקצועיים ובדק בית, תוך שימוש בטכנולוגיות מתקדמות ושיטות איטום מוכחות",
-  keywords:
-    "דותן מאיר, ייעוץ איטום, חומרי איטום, בדק בית, מומחה לאיטום, איטום, בדיקת מבנה, איטום גגות, איטום מרתפים, איטום חדרים רטובים",
-  author: "דותן מאיר",
-  ogTitle: title || "דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית",
-  ogDescription:
-    description ||
-    "שירותי ייעוץ איטום מקצועיים ובדק בית מאת דותן מאיר - מומחה לפתרונות איטום מתקדמים",
-  ogImage: "/dmeyers-og.jpg",
-  ogUrl: "https://www.dmeyers.pro",
-  twitterCard: "summary_large_image",
-  themeColor: "#111827",
-  canonicalUrl: "https://www.dmeyers.pro"
-};
+// Default values for basic meta (SEO component handles the rest)
+const siteName = "D.Meyer's";
+const defaultTitle = "D.Meyer's - יועץ איטום מוסמך ומומחה לבדק בית | דותן מאיר";
+const defaultDescription =
+  "דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון של מעל 23 שנים. שירותי ייעוץ איטום מקצועי, בדיקות מבנה ופתרונות איטום מתקדמים";
+
+// Format page title with site name
+const pageTitle = title ? `${title} | ${siteName}` : defaultTitle;
 ---
 
 <!doctype html>
-<html lang="he">
+<html lang="he" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
-    <title>{layoutContent.title}</title>
-    <meta name="title" content={layoutContent.title} />
-    <meta name="description" content={layoutContent.description} />
-    <meta name="keywords" content={layoutContent.keywords} />
-    <meta name="author" content={layoutContent.author} />
+    <!-- Fallback title/description (SEOHead component provides complete SEO) -->
+    <title>{pageTitle}</title>
+    <meta name="description" content={description || defaultDescription} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={layoutContent.ogUrl} />
-    <meta property="og:title" content={layoutContent.ogTitle} />
-    <meta property="og:description" content={layoutContent.ogDescription} />
-    <meta property="og:image" content={layoutContent.ogImage} />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content={layoutContent.twitterCard} />
-    <meta property="twitter:url" content={layoutContent.ogUrl} />
-    <meta property="twitter:title" content={layoutContent.ogTitle} />
-    <meta property="twitter:description" content={layoutContent.ogDescription} />
-    <meta property="twitter:image" content={layoutContent.ogImage} />
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content={layoutContent.themeColor} />
-
-    <!-- Additional meta tags -->
-    <link rel="canonical" href={layoutContent.canonicalUrl} />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta property="og:locale" content="he_IL" />
-    <meta property="og:site_name" content="דותן מאיר - יועץ איטום" />
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "דותן מאיר - יועץ איטום",
-        "url": "https://www.dmeyers.pro",
-        "logo": "https://www.dmeyers.pro/logo.png",
-        "description": "שירותי ייעוץ איטום מקצועיים ובדק בית, כולל פתרונות איטום מתקדמים לגגות, מרתפים וחדרים רטובים",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+972-XXX-XXXXXX",
-          "contactType": "customer service",
-          "areaServed": "IL",
-          "availableLanguage": ["Hebrew", "English"]
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "IL",
-          "addressLocality": "בארי"
-        },
-        "sameAs": ["https://www.facebook.com/dotan.meir", "https://www.instagram.com/dotan.meir"]
-      }
-    </script>
-
-    <!-- Preconnect to domains -->
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Slot for SEOHead component to inject meta tags -->
+    <slot name="head" />
   </head>
-  <body class="scroll-smooth bg-gray-900 antialiased" dir="rtl">
+  <body class="bg-background text-text-primary theme-transition antialiased" dir="rtl">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link"> דלג לתוכן הראשי </a>
+
     <Navbar />
-    <slot />
+
+    <main id="main-content" role="main" tabindex="-1">
+      <slot />
+    </main>
+
     <Footer />
     <BottomNav />
   </body>
 </html>
-
-<script>
-  import BlazeSlider from "blaze-slider";
-  import "blaze-slider/dist/blaze.css";
-
-  function initializeSlider(slider: HTMLElement) {
-    if (slider.dataset.carouselInitialized === "true") return;
-
-    const config = {
-      duration: Number(slider.dataset.duration) || 600,
-      autoplay: slider.dataset.autoplay === "true",
-      autoplayInterval: Number(slider.dataset.autoplayInterval) || 5000
-    };
-
-    new BlazeSlider(slider, {
-      all: {
-        slidesToShow: 1,
-        slideGap: "0rem",
-        loop: true,
-        enableAutoplay: config.autoplay,
-        autoplayInterval: config.autoplayInterval,
-        transitionDuration: config.duration,
-        enablePagination: true
-      }
-    });
-
-    slider.dataset.carouselInitialized = "true";
-  }
-
-  function initializeAllSliders() {
-    document.querySelectorAll(".blaze-slider").forEach((slider) => {
-      if (slider instanceof HTMLElement) {
-        try {
-          initializeSlider(slider);
-        } catch (error) {
-          console.error("Error initializing Blaze Slider:", error);
-        }
-      }
-    });
-  }
-
-  document.addEventListener("astro:page-load", initializeAllSliders);
-  document.addEventListener("DOMContentLoaded", initializeAllSliders);
-</script>

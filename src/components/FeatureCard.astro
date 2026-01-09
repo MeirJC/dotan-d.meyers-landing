@@ -2,6 +2,7 @@
 import IconCheck from "@components/IconCheck.astro";
 import type { FeatureCardItem } from "@data/types";
 import { Image } from "astro:assets";
+
 interface Props {
   data: FeatureCardItem;
 }
@@ -9,67 +10,42 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-  {
-    data.reverse && (
-      <Image
-        class="mb-4 aspect-square w-full rounded-lg lg:mb-0 lg:flex"
-        src={data.image}
-        alt={data.alt}
-        quality={95}
-        loading="lazy"
-        width={data.image.width}
-        height={data.image.height}
-      />
-    )
-  }
-  {
-    !data.reverse && (
-      <Image
-        class="mb-4 flex aspect-square w-full rounded-lg lg:mb-0 lg:hidden"
-        src={data.image}
-        alt={data.alt}
-        quality={95}
-        loading="lazy"
-        width={data.image.width}
-        height={data.image.height}
-      />
-    )
-  }
-  <div class="text-gray-300 sm:text-lg">
-    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white">
+<div class="flex flex-col gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+  <!-- Image - Order changes based on reverse prop -->
+  <div class:list={["order-1", { "lg:order-1": data.reverse, "lg:order-2": !data.reverse }]}>
+    <Image
+      class="aspect-square w-full rounded-xl object-cover"
+      src={data.image}
+      alt={data.alt}
+      quality={95}
+      loading="lazy"
+      width={data.image.width}
+      height={data.image.height}
+    />
+  </div>
+
+  <!-- Content -->
+  <div
+    class:list={[
+      "text-text-secondary order-2 sm:text-lg",
+      { "lg:order-2": data.reverse, "lg:order-1": !data.reverse }
+    ]}>
+    <h2 class="text-text-primary mb-4 text-4xl font-extrabold tracking-tight">
       {data.title}
     </h2>
     <p class="mb-8 font-light lg:text-xl">
       {data.description}
     </p>
-    <ul role="list" class="my-7 space-y-5 border-t border-gray-700 pt-8">
+    <ul role="list" class="border-border my-7 space-y-5 border-t pt-8">
       {
-        data.list.map((item) => {
-          return (
-            <li class="flex space-x-3">
-              <IconCheck />
-              <span class="text-base font-medium leading-tight text-white">{item}</span>
-            </li>
-          );
-        })
+        data.list.map((item) => (
+          <li class="flex items-start gap-3">
+            <IconCheck />
+            <span class="text-text-primary text-base leading-tight font-medium">{item}</span>
+          </li>
+        ))
       }
     </ul>
-    <p class="mb-8 font-light lg:text-xl">
-      {data.message}
-    </p>
+    {data.message && <p class="mb-8 font-light lg:text-xl">{data.message}</p>}
   </div>
-  {
-    !data.reverse && (
-      <Image
-        class="mb-4 hidden aspect-square w-full rounded-lg lg:mb-0 lg:flex"
-        src={data.image}
-        alt={data.alt}
-        quality={95}
-        loading="lazy"
-        width={data.image.width}
-        height={data.image.height}
-      />
-    )
-  }
 </div>

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreExportsUsedInFile": {
+    "interface": true,
+    "type": true
+  },
+  "ignoreDependencies": [
+    "@iconify-json/ic",
+    "sharp"
+  ],
+  "rules": {
+    "types": "off"
+  },
+  "tags": [
+    "-lintignore"
+  ]
+}

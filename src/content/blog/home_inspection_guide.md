@@ -5,6 +5,8 @@ pubDate: 2025-03-24
 category: "בדק בית"
 tags: ["בדק בית", "דירה חדשה", "בדיקות מבנים", "איטום"]
 heroImage: "/blog-images/home_inspection_guide.webp"
+heroImageAlt: "מומחה בדק בית בודק תשתיות בדירה חדשה לפני כניסת הדיירים"
+relatedPosts: ["waterproofing_consultant"]
 ---
 
 # למה חשוב לבצע בדק בית לפני כניסה לדירה חדשה/יד שניה

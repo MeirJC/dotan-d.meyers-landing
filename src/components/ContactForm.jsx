@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const SERVICE_ID = import.meta.env.PUBLIC_SERVICE_ID;
@@ -18,11 +18,11 @@ const ContactForm = () => {
       .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(
         () => {
-          setStatus("ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.");
+          setStatus("success");
           formRef.current.reset();
         },
         (error) => {
-          setStatus("אירעה שגיאה בשליחת ההודעה. אנא נסה שוב מאוחר יותר.");
+          setStatus("error");
           console.error(error);
         }
       )
@@ -32,80 +32,86 @@ const ContactForm = () => {
   return (
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" dir="rtl">
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-300" htmlFor="name">
-          שם מלא *
+        <label className="text-text-secondary mb-2 block text-sm font-medium" htmlFor="name">
+          שם מלא <span className="text-destructive">*</span>
         </label>
         <input
           type="text"
           id="name"
           name="name"
           required
-          className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3 text-white transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+          className="border-border bg-surface text-text-primary placeholder:text-text-tertiary focus:border-border-focus focus:ring-ring w-full rounded-lg border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
           placeholder="הכנס את שמך המלא"
         />
       </div>
+
       <input type="hidden" name="date" value={new Date().toISOString()} />
       <input type="hidden" name="time" value={new Date().toLocaleTimeString()} />
+
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-300" htmlFor="email">
-          דוא״ל *
+        <label className="text-text-secondary mb-2 block text-sm font-medium" htmlFor="email">
+          דוא״ל <span className="text-destructive">*</span>
         </label>
         <input
           type="email"
           id="email"
           name="email"
           required
-          className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3 text-white transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+          className="border-border bg-surface text-text-primary placeholder:text-text-tertiary focus:border-border-focus focus:ring-ring w-full rounded-lg border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
           placeholder="הכנס את כתובת הדוא״ל שלך"
         />
       </div>
+
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-300" htmlFor="phone">
-          טלפון *
+        <label className="text-text-secondary mb-2 block text-sm font-medium" htmlFor="phone">
+          טלפון <span className="text-destructive">*</span>
         </label>
         <input
           type="tel"
           id="phone"
           name="phone"
           required
-          className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3 text-white transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+          className="border-border bg-surface text-text-primary placeholder:text-text-tertiary focus:border-border-focus focus:ring-ring w-full rounded-lg border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
           placeholder="הכנס את מספר הטלפון שלך"
         />
       </div>
+
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-300" htmlFor="subject">
+        <label className="text-text-secondary mb-2 block text-sm font-medium" htmlFor="subject">
           נושא
         </label>
         <select
           id="subject"
           name="subject"
-          className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3 text-white transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20">
+          className="border-border bg-surface text-text-primary focus:border-border-focus focus:ring-ring w-full rounded-lg border px-4 py-3 transition-all focus:ring-2 focus:outline-none">
           <option value="ייעוץ איטום">ייעוץ איטום</option>
           <option value="בדק בית">בדק בית</option>
           <option value="ייעוץ ציפויים">ייעוץ ציפויים</option>
           <option value="אחר">אחר</option>
         </select>
       </div>
+
       <div>
-        <label className="mb-2 block text-sm font-medium text-gray-300" htmlFor="message">
-          הודעה *
+        <label className="text-text-secondary mb-2 block text-sm font-medium" htmlFor="message">
+          הודעה <span className="text-destructive">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           rows="4"
           required
-          className="w-full rounded-lg border border-gray-600 bg-gray-700/50 px-4 py-3 text-white transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+          className="border-border bg-surface text-text-primary placeholder:text-text-tertiary focus:border-border-focus focus:ring-ring w-full resize-none rounded-lg border px-4 py-3 transition-all focus:ring-2 focus:outline-none"
           placeholder="כתוב את הודעתך כאן..."></textarea>
       </div>
+
       <div>
         <button
           type="submit"
-          className="w-full rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-all hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:cursor-not-allowed disabled:opacity-70"
+          className="bg-primary text-primary-foreground hover:bg-primary-hover focus:ring-ring w-full rounded-lg px-6 py-3 font-medium transition-all focus:ring-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70"
           disabled={loading}>
           {loading ? (
-            <span className="flex items-center justify-center">
-              <svg className="mr-2 h-5 w-5 animate-spin" viewBox="0 0 24 24">
+            <span className="flex items-center justify-center gap-2">
+              <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" aria-hidden="true">
                 <circle
                   className="opacity-25"
                   cx="12"
@@ -121,21 +127,28 @@ const ContactForm = () => {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              שולח...
+              <span>שולח...</span>
             </span>
           ) : (
             "שליחה"
           )}
         </button>
       </div>
-      {status && (
+
+      {/* Status Messages */}
+      {status === "success" && (
         <div
-          className={`mt-4 rounded-lg px-4 py-3 text-center text-sm font-medium ${
-            status.includes("בהצלחה")
-              ? "bg-green-500/20 text-green-300"
-              : "bg-red-500/20 text-red-300"
-          }`}>
-          {status}
+          className="bg-success-light text-success-foreground mt-4 rounded-lg px-4 py-3 text-center text-sm font-medium"
+          role="alert">
+          ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.
+        </div>
+      )}
+
+      {status === "error" && (
+        <div
+          className="bg-destructive-light text-destructive-foreground mt-4 rounded-lg px-4 py-3 text-center text-sm font-medium"
+          role="alert">
+          אירעה שגיאה בשליחת ההודעה. אנא נסה שוב מאוחר יותר.
         </div>
       )}
     </form>

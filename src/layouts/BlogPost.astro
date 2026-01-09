@@ -1,7 +1,14 @@
 ---
+/**
+ * Blog Post Layout
+ * Handles SEO for individual blog articles with Article schema
+ * Features: Reading time, social sharing, related posts, prev/next navigation
+ */
 import Layout from "./Layout.astro";
-import { SEO } from "astro-seo";
-import { seoData, generateSeoData } from "../seo/seoData";
+import SEOHead from "@components/SEOHead.astro";
+import { siteConfig } from "../seo/seoData";
+import { getReadingTime, formatReadingTimeISO } from "../utils/readingTime";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 interface Props {
   title: string;
@@ -9,67 +16,283 @@ interface Props {
   pubDate: Date;
   updatedDate?: Date;
   heroImage?: string;
+  heroImageAlt?: string;
   category?: string;
   tags?: string[];
+  author?: string;
+  relatedPosts?: string[];
+  /** Raw content for reading time calculation */
+  rawContent?: string;
 }
 
-const { title, description, pubDate, updatedDate, heroImage, category, tags } = Astro.props;
-
-// Generate page-specific SEO data
-const pageSeoData = generateSeoData({
+const {
   title,
   description,
-  canonical: `https://www.dmeyers.pro/blog/${Astro.params.slug}`,
-  openGraph: {
-    basic: {
-      title,
-      description,
-      image: heroImage || "/dmeyers-og.jpg"
-    }
-  },
-  twitter: {
-    title,
-    description,
-    image: heroImage || "/dmeyers-og.jpg"
-  }
-});
+  pubDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  category,
+  tags,
+  author = "דותן מאיר",
+  relatedPosts,
+  rawContent = ""
+} = Astro.props;
+
+const articleUrl = `${siteConfig.url}/blog/${Astro.params.slug}`;
+const articleImage = heroImage || "/dmeyers-og.jpg";
+const imageAlt = heroImageAlt || title;
+
+// Calculate reading time
+const readingTime = getReadingTime(rawContent);
+
+// Get all posts for prev/next navigation
+const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const currentIndex = allPosts.findIndex((post) => post.slug === Astro.params.slug);
+const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
+// Get related posts
+let relatedPostsData: CollectionEntry<"blog">[] = [];
+if (relatedPosts && relatedPosts.length > 0) {
+  relatedPostsData = allPosts.filter((post) => relatedPosts.includes(post.slug));
+} else if (tags && tags.length > 0) {
+  // Auto-find related posts by matching tags
+  relatedPostsData = allPosts
+    .filter(
+      (post) => post.slug !== Astro.params.slug && post.data.tags?.some((tag) => tags.includes(tag))
+    )
+    .slice(0, 3);
+}
+
+// Social share URLs
+const encodedUrl = encodeURIComponent(articleUrl);
+const encodedTitle = encodeURIComponent(title);
+const shareUrls = {
+  whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+  twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+  linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`
+};
 ---
 
 <Layout {title} {description}>
-  <SEO
-    title={pageSeoData.title}
-    description={pageSeoData.description}
-    canonical={pageSeoData.canonical}
-    noindex={pageSeoData.noindex}
-    nofollow={pageSeoData.nofollow}
-    openGraph={pageSeoData.openGraph}
-    twitter={pageSeoData.twitter}
-    extend={{
-      meta: seoData.additionalMetaTags,
-      link: seoData.additionalLinkTags
+  <SEOHead
+    slot="head"
+    {title}
+    {description}
+    canonical={articleUrl}
+    pageType="article"
+    image={articleImage}
+    {imageAlt}
+    breadcrumbs={[
+      { name: "ראשי", url: siteConfig.url },
+      { name: "בלוג", url: `${siteConfig.url}/blog` },
+      { name: title, url: articleUrl }
+    ]}
+    articleData={{
+      publishedTime: pubDate.toISOString(),
+      modifiedTime: updatedDate?.toISOString(),
+      image: articleImage.startsWith("http") ? articleImage : `${siteConfig.url}${articleImage}`,
+      section: category,
+      tags: tags,
+      wordCount: readingTime.words,
+      timeRequired: formatReadingTimeISO(readingTime.minutes)
     }}
   />
-  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
 
-  <article class="prose prose-invert mx-auto max-w-4xl px-4 py-12 text-white">
-    <header class="mb-8">
-      <div class="mb-4 flex items-center justify-between">
-        <span class="text-sm text-blue-400">
+  <article
+    class="prose prose-invert text-text-primary prose-headings:text-text-primary prose-p:text-text-secondary prose-a:text-primary-light prose-a:no-underline hover:prose-a:text-primary prose-strong:text-text-primary prose-li:text-text-secondary mx-auto max-w-4xl px-4 py-12">
+    <header class="not-prose mb-8">
+      <div class="mb-4 flex flex-wrap items-center gap-3">
+        <time class="text-primary-light text-sm" datetime={pubDate.toISOString()}>
           {pubDate.toLocaleDateString("he-IL")}
-        </span>
+        </time>
+        <span class="text-text-tertiary">|</span>
+        <span class="text-text-secondary text-sm">{readingTime.text}</span>
         {
           category && (
-            <span class="rounded-full bg-blue-600 px-2 py-1 text-xs text-white">{category}</span>
+            <>
+              <span class="text-text-tertiary">|</span>
+              <span class="bg-primary text-primary-foreground rounded-full px-3 py-1 text-xs font-medium">
+                {category}
+              </span>
+            </>
           )
         }
       </div>
-      <h1 class="mb-4 text-4xl font-bold text-white">{title}</h1>
+      <h1 class="text-text-primary mb-4 text-4xl font-bold">{title}</h1>
+      <p class="text-text-secondary mb-4 text-sm">
+        מאת: <span class="text-text-primary">{author}</span>
+      </p>
+      {
+        updatedDate && (
+          <p class="text-text-tertiary text-sm">
+            עודכן לאחרונה: {updatedDate.toLocaleDateString("he-IL")}
+          </p>
+        )
+      }
       {
         heroImage && (
-          <img src={heroImage} alt={title} class="mb-8 h-96 w-full rounded-lg object-cover" />
+          <img
+            src={heroImage}
+            alt={imageAlt}
+            width={1200}
+            height={630}
+            class="mt-6 h-96 w-full rounded-xl object-cover"
+            loading="eager"
+          />
         )
       }
     </header>
-    <slot />
+
+    <div class="prose-content">
+      <slot />
+    </div>
+
+    {/* Tags */}
+    {
+      tags && tags.length > 0 && (
+        <footer class="border-border not-prose mt-12 border-t pt-6">
+          <div class="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span class="bg-surface text-text-secondary rounded-md px-3 py-1 text-sm">{tag}</span>
+            ))}
+          </div>
+        </footer>
+      )
+    }
+
+    {/* Social Share */}
+    <div class="not-prose mt-8">
+      <h3 class="text-text-primary mb-4 text-lg font-semibold">שתפו את המאמר</h3>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={shareUrls.whatsapp}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-lg bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          aria-label="שתף בוואטסאפ">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            ></path>
+          </svg>
+          וואטסאפ
+        </a>
+        <a
+          href={shareUrls.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-lg bg-[#1877F2] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          aria-label="שתף בפייסבוק">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+            ></path>
+          </svg>
+          פייסבוק
+        </a>
+        <a
+          href={shareUrls.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-lg bg-[#0A66C2] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          aria-label="שתף בלינקדאין">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            ></path>
+          </svg>
+          לינקדאין
+        </a>
+        <button
+          type="button"
+          class="bg-surface text-text-primary hover:bg-surface-hover flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+          onclick={`navigator.clipboard.writeText('${articleUrl}'); this.textContent = 'הקישור הועתק!'; setTimeout(() => this.innerHTML = '<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg> העתק קישור', 2000)`}
+          aria-label="העתק קישור למאמר">
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+            ></path>
+          </svg>
+          העתק קישור
+        </button>
+      </div>
+    </div>
+
+    {/* Related Posts */}
+    {
+      relatedPostsData.length > 0 && (
+        <div class="not-prose mt-12">
+          <h3 class="text-text-primary mb-6 text-xl font-semibold">מאמרים קשורים</h3>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPostsData.map((post) => (
+              <a
+                href={`/blog/${post.slug}`}
+                class="group border-border bg-surface hover:border-border-hover rounded-lg border p-4 transition-all hover:shadow-md">
+                {post.data.heroImage && (
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.heroImageAlt || post.data.title}
+                    class="mb-3 h-32 w-full rounded object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <h4 class="text-text-primary group-hover:text-primary-light font-medium">
+                  {post.data.title}
+                </h4>
+                <p class="text-text-secondary mt-1 line-clamp-2 text-sm">{post.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {/* Previous/Next Navigation */}
+    {
+      (prevPost || nextPost) && (
+        <nav class="not-prose border-border mt-12 border-t pt-8" aria-label="ניווט בין מאמרים">
+          <div class="flex flex-col gap-4 sm:flex-row sm:justify-between">
+            {prevPost ? (
+              <a
+                href={`/blog/${prevPost.slug}`}
+                class="group border-border bg-surface hover:border-border-hover flex flex-col rounded-lg border p-4 transition-all hover:shadow-md sm:max-w-[45%]">
+                <span class="text-text-tertiary text-xs">מאמר קודם</span>
+                <span class="text-text-primary group-hover:text-primary-light mt-1 font-medium">
+                  {prevPost.data.title}
+                </span>
+              </a>
+            ) : (
+              <div />
+            )}
+            {nextPost ? (
+              <a
+                href={`/blog/${nextPost.slug}`}
+                class="group border-border bg-surface hover:border-border-hover flex flex-col rounded-lg border p-4 text-left transition-all hover:shadow-md sm:max-w-[45%] sm:text-right">
+                <span class="text-text-tertiary text-xs">מאמר הבא</span>
+                <span class="text-text-primary group-hover:text-primary-light mt-1 font-medium">
+                  {nextPost.data.title}
+                </span>
+              </a>
+            ) : (
+              <div />
+            )}
+          </div>
+        </nav>
+      )
+    }
   </article>
 </Layout>

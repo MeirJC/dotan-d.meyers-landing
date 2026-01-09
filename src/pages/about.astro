@@ -1,70 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "@components/PageHeader.astro";
+import SEOHead from "@components/SEOHead.astro";
 import dotan from "@assets/images/dotan/dotan.jpeg";
 import { Image } from "astro:assets";
-import { SEO } from "astro-seo";
-import { seoData, generateSeoData } from "../seo/seoData";
+import { siteConfig } from "../seo/seoData";
 
-const pageTitle = "אודות | דותן מאיר - יועץ איטום ובדק בית";
+const pageTitle = "אודות דותן מאיר - יועץ איטום מוסמך ומומחה לבדק בית";
 const pageDescription =
-  "דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון רב בתחום. מידע נוסף על השירותים המקצועיים והניסיון";
-
-// Generate page-specific SEO data
-const pageSeoData = generateSeoData({
-  title: pageTitle,
-  description: pageDescription,
-  canonical: "https://www.dmeyers.pro/about",
-  openGraph: {
-    basic: {
-      title: pageTitle,
-      description: pageDescription,
-      image: "/dmeyers-og.jpg"
-    }
-  },
-  twitter: {
-    title: pageTitle,
-    description: pageDescription,
-    image: "/dmeyers-og.jpg"
-  }
-});
+  "דותן מאיר - יועץ איטום מוסמך ומומחה בבדק בית עם ניסיון של מעל 23 שנים בתעשיית הבניה. ניהל תפקידי מפתח באבן קיסר, אקרשטיין וכרמית מיסטר-פיקס";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SEO
-    title={pageSeoData.title}
-    description={pageSeoData.description}
-    canonical={pageSeoData.canonical}
-    noindex={pageSeoData.noindex}
-    nofollow={pageSeoData.nofollow}
-    openGraph={pageSeoData.openGraph}
-    twitter={pageSeoData.twitter}
-    extend={{
-      meta: seoData.additionalMetaTags,
-      link: seoData.additionalLinkTags
-    }}
+  <SEOHead
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    canonical={`${siteConfig.url}/about`}
+    pageType="about"
+    breadcrumbs={[
+      { name: "ראשי", url: siteConfig.url },
+      { name: "אודות", url: `${siteConfig.url}/about` }
+    ]}
   />
-  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
 
   <PageHeader title="אודות" description="מידע נוסף על דותן מאיר והשירותים המקצועיים" />
 
-  <section class="bg-gray-900 py-16">
+  <section class="bg-background py-16">
     <div class="container mx-auto px-4">
       <div class="mx-auto max-w-4xl">
         <!-- About Section -->
         <div class="mb-16">
-          <h2 class="mb-8 text-4xl font-bold text-white">מי אנחנו</h2>
+          <h2 class="text-text-primary mb-8 text-4xl font-bold">מי אנחנו</h2>
           <div class="flex items-center gap-4">
             <Image
               src={dotan}
               alt="דותן מאיר - יועץ איטום ובדק בית"
-              class="block aspect-square size-24 object-cover"
+              class="block aspect-square size-24 rounded-lg object-cover"
               width={dotan.width}
               height={dotan.height}
             />
             <div>
-              <h3 class="text-2xl font-semibold text-white">דותן מאיר – מנכ"ל ובעלים</h3>
-              <p class="text-gray-100">
+              <h3 class="text-text-primary text-2xl font-semibold">דותן מאיר – מנכ"ל ובעלים</h3>
+              <p class="text-text-secondary">
                 דותן עבד מעל ל-23 שנים בתעשיית הבניה במגוון תפקידים מובילים בחברות הגדולות במשק.
               </p>
             </div>
@@ -73,30 +51,30 @@ const pageSeoData = generateSeoData({
 
         <!-- Experience Section -->
         <div class="mb-16">
-          <h2 class="mb-8 text-3xl font-bold text-white">ניסיון מקצועי</h2>
+          <h2 class="text-text-primary mb-8 text-3xl font-bold">ניסיון מקצועי</h2>
           <div class="space-y-8">
-            <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-              <h3 class="mb-4 text-xl font-semibold text-white">חברת אבן קיסר</h3>
-              <p class="text-gray-100">
+            <article class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+              <h3 class="text-text-primary mb-4 text-xl font-semibold">חברת אבן קיסר</h3>
+              <p class="text-text-secondary">
                 דותן ביצע את התפקיד של מנהל טכני הגלובלי של החברה. תחת תפקיד זה הוביל, פיתח ואיפיין
                 את כלל עבודת החברה מול אנשי השיש בארץ ובעולם. כתב את כלל חוברות הוראות העבודה למעבדי
                 שיש בחומרים השונים אותם מייצרת ומיבאת החברה, ניהל את מחלקת שירות הלקוחות ודאג להביא
                 את כלל מעבדי השיש בארץ לעבודה מול התקינה הישראלית והבינל"א.
               </p>
-            </div>
+            </article>
 
-            <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-              <h3 class="mb-4 text-xl font-semibold text-white">חברת אקרשטיין</h3>
-              <p class="text-gray-100">
+            <article class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+              <h3 class="text-text-primary mb-4 text-xl font-semibold">חברת אקרשטיין</h3>
+              <p class="text-text-secondary">
                 בה היה אחראי דותן על כלל המוצרים לחיפויי קירות של החברה. במסגרת התפקיד פיתח מוצרים
                 חדשים לחיפויי, התאים את המוצרים לתקינה הקיימת בארץ ועבד מול יזמים, אדריכלים וקבלנים
                 לצורכי איפיון המוצרים והתקנתם בפרוייקטים השונים בארץ.
               </p>
-            </div>
+            </article>
 
-            <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-              <h3 class="mb-4 text-xl font-semibold text-white">חברת כרמית מיסטר-פיקס</h3>
-              <p class="text-gray-100">
+            <article class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+              <h3 class="text-text-primary mb-4 text-xl font-semibold">חברת כרמית מיסטר-פיקס</h3>
+              <p class="text-text-secondary">
                 בחברה זו שימש דותן על תקן מהנדס החברה. במסגרת התפקיד עבד עם מגוון משרדי היועצים
                 (איטום), מהנדסי ביצוע, קבלנים ויזמים וזאת בכדי לאפיין את מוצרי החברה בפרוייקטים
                 השונים. בנוסף, ניהל את מחלקת החומרים המיוחדים של החברה והיה אחראי על חיפוש ומציאת
@@ -104,19 +82,19 @@ const pageSeoData = generateSeoData({
                 הכוללים ציפויי רצפות לתעשיה, ציפויים לגשרים ומערכות מורכבות לשיקום בטונים ושיקום
                 מבנים.
               </p>
-            </div>
+            </article>
           </div>
         </div>
 
         <!-- Vision Section -->
         <div class="mb-16">
-          <h2 class="mb-8 text-3xl font-bold text-white">החזון שלנו</h2>
-          <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-            <p class="text-gray-100">
+          <h2 class="text-text-primary mb-8 text-3xl font-bold">החזון שלנו</h2>
+          <div class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+            <p class="text-text-secondary">
               בשנת 2023, יצא דותן לדרך עצמאית ופתח את D.meyer's. החזון המוביל את העסק הוא מתן פתרון
               אמיתי ונכון לכל לקוח ולקוח, זאת עפ"י ההגדרות הספציפיות הנדרשות לכל פרוייקט.
             </p>
-            <p class="mt-4 text-gray-100">
+            <p class="text-text-secondary mt-4">
               ע"י התפתחות תמידית של העסק, דותן מביא לקדמת הבמה את היכולות, הידע והנסיון, כך שלכל
               דרישה אנו יודעים לתת את הפתרון.
             </p>
@@ -125,10 +103,10 @@ const pageSeoData = generateSeoData({
 
         <!-- Specializations Section -->
         <div class="mb-16">
-          <h2 class="mb-8 text-3xl font-bold text-white">התמחויות</h2>
+          <h2 class="text-text-primary mb-8 text-3xl font-bold">התמחויות</h2>
           <div class="grid gap-4 md:grid-cols-2">
-            <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-              <ul class="list-inside list-disc space-y-3 text-gray-100">
+            <div class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+              <ul class="text-text-secondary marker:text-primary list-inside list-disc space-y-3">
                 <li>הנדסאי אדריכלות ועיצוב פנים במכללת אורט בראודה</li>
                 <li>תעודת מומחה לבדק בית מבנים – איגוד המהנדסים הישראלי</li>
                 <li>תעודת אוטם מורשה מטעם מרכז הבניה הישראלי</li>
@@ -136,9 +114,9 @@ const pageSeoData = generateSeoData({
                 <li>קורס נאמני בטיחות</li>
               </ul>
             </div>
-            <div class="rounded-lg bg-gray-800/80 p-6 shadow-lg">
-              <h3 class="mb-4 text-xl font-semibold text-white">שירותים מקצועיים</h3>
-              <ul class="list-inside list-disc space-y-3 text-gray-100">
+            <div class="border-border bg-surface rounded-xl border p-6 shadow-lg">
+              <h3 class="text-text-primary mb-4 text-xl font-semibold">שירותים מקצועיים</h3>
+              <ul class="text-text-secondary marker:text-primary list-inside list-disc space-y-3">
                 <li>דוחות בדק בית למבנים</li>
                 <li>יעוצי איטום לפרויקטים ציבוריים ופרטיים</li>
                 <li>יעוץ לציפויי רצפות לפרוייקטים שונים</li>

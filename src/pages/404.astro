@@ -1,59 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "@components/PageHeader.astro";
-import { SEO } from "astro-seo";
-import { seoData, generateSeoData } from "../seo/seoData";
+import SEOHead from "@components/SEOHead.astro";
+import { siteConfig } from "../seo/seoData";
 
-const pageTitle = "404 - דף לא נמצא | דותן מאיר - יועץ איטום ובדק בית";
+const pageTitle = "404 - דף לא נמצא";
 const pageDescription = "הדף שחיפשת לא נמצא. חזרו לדף הבית או צרו קשר לקבלת עזרה.";
-
-// Generate page-specific SEO data
-const pageSeoData = generateSeoData({
-  title: pageTitle,
-  description: pageDescription,
-  canonical: "https://www.dmeyers.pro/404",
-  openGraph: {
-    basic: {
-      title: pageTitle,
-      description: pageDescription,
-      image: "/dmeyers-og.jpg"
-    }
-  },
-  twitter: {
-    title: pageTitle,
-    description: pageDescription,
-    image: "/dmeyers-og.jpg"
-  }
-});
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SEO
-    title={pageSeoData.title}
-    description={pageSeoData.description}
-    canonical={pageSeoData.canonical}
+  <SEOHead
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    canonical={`${siteConfig.url}/404`}
     noindex={true}
     nofollow={true}
-    openGraph={pageSeoData.openGraph}
-    twitter={pageSeoData.twitter}
-    extend={{
-      meta: seoData.additionalMetaTags,
-      link: seoData.additionalLinkTags
-    }}
   />
 
   <PageHeader title="404 - דף לא נמצא" description="הדף שחיפשת לא נמצא במערכת" />
 
-  <section class="bg-gradient-to-b from-gray-800 to-gray-900 py-16">
+  <section class="from-surface to-background bg-gradient-to-b py-16">
     <div class="container mx-auto px-4">
       <div class="mx-auto max-w-2xl text-center">
         <div class="mb-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="mx-auto h-24 w-24 text-blue-400"
+            class="text-primary-light mx-auto h-24 w-24"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor"
+            aria-hidden="true">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -62,19 +39,19 @@ const pageSeoData = generateSeoData({
             ></path>
           </svg>
         </div>
-        <h2 class="mb-4 text-3xl font-bold text-white">אופס! משהו השתבש</h2>
-        <p class="mb-8 text-lg text-gray-300">
+        <h2 class="text-text-primary mb-4 text-3xl font-bold">אופס! משהו השתבש</h2>
+        <p class="text-text-secondary mb-8 text-lg">
           הדף שחיפשת לא נמצא במערכת. ייתכן שהדף הועבר או נמחק.
         </p>
         <div class="flex justify-center gap-4">
           <a
             href="/"
-            class="rounded-lg bg-blue-500 px-6 py-3 text-white transition-all hover:bg-blue-600">
+            class="bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:ring-ring rounded-lg px-6 py-3 transition-all focus:outline-none focus-visible:ring-2">
             חזרה לדף הבית
           </a>
           <a
             href="/contact"
-            class="rounded-lg border border-blue-500 px-6 py-3 text-blue-400 transition-all hover:bg-blue-500/10">
+            class="border-primary text-primary-light hover:bg-primary/10 focus-visible:ring-ring rounded-lg border px-6 py-3 transition-all focus:outline-none focus-visible:ring-2">
             צור קשר
           </a>
         </div>

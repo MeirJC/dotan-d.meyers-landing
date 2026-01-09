@@ -19,9 +19,9 @@ export const heroData: HeroSectionData = {
     href: "/projects"
   },
   images: [
-    { img: image2, title: "איטום גגות", description: "מערכות איטום מתקדמות לגגות" },
-    { img: image3, title: "בדק בית", description: "בדיקות מקיפות לאיתור ליקויי בנייה" },
-    { img: image7, title: "ייעוץ ציפויים", description: "פתרונות ציפוי מתקדמים" },
-    { img: image8, title: "ייעוץ ציפויים", description: "פתרונות ציפוי מתקדמים" }
+    { img: image2, title: "איטום גגות" },
+    { img: image3, title: "בדק בית" },
+    { img: image7, title: "ייעוץ ציפויים" },
+    { img: image8, title: "ייעוץ ציפויים" }
   ]
 };

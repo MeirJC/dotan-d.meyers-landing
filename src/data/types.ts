@@ -1,8 +1,24 @@
 import type { ImageMetadata } from "astro";
 
+/**
+ * Image tag type for before/after badges
+ * - "before": Shows "לפני" badge
+ * - "after": Shows "אחרי" badge
+ * - undefined/not set: No badge displayed
+ */
+export type ImageTagType = "before" | "after";
+
 export type CarouselItem = {
   img: ImageMetadata;
   title: string;
+  /** Optional tag to display on the image (before/after) */
+  tag?: ImageTagType;
+  /**
+   * Development-only tag for displaying file path or custom text
+   * Used for sorting images into before/after categories
+   * Displays in bottom-left corner with subtle styling
+   */
+  tmpTag?: string;
 };
 
 export type FeatureCardItem = {
@@ -55,14 +71,3 @@ export interface ProjectSectionData {
   description: string;
   cards: ProjectCardItem[];
 }
-
-export type ArticleItem = {
-  id: number;
-  slug: string;
-  title: string;
-  date: string;
-  category: string;
-  excerpt: string;
-  content: string;
-  image: ImageMetadata;
-};

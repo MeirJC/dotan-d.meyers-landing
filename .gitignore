@@ -27,3 +27,6 @@ pnpm-debug.log*
 copy/
 copyWithPath.sh
 self-docs
+
+# project documentation (local only)
+PROJECT-SPEC.md

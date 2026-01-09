@@ -1,0 +1,113 @@
+---
+/**
+ * SEOHead Component
+ * A reusable wrapper for astro-seo that simplifies SEO implementation
+ * Updated: January 2026
+ */
+import { SEO } from "astro-seo";
+import { seoData, siteConfig, generateSeoData, generatePageSchema } from "../seo/seoData";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  image?: string;
+  imageAlt?: string;
+  pageType?: "home" | "about" | "contact" | "projects" | "blog" | "article";
+  breadcrumbs?: { name: string; url: string }[];
+  articleData?: {
+    publishedTime: string;
+    modifiedTime?: string;
+    image?: string;
+    section?: string;
+    tags?: string[];
+    wordCount?: number;
+    timeRequired?: string;
+  };
+}
+
+const {
+  title,
+  description,
+  canonical,
+  noindex = false,
+  nofollow = false,
+  image,
+  imageAlt,
+  pageType = "home",
+  breadcrumbs,
+  articleData
+} = Astro.props;
+
+// Format OpenGraph title with site name for better social sharing
+const ogTitle = title ? `${title} | D.Meyer's` : seoData.openGraph.basic.title;
+
+// Generate SEO data
+const pageSeoData = generateSeoData({
+  title,
+  description,
+  canonical,
+  noindex,
+  nofollow,
+  openGraph: {
+    basic: {
+      title: ogTitle,
+      type: articleData ? "article" : "website",
+      image: image
+        ? image.startsWith("http")
+          ? image
+          : `${siteConfig.url}${image}`
+        : seoData.openGraph.basic.image
+    },
+    image: {
+      alt: imageAlt || `${title || "D.Meyer's"} - יועץ איטום ובדק בית`
+    }
+  },
+  twitter: {
+    title: ogTitle,
+    image: image
+      ? image.startsWith("http")
+        ? image
+        : `${siteConfig.url}${image}`
+      : seoData.twitter.image,
+    imageAlt: imageAlt || `${title || "D.Meyer's"} - יועץ איטום ובדק בית`
+  },
+  article: articleData
+    ? {
+        publishedTime: articleData.publishedTime,
+        modifiedTime: articleData.modifiedTime,
+        authors: [`${siteConfig.url}/about`],
+        section: articleData.section,
+        tags: articleData.tags
+      }
+    : undefined
+});
+
+// Generate structured data schemas
+const schemas = generatePageSchema({
+  pageType,
+  title: title || seoData.title,
+  description: description || seoData.description,
+  url: canonical || siteConfig.url,
+  breadcrumbs,
+  articleData
+});
+---
+
+<SEO
+  title={pageSeoData.title}
+  description={pageSeoData.description}
+  canonical={pageSeoData.canonical}
+  charset={pageSeoData.charset}
+  noindex={pageSeoData.noindex}
+  nofollow={pageSeoData.nofollow}
+  languageAlternates={pageSeoData.languageAlternates}
+  openGraph={pageSeoData.openGraph}
+  twitter={pageSeoData.twitter}
+  extend={pageSeoData.extend}
+/>
+
+{/* Structured Data - Multiple schemas for comprehensive SEO */}
+{schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}

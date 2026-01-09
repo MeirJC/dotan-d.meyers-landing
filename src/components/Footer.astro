@@ -25,17 +25,17 @@ const footerLinks = [
 ];
 ---
 
-<footer class="bg-gray-800">
+<footer class="bg-surface" role="contentinfo">
   <div class="mx-auto max-w-screen-xl px-4 py-12 lg:py-16">
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
       <!-- Company Info -->
       <div class="flex flex-col items-center lg:items-start">
         <div class="mb-4">
           <h3
-            class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-2xl font-bold text-transparent">
+            class="from-primary-light to-primary bg-gradient-to-r bg-clip-text text-2xl font-bold text-transparent">
             D.Meyer's
           </h3>
-          <p class="mt-2 text-sm text-gray-300">
+          <p class="text-text-secondary mt-2 text-sm">
             מומחים לבדק בית מבנים, יועצי איטום ואפיון ציפויים לתעשייה
           </p>
         </div>
@@ -43,13 +43,13 @@ const footerLinks = [
 
       <!-- Navigation Links -->
       <div class="flex flex-col items-center lg:items-start">
-        <h4 class="mb-4 text-lg font-semibold text-white">ניווט מהיר</h4>
-        <nav class="flex flex-col space-y-2">
+        <h4 class="text-text-primary mb-4 text-lg font-semibold">ניווט מהיר</h4>
+        <nav class="flex flex-col space-y-2" aria-label="ניווט תחתון">
           {
             footerLinks.map((link) => (
               <a
                 href={link.href}
-                class="text-gray-300 transition-colors hover:text-white focus:text-white">
+                class="text-text-secondary hover:text-text-primary focus:text-text-primary transition-colors">
                 {link.label}
               </a>
             ))
@@ -59,29 +59,29 @@ const footerLinks = [
 
       <!-- Contact Info -->
       <div class="flex flex-col items-center lg:items-start">
-        <h4 class="mb-4 text-lg font-semibold text-white">צור קשר</h4>
-        <div class="flex flex-col space-y-3">
+        <h4 class="text-text-primary mb-4 text-lg font-semibold">צור קשר</h4>
+        <address class="flex flex-col space-y-3 not-italic">
           <a
             href="tel:+972524270479"
-            class="flex items-center gap-2 text-gray-300 transition-colors hover:text-white">
-            <span class="text-blue-400">📞</span>
+            class="text-text-secondary hover:text-text-primary flex items-center gap-2 transition-colors">
+            <span class="text-primary-light" aria-hidden="true">📞</span>
             <span>052-427-0479</span>
           </a>
           <a
             href="mailto:d.meyers.cons@gmail.com"
-            class="flex items-center gap-2 text-gray-300 transition-colors hover:text-white">
-            <span class="text-blue-400">✉️</span>
+            class="text-text-secondary hover:text-text-primary flex items-center gap-2 transition-colors">
+            <span class="text-primary-light" aria-hidden="true">✉️</span>
             <span>d.meyers.cons@gmail.com</span>
           </a>
-        </div>
+        </address>
       </div>
     </div>
 
     <!-- Divider -->
-    <div class="my-8 h-px bg-gray-700"></div>
+    <div class="bg-border my-8 h-px" role="separator"></div>
 
     <!-- Copyright -->
-    <div class="text-center text-sm text-gray-300">
+    <div class="text-text-tertiary text-center text-sm">
       <p>© {currentYear} D.Meyer's. כל הזכויות שמורות</p>
     </div>
   </div>

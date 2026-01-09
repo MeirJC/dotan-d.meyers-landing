@@ -2,69 +2,49 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "@components/PageHeader.astro";
 import ContactForm from "@components/ContactForm.jsx";
-import { SEO } from "astro-seo";
-import { seoData, generateSeoData } from "../seo/seoData";
+import SEOHead from "@components/SEOHead.astro";
+import { siteConfig } from "../seo/seoData";
 
-const pageTitle = "צור קשר | דותן מאיר - יועץ איטום ובדק בית";
+const pageTitle = "צור קשר - דותן מאיר יועץ איטום ובדק בית";
 const pageDescription =
-  "צרו קשר עם דותן מאיר לקבלת ייעוץ מקצועי בנושאי איטום ובדק בית. שירות אישי ומקצועי";
-
-// Generate page-specific SEO data
-const pageSeoData = generateSeoData({
-  title: pageTitle,
-  description: pageDescription,
-  canonical: "https://www.dmeyers.pro/contact",
-  openGraph: {
-    basic: {
-      title: pageTitle,
-      description: pageDescription,
-      image: "/dmeyers-og.jpg"
-    }
-  },
-  twitter: {
-    title: pageTitle,
-    description: pageDescription,
-    image: "/dmeyers-og.jpg"
-  }
-});
+  "צרו קשר עם דותן מאיר לקבלת ייעוץ מקצועי בנושאי איטום ובדק בית. טלפון: 052-427-0479, אימייל: d.meyers.cons@gmail.com. שירות אישי ומקצועי";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SEO
-    title={pageSeoData.title}
-    description={pageSeoData.description}
-    canonical={pageSeoData.canonical}
-    noindex={pageSeoData.noindex}
-    nofollow={pageSeoData.nofollow}
-    openGraph={pageSeoData.openGraph}
-    twitter={pageSeoData.twitter}
-    extend={{
-      meta: seoData.additionalMetaTags,
-      link: seoData.additionalLinkTags
-    }}
+  <SEOHead
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    canonical={`${siteConfig.url}/contact`}
+    pageType="contact"
+    breadcrumbs={[
+      { name: "ראשי", url: siteConfig.url },
+      { name: "צור קשר", url: `${siteConfig.url}/contact` }
+    ]}
   />
-  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
 
   <PageHeader title="צור קשר" description="נשמח לענות לכל שאלה ולקבוע פגישת ייעוץ" />
 
-  <section class="bg-gradient-to-b from-gray-800 to-gray-900 py-16">
+  <section class="from-surface to-background bg-gradient-to-b py-16">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
         <!-- Contact Information Card -->
         <div
-          class="rounded-xl bg-gray-800/50 p-8 shadow-2xl backdrop-blur-sm transition-all hover:shadow-blue-500/10">
-          <h2 class="mb-8 text-3xl font-bold text-white">פרטי התקשרות</h2>
+          class="border-border bg-surface/50 hover:border-border-hover rounded-xl border p-8 shadow-2xl backdrop-blur-sm transition-all">
+          <h2 class="text-text-primary mb-8 text-3xl font-bold">פרטי התקשרות</h2>
 
           <div class="space-y-6">
-            <div
-              class="flex items-center space-x-4 rounded-lg bg-gray-700/50 p-4 transition-all hover:bg-gray-700">
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
+            <a
+              href="tel:0524270479"
+              class="bg-background-tertiary/50 hover:bg-background-tertiary flex items-center gap-4 rounded-lg p-4 transition-all">
+              <div class="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-blue-400"
+                  class="text-primary-light h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor">
+                  stroke="currentColor"
+                  aria-hidden="true">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -73,18 +53,20 @@ const pageSeoData = generateSeoData({
                   ></path>
                 </svg>
               </div>
-              <a href="tel:0524270479" class="text-lg text-white">052-427-0479</a>
-            </div>
+              <span class="text-text-primary text-lg">052-427-0479</span>
+            </a>
 
-            <div
-              class="flex items-center space-x-4 rounded-lg bg-gray-700/50 p-4 transition-all hover:bg-gray-700">
-              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
+            <a
+              href="mailto:d.meyers.cons@gmail.com"
+              class="bg-background-tertiary/50 hover:bg-background-tertiary flex items-center gap-4 rounded-lg p-4 transition-all">
+              <div class="bg-primary/10 flex h-12 w-12 items-center justify-center rounded-full">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-blue-400"
+                  class="text-primary-light h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor">
+                  stroke="currentColor"
+                  aria-hidden="true">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -93,16 +75,14 @@ const pageSeoData = generateSeoData({
                   ></path>
                 </svg>
               </div>
-              <a href="mailto:d.meyers.cons@gmail.com" class="text-lg text-white"
-                >d.meyers.cons@gmail.com</a
-              >
-            </div>
+              <span class="text-text-primary text-lg">d.meyers.cons@gmail.com</span>
+            </a>
 
-            <div class="mt-8 rounded-lg bg-gray-700/50 p-6">
-              <h3 class="mb-4 text-xl font-semibold text-white">שעות פעילות</h3>
+            <div class="bg-background-tertiary/50 mt-8 rounded-lg p-6">
+              <h3 class="text-text-primary mb-4 text-xl font-semibold">שעות פעילות</h3>
               <div class="space-y-2">
-                <p class="text-gray-300">ימים א'-ה': 8:00 - 18:00</p>
-                <p class="text-gray-300">יום ו': 8:00 - 13:00</p>
+                <p class="text-text-secondary">ימים א'-ה': 8:00 - 18:00</p>
+                <p class="text-text-secondary">יום ו': 8:00 - 13:00</p>
               </div>
             </div>
           </div>
@@ -110,8 +90,8 @@ const pageSeoData = generateSeoData({
 
         <!-- Contact Form Card -->
         <div
-          class="rounded-xl bg-gray-800/50 p-8 shadow-2xl backdrop-blur-sm transition-all hover:shadow-blue-500/10">
-          <h2 class="mb-8 text-3xl font-bold text-white">השאירו פרטים ונחזור אליכם בהקדם</h2>
+          class="border-border bg-surface/50 hover:border-border-hover rounded-xl border p-8 shadow-2xl backdrop-blur-sm transition-all">
+          <h2 class="text-text-primary mb-8 text-3xl font-bold">השאירו פרטים ונחזור אליכם בהקדם</h2>
           <ContactForm client:load />
         </div>
       </div>

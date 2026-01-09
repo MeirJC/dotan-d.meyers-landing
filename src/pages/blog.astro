@@ -2,99 +2,87 @@
 import Layout from "../layouts/Layout.astro";
 import PageHeader from "@components/PageHeader.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { SEO } from "astro-seo";
-import { seoData, generateSeoData } from "../seo/seoData";
+import SEOHead from "@components/SEOHead.astro";
+import { siteConfig } from "../seo/seoData";
 
-const pageTitle = "בלוג | דותן מאיר - יועץ איטום ובדק בית";
+const pageTitle = "בלוג מקצועי - מאמרים בנושאי איטום ובדק בית";
 const pageDescription =
-  "מאמרים מקצועיים בנושאי איטום, בדק בית וציפויים מאת דותן מאיר. מידע וטיפים מקצועיים";
+  "מאמרים מקצועיים בנושאי איטום, בדק בית וציפויי רצפות מאת דותן מאיר. טיפים, מדריכים ומידע מקצועי לבעלי נכסים, קבלנים ויזמים";
 
-// Generate page-specific SEO data
-const pageSeoData = generateSeoData({
-  title: pageTitle,
-  description: pageDescription,
-  canonical: "https://www.dmeyers.pro/blog",
-  openGraph: {
-    basic: {
-      title: pageTitle,
-      description: pageDescription,
-      image: "/dmeyers-og.jpg"
-    }
-  },
-  twitter: {
-    title: pageTitle,
-    description: pageDescription,
-    image: "/dmeyers-og.jpg"
-  }
-});
-
-// Get all blog posts
-const posts = (await getCollection("blog")).sort(
+// Get all blog posts (excluding drafts in production)
+const posts = (
+  await getCollection("blog", ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  })
+).sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <SEO
-    title={pageSeoData.title}
-    description={pageSeoData.description}
-    canonical={pageSeoData.canonical}
-    noindex={pageSeoData.noindex}
-    nofollow={pageSeoData.nofollow}
-    openGraph={pageSeoData.openGraph}
-    twitter={pageSeoData.twitter}
-    extend={{
-      meta: seoData.additionalMetaTags,
-      link: seoData.additionalLinkTags
-    }}
+  <SEOHead
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    canonical={`${siteConfig.url}/blog`}
+    pageType="blog"
+    breadcrumbs={[
+      { name: "ראשי", url: siteConfig.url },
+      { name: "בלוג", url: `${siteConfig.url}/blog` }
+    ]}
   />
-  <script type="application/ld+json" set:html={JSON.stringify(pageSeoData.structuredData)} />
 
   <PageHeader title="בלוג מקצועי" description="מידע וטיפים מקצועיים בנושאי איטום ובדק בית" />
 
-  <div class="bg-gray-800 py-12">
+  <section class="bg-background py-12">
     <div class="container mx-auto px-4">
       <div class="mx-auto max-w-4xl">
-        <ul class="grid gap-8 md:grid-cols-2">
+        <ul class="grid auto-rows-fr gap-8 md:grid-cols-2">
           {
             posts.map((post) => (
-              <li>
-                <article class="overflow-hidden rounded-lg bg-gray-700 shadow-xl transition-transform hover:scale-105">
+              <li class="flex">
+                <article class="border-border bg-surface hover:border-border-hover flex h-full w-full flex-col overflow-hidden rounded-xl border shadow-lg transition-all duration-300 hover:shadow-xl">
                   {post.data.heroImage && (
                     <img
                       src={post.data.heroImage}
-                      alt={post.data.title}
-                      class="h-48 w-full object-cover"
+                      alt={post.data.heroImageAlt || post.data.title}
+                      class="aspect-video w-full object-cover"
+                      loading="lazy"
                     />
                   )}
-                  <div class="p-6">
+                  <div class="flex flex-1 flex-col p-6">
                     <div class="mb-4 flex items-center justify-between">
-                      <span class="text-sm text-blue-400">
+                      <time
+                        class="text-primary-light text-sm"
+                        datetime={post.data.pubDate.toISOString()}>
                         {post.data.pubDate.toLocaleDateString("he-IL")}
-                      </span>
+                      </time>
                       {post.data.category && (
-                        <span class="rounded-full bg-blue-600 px-2 py-1 text-xs text-white">
+                        <span class="bg-primary text-primary-foreground rounded-full px-3 py-1 text-xs font-medium">
                           {post.data.category}
                         </span>
                       )}
                     </div>
-                    <h2 class="mb-2 text-xl font-bold text-white">
-                      <a href={`/blog/${post.slug}`} class="hover:text-blue-400">
+                    <h2 class="text-text-primary mb-2 text-xl font-bold">
+                      <a
+                        href={`/blog/${post.slug}`}
+                        class="hover:text-primary-light transition-colors">
                         {post.data.title}
                       </a>
                     </h2>
-                    <p class="mb-4 text-gray-300">{post.data.description}</p>
+                    <p class="text-text-secondary mb-4 flex-1">{post.data.description}</p>
                     <a
                       href={`/blog/${post.slug}`}
-                      class="inline-flex items-center text-blue-400 hover:text-blue-300">
+                      class="text-primary-light hover:text-primary mt-auto inline-flex items-center gap-2 transition-colors">
                       קרא עוד
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="ml-1 h-5 w-5"
+                        class="h-5 w-5"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor">
+                        stroke="currentColor"
+                        aria-hidden="true">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -111,5 +99,5 @@ const posts = (await getCollection("blog")).sort(
         </ul>
       </div>
     </div>
-  </div>
+  </section>
 </Layout>

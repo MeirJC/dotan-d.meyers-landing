@@ -5,6 +5,7 @@ pubDate: 2024-03-20
 category: "ציפויי רצפות"
 tags: ["ציפויי רצפות", "תעשייה", "אפוקסי", "ייעוץ מקצועי"]
 heroImage: "/blog-images/industrial_floor_coatings.webp"
+heroImageAlt: "רצפה תעשייתית מצופה בציפוי אפוקסי מקצועי במפעל"
 ---
 
 # אפיון ציפויי רצפות לתעשייה

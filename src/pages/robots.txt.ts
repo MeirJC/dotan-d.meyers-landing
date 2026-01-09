@@ -4,15 +4,14 @@ const getRobotsTxt = (baseUrl: string) => {
   // Ensure baseUrl doesn't end with a slash
   const cleanBaseUrl = baseUrl.replace(/\/$/, "");
 
-  return `# Allow all crawlers
-User-agent: *
+  // SEO Best Practices:
+  // - Allow all crawlers full access
+  // - Include sitemap for better discovery
+  // - No crawl-delay (can hurt indexing, Google ignores it)
+  return `User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: ${cleanBaseUrl}/sitemap.xml
-
-# Crawl-delay for all bots
-Crawl-delay: 10`;
+Sitemap: ${cleanBaseUrl}/sitemap.xml`;
 };
 
 export const GET: APIRoute = ({ site }) => {

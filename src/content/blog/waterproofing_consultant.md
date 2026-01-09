@@ -5,6 +5,8 @@ pubDate: 2025-01-19
 category: "איטום"
 tags: ["יועץ איטום", "כשלי איטום", "ייעוץ מקצועי", "איטום מבנים"]
 heroImage: "/blog-images/waterproofing_consultant.webp"
+heroImageAlt: "יועץ איטום מקצועי בודק מערכת איטום בגג מבנה - תמונה להמחשה"
+relatedPosts: ["home_inspection_guide"]
 ---
 
 # מהו תפקידו של יועץ האיטום

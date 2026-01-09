@@ -1,41 +1,41 @@
 import type { ProjectSectionData } from "@data/types";
 // מפעל כרמוכרום כרמיאל
-import consulting1 from "@assets/images/carmochrome/image-1.webp";
-import consulting2 from "@assets/images/carmochrome/image-2.webp";
-import consulting3 from "@assets/images/carmochrome/image-3.webp";
-import consulting4 from "@assets/images/carmochrome/image-4.webp";
-import consulting5 from "@assets/images/carmochrome/image-5.webp";
+import consulting1 from "@assets/images/project-page/carmochrome/before/image-1.webp";
+import consulting2 from "@assets/images/project-page/carmochrome/before/image-2.webp";
+import consulting3 from "@assets/images/project-page/carmochrome/before/image-3.webp";
+import consulting4 from "@assets/images/project-page/carmochrome/after/image-4.webp";
+import consulting5 from "@assets/images/project-page/carmochrome/after/image-5.webp";
 // ייעוץ איטום - מבני אגודה בית יצחק
-import itzhak1 from "@assets/images/beit-itzhak/image-1.webp";
-import itzhak2 from "@assets/images/beit-itzhak/image-2.webp";
-import itzhak3 from "@assets/images/beit-itzhak/image-3.webp";
-import itzhak4 from "@assets/images/beit-itzhak/image-4.webp";
-import itzhak5 from "@assets/images/beit-itzhak/image-5.webp";
-import itzhak6 from "@assets/images/beit-itzhak/image-6.webp";
-import itzhak7 from "@assets/images/beit-itzhak/image-7.webp";
-import itzhak8 from "@assets/images/beit-itzhak/image-8.webp";
-import itzhak9 from "@assets/images/beit-itzhak/image-9.webp";
-import itzhak10 from "@assets/images/beit-itzhak/image-10.webp";
+import itzhak1 from "@assets/images/project-page/beit-itzhak/before/image-1.webp";
+import itzhak2 from "@assets/images/project-page/beit-itzhak/before/image-2.webp";
+import itzhak3 from "@assets/images/project-page/beit-itzhak/before/image-3.webp";
+import itzhak4 from "@assets/images/project-page/beit-itzhak/before/image-4.webp";
+import itzhak5 from "@assets/images/project-page/beit-itzhak/before/image-5.webp";
+import itzhak6 from "@assets/images/project-page/beit-itzhak/before/image-6.webp";
+import itzhak7 from "@assets/images/project-page/beit-itzhak/before/image-7.webp";
+import itzhak8 from "@assets/images/project-page/beit-itzhak/before/image-8.webp";
+import itzhak9 from "@assets/images/project-page/beit-itzhak/before/image-9.webp";
+import itzhak10 from "@assets/images/project-page/beit-itzhak/before/image-10.webp";
 // מפעל י.מ.א"
-import yma1 from "@assets/images/yma/image-1.webp";
-import yma2 from "@assets/images/yma/image-2.webp";
-import yma3 from "@assets/images/yma/image-3.webp";
-import yma4 from "@assets/images/yma/image-4.webp";
-import yma5 from "@assets/images/yma/image-5.webp";
-import yma6 from "@assets/images/yma/image-6.webp";
-import yma7 from "@assets/images/yma/image-7.webp";
+import yma1 from "@assets/images/project-page/yma/before/image-1.webp";
+import yma2 from "@assets/images/project-page/yma/before/image-2.webp";
+import yma3 from "@assets/images/project-page/yma/before/image-3.webp";
+import yma4 from "@assets/images/project-page/yma/before/image-4.webp";
+import yma5 from "@assets/images/project-page/yma/before/image-5.webp";
+import yma6 from "@assets/images/project-page/yma/before/image-6.webp";
+import yma7 from "@assets/images/project-page/yma/before/image-7.webp";
 // מפעל למחזור נוזלים
-import recycle1 from "@assets/images/liq-recycle/image-1.webp";
-import recycle2 from "@assets/images/liq-recycle/image-2.webp";
-import recycle3 from "@assets/images/liq-recycle/image-3.webp";
-import recycle4 from "@assets/images/liq-recycle/image-4.webp";
-import recycle5 from "@assets/images/liq-recycle/image-5.webp";
+import recycle1 from "@assets/images/project-page/liq-recycle/after/image-1.webp";
+import recycle2 from "@assets/images/project-page/liq-recycle/after/image-2.webp";
+import recycle3 from "@assets/images/project-page/liq-recycle/after/image-3.webp";
+import recycle4 from "@assets/images/project-page/liq-recycle/after/image-4.webp";
+import recycle5 from "@assets/images/project-page/liq-recycle/after/image-5.webp";
 // בריכת אפק
-import afek1 from "@assets/images/afek/image-1.webp";
-import afek2 from "@assets/images/afek/image-2.webp";
-import afek3 from "@assets/images/afek/image-3.webp";
-import afek4 from "@assets/images/afek/image-4.webp";
-import afek5 from "@assets/images/afek/image-5.webp";
+import afek1 from "@assets/images/project-page/afek/before/image-1.webp";
+import afek2 from "@assets/images/project-page/afek/before/image-2.webp";
+import afek3 from "@assets/images/project-page/afek/before/image-3.webp";
+import afek4 from "@assets/images/project-page/afek/before/image-4.webp";
+import afek5 from "@assets/images/project-page/afek/before/image-5.webp";
 
 export const projectsData: ProjectSectionData = {
   title: "הפרויקטים שלנו",
@@ -49,26 +49,11 @@ export const projectsData: ProjectSectionData = {
         "איטום מקיף של בורות האיסוף וקווי הייצור כולל יישום מערכות איטום היברידיות מתקדמות ושיקום בטון אגרסיבי",
       tags: ["איטום", "שיקום בטון"],
       images: [
-        {
-          img: consulting1,
-          title: "מפעל כרמוכרום כרמיאל"
-        },
-        {
-          img: consulting2,
-          title: "מפעל כרמוכרום כרמיאל"
-        },
-        {
-          img: consulting3,
-          title: "מפעל כרמוכרום כרמיאל"
-        },
-        {
-          img: consulting4,
-          title: "מפעל כרמוכרום כרמיאל"
-        },
-        {
-          img: consulting5,
-          title: "מפעל כרמוכרום כרמיאל"
-        }
+        { img: consulting1, title: "מפעל כרמוכרום כרמיאל", tag: "before" },
+        { img: consulting2, title: "מפעל כרמוכרום כרמיאל", tag: "before" },
+        { img: consulting3, title: "מפעל כרמוכרום כרמיאל", tag: "before" },
+        { img: consulting4, title: "מפעל כרמוכרום כרמיאל", tag: "after" },
+        { img: consulting5, title: "מפעל כרמוכרום כרמיאל", tag: "after" }
       ],
       location: "כרמיאל",
       date: "2024"
@@ -81,46 +66,16 @@ export const projectsData: ProjectSectionData = {
         "ייעוץ ופיקוח על ביצוע איטום מקיף לגגות עם בעיות רטיבות חוזרות. כולל התקנת שיפועים חדשים ומערכות איטום מתקדמות",
       tags: ["איטום גגות", "ייעוץ מקצועי", "פיקוח"],
       images: [
-        {
-          img: itzhak1,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak2,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak3,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak4,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak5,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak6,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak7,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak8,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak9,
-          title: "איטום גג"
-        },
-        {
-          img: itzhak10,
-          title: "איטום גג"
-        }
+        { img: itzhak1, title: "איטום גג", tag: "before" },
+        { img: itzhak2, title: "איטום גג", tag: "before" },
+        { img: itzhak3, title: "איטום גג", tag: "before" },
+        { img: itzhak4, title: "איטום גג", tag: "before" },
+        { img: itzhak5, title: "איטום גג", tag: "before" },
+        { img: itzhak6, title: "איטום גג", tag: "before" },
+        { img: itzhak7, title: "איטום גג", tag: "before" },
+        { img: itzhak8, title: "איטום גג", tag: "before" },
+        { img: itzhak9, title: "איטום גג", tag: "before" },
+        { img: itzhak10, title: "איטום גג", tag: "before" }
       ],
       location: "בית יצחק",
       date: "2025"
@@ -133,34 +88,13 @@ export const projectsData: ProjectSectionData = {
         "ייעוץ מקצועי ופיקוח על ביצוע איטום גג אסכורית במפעל י.מ.א כהכנה להתקנת מערכות סולאריות. כולל אפיון מערכת האיטום, הכנת מפרטים טכניים ופיקוח על היישום להבטחת עמידות לאורך זמן",
       tags: ["איטום גגות", "ייעוץ מקצועי", "פיקוח"],
       images: [
-        {
-          img: yma1,
-          title: "בדק בית"
-        },
-        {
-          img: yma2,
-          title: "בדק בית"
-        },
-        {
-          img: yma3,
-          title: "בדק בית"
-        },
-        {
-          img: yma4,
-          title: "בדק בית"
-        },
-        {
-          img: yma5,
-          title: "בדק בית"
-        },
-        {
-          img: yma6,
-          title: "בדק בית"
-        },
-        {
-          img: yma7,
-          title: "בדק בית"
-        }
+        { img: yma1, title: "בדק בית", tag: "before" },
+        { img: yma2, title: "בדק בית", tag: "before" },
+        { img: yma3, title: "בדק בית", tag: "before" },
+        { img: yma4, title: "בדק בית", tag: "before" },
+        { img: yma5, title: "בדק בית", tag: "before" },
+        { img: yma6, title: "בדק בית", tag: "before" },
+        { img: yma7, title: "בדק בית", tag: "before" }
       ],
       location: "עין המפרץ",
       date: "2025"
@@ -173,26 +107,11 @@ export const projectsData: ProjectSectionData = {
         "אפיון וייעוץ מקצועי לבחירת ציפויי רצפה עמידים לכימיקלים במפעל למחזור נוזלים. כולל בדיקות מעבדה, הכנת מפרטים טכניים ופיקוח על היישום להבטחת עמידות לאורך זמן",
       tags: ["איטום בורות", "טיפול בבטון", "אפיון ציפויים"],
       images: [
-        {
-          img: recycle1,
-          title: "ציפוי רצפה תעשייתי עמיד לכימיקלים"
-        },
-        {
-          img: recycle2,
-          title: "בדיקת עמידות ציפוי במפעל מחזור"
-        },
-        {
-          img: recycle3,
-          title: "יישום ציפוי אפוקסי מיוחד לרצפת מפעל"
-        },
-        {
-          img: recycle4,
-          title: "פיקוח על עבודות ציפוי במפעל מחזור נוזלים"
-        },
-        {
-          img: recycle5,
-          title: "בדיקת איכות ציפוי רצפה תעשייתי"
-        }
+        { img: recycle1, title: "ציפוי רצפה תעשייתי עמיד לכימיקלים", tag: "after" },
+        { img: recycle2, title: "בדיקת עמידות ציפוי במפעל מחזור", tag: "after" },
+        { img: recycle3, title: "יישום ציפוי אפוקסי מיוחד לרצפת מפעל", tag: "after" },
+        { img: recycle4, title: "פיקוח על עבודות ציפוי במפעל מחזור נוזלים", tag: "after" },
+        { img: recycle5, title: "בדיקת איכות ציפוי רצפה תעשייתי", tag: "after" }
       ],
       location: "כרמיאל",
       date: "2023"
@@ -205,26 +124,11 @@ export const projectsData: ProjectSectionData = {
         "ייעוץ מקצועי לתכנון מערכות איטום לתעלות הגלישה בגג בריכת השחייה, כולל פתרונות מותאמים לתנאי לחות גבוהים, בחירת חומרים עמידים למים וכלור, והכנת מפרטים טכניים מפורטים לביצוע. הפרויקט כלל גם פיקוח עליון במהלך העבודות להבטחת יישום נכון של מערכות האיטום",
       tags: ["ייעוץ איטום", "מבני ציבור", "תכנון מערכות איטום"],
       images: [
-        {
-          img: afek1,
-          title: "ייעוץ איטום"
-        },
-        {
-          img: afek2,
-          title: "ייעוץ איטום"
-        },
-        {
-          img: afek3,
-          title: "ייעוץ איטום"
-        },
-        {
-          img: afek4,
-          title: "ייעוץ איטום"
-        },
-        {
-          img: afek5,
-          title: "ייעוץ איטום"
-        }
+        { img: afek1, title: "ייעוץ איטום", tag: "before" },
+        { img: afek2, title: "ייעוץ איטום", tag: "before" },
+        { img: afek3, title: "ייעוץ איטום", tag: "before" },
+        { img: afek4, title: "ייעוץ איטום", tag: "before" },
+        { img: afek5, title: "ייעוץ איטום", tag: "before" }
       ],
       location: "קריית ביאליק",
       date: "2024"

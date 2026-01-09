@@ -1,10 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
-function formatDate(date: Date) {
-  return date.toISOString();
-}
-
 function formatUrl(baseUrl: string, path: string = "") {
   const cleanBase = baseUrl.replace(/\/$/, "");
   const cleanPath = path.replace(/^\//, "");
@@ -12,68 +8,63 @@ function formatUrl(baseUrl: string, path: string = "") {
 }
 
 async function generateSitemapXml(baseUrl: string) {
-  console.log("Generating sitemap with base URL:", baseUrl);
-
-  // Get all blog posts
   const posts = await getCollection("blog");
-  console.log("Found blog posts:", posts.length);
 
-  // Define static pages for better maintainability
+  // Static pages with SEO-optimized priorities
+  // Note: lastmod omitted for static pages (better than inaccurate dates)
   const staticPages = [
-    { path: "", changefreq: "daily", priority: 1.0 },
-    { path: "about", changefreq: "monthly", priority: 0.6 },
-    { path: "blog", changefreq: "weekly", priority: 0.8 },
-    { path: "contact", changefreq: "monthly", priority: 0.6 },
-    { path: "projects", changefreq: "weekly", priority: 0.8 }
+    { path: "", changefreq: "weekly", priority: 1.0 }, // Homepage - highest priority
+    { path: "projects", changefreq: "weekly", priority: 0.9 }, // Portfolio work
+    { path: "blog", changefreq: "weekly", priority: 0.8 }, // Blog listing
+    { path: "about", changefreq: "monthly", priority: 0.7 }, // About page
+    { path: "contact", changefreq: "monthly", priority: 0.6 } // Contact page
   ];
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Static Pages -->
-  ${staticPages
+  // Sort blog posts by date (newest first) for sitemap
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
+
+  const staticPagesXml = staticPages
     .map(
-      (page) => `
-  <url>
+      (page) => `  <url>
     <loc>${formatUrl(baseUrl, page.path)}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
   </url>`
     )
-    .join("\n")}
+    .join("\n");
 
-  <!-- Blog Posts -->
-  ${posts
-    .map(
-      (post) => `
-  <url>
+  const blogPostsXml = sortedPosts
+    .map((post) => {
+      // Use updatedDate if available, otherwise pubDate
+      const lastmod = post.data.updatedDate || post.data.pubDate;
+      return `  <url>
     <loc>${formatUrl(baseUrl, `blog/${post.slug}`)}</loc>
-    <lastmod>${formatDate(post.data.pubDate)}</lastmod>
+    <lastmod>${lastmod.toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>`
-    )
-    .join("\n")}
-</urlset>`;
+  </url>`;
+    })
+    .join("\n");
 
-  return xml.trim();
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${staticPagesXml}
+${blogPostsXml}
+</urlset>`;
 }
 
 export const GET: APIRoute = async ({ site }) => {
-  console.log("Site URL from Astro:", site);
-
-  // Use site URL from Astro config if available, otherwise use localhost for development
   const baseUrl = site?.toString() || "http://localhost:4321";
-  console.log("Using base URL:", baseUrl);
 
   try {
     const sitemap = await generateSitemapXml(baseUrl);
-    console.log("Generated sitemap successfully");
 
     return new Response(sitemap, {
       headers: {
-        "Content-Type": "application/xml",
-        "Cache-Control": "public, max-age=3600" // Cache for 1 hour
+        "Content-Type": "application/xml; charset=utf-8",
+        "Cache-Control": "public, max-age=86400" // Cache for 24 hours
       }
     });
   } catch (error) {
