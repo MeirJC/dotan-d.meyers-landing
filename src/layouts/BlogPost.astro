@@ -51,19 +51,19 @@ const allPosts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
-const currentIndex = allPosts.findIndex((post) => post.slug === Astro.params.slug);
+const currentIndex = allPosts.findIndex((post) => post.id === Astro.params.slug);
 const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
 // Get related posts
 let relatedPostsData: CollectionEntry<"blog">[] = [];
 if (relatedPosts && relatedPosts.length > 0) {
-  relatedPostsData = allPosts.filter((post) => relatedPosts.includes(post.slug));
+  relatedPostsData = allPosts.filter((post) => relatedPosts.includes(post.id));
 } else if (tags && tags.length > 0) {
   // Auto-find related posts by matching tags
   relatedPostsData = allPosts
     .filter(
-      (post) => post.slug !== Astro.params.slug && post.data.tags?.some((tag) => tags.includes(tag))
+      (post) => post.id !== Astro.params.slug && post.data.tags?.some((tag) => tags.includes(tag))
     )
     .slice(0, 3);
 }
@@ -240,7 +240,7 @@ const shareUrls = {
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {relatedPostsData.map((post) => (
               <a
-                href={`/blog/${post.slug}`}
+                href={`/blog/${post.id}`}
                 class="group border-border bg-surface hover:border-border-hover rounded-lg border p-4 transition-all hover:shadow-md">
                 {post.data.heroImage && (
                   <img
@@ -268,7 +268,7 @@ const shareUrls = {
           <div class="flex flex-col gap-4 sm:flex-row sm:justify-between">
             {prevPost ? (
               <a
-                href={`/blog/${prevPost.slug}`}
+                href={`/blog/${prevPost.id}`}
                 class="group border-border bg-surface hover:border-border-hover flex flex-col rounded-lg border p-4 transition-all hover:shadow-md sm:max-w-[45%]">
                 <span class="text-text-tertiary text-xs">מאמר קודם</span>
                 <span class="text-text-primary group-hover:text-primary-light mt-1 font-medium">
@@ -280,7 +280,7 @@ const shareUrls = {
             )}
             {nextPost ? (
               <a
-                href={`/blog/${nextPost.slug}`}
+                href={`/blog/${nextPost.id}`}
                 class="group border-border bg-surface hover:border-border-hover flex flex-col rounded-lg border p-4 text-left transition-all hover:shadow-md sm:max-w-[45%] sm:text-right">
                 <span class="text-text-tertiary text-xs">מאמר הבא</span>
                 <span class="text-text-primary group-hover:text-primary-light mt-1 font-medium">

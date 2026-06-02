@@ -40,7 +40,7 @@ async function generateSitemapXml(baseUrl: string) {
       // Use updatedDate if available, otherwise pubDate
       const lastmod = post.data.updatedDate || post.data.pubDate;
       return `  <url>
-    <loc>${formatUrl(baseUrl, `blog/${post.slug}`)}</loc>
+    <loc>${formatUrl(baseUrl, `blog/${post.id}`)}</loc>
     <lastmod>${lastmod.toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

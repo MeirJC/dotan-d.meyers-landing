@@ -66,14 +66,14 @@ const posts = (
                     </div>
                     <h2 class="text-text-primary mb-2 text-xl font-bold">
                       <a
-                        href={`/blog/${post.slug}`}
+                        href={`/blog/${post.id}`}
                         class="hover:text-primary-light transition-colors">
                         {post.data.title}
                       </a>
                     </h2>
                     <p class="text-text-secondary mb-4 flex-1">{post.data.description}</p>
                     <a
-                      href={`/blog/${post.slug}`}
+                      href={`/blog/${post.id}`}
                       class="text-primary-light hover:text-primary mt-auto inline-flex items-center gap-2 transition-colors">
                       קרא עוד
                       <svg
