@@ -4,796 +4,1166 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>D.Meyer's — בדק בית, ייעוץ איטום ואפיון ציפויים | Aurora Depth</title>
+    <title>D.Meyer's — בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Secular+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Rubik:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script is:inline>
+      (function () {
+        try {
+          var key = "dmeyers-mock-theme";
+          var saved = localStorage.getItem(key);
+          var theme = saved === "light" || saved === "dark" ? saved : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+
     <style>
+      /* ============ AURORA DEPTH — TOKENS ============ */
       :root {
-        --font-body: "Assistant", "Heebo", system-ui, sans-serif;
-        --font-display: "Secular One", "Assistant", system-ui, sans-serif;
-        --r-sm: 12px;
-        --r-md: 18px;
-        --r-lg: 26px;
+        --font-body: "Assistant", system-ui, sans-serif;
+        --font-display: "Rubik", "Assistant", system-ui, sans-serif;
         --maxw: 1200px;
+        --pad: clamp(1.15rem, 4vw, 3rem);
+        --r: 16px;
+        --r-lg: 26px;
+        --r-xl: 34px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      /* ===== DARK (default) — deep indigo → teal → cyan aurora ===== */
+      /* ===== DARK (default) — deep indigo → teal → cyan aurora mesh ===== */
       html[data-theme="dark"] {
         color-scheme: dark;
-        --bg-0: oklch(0.17 0.04 265);
-        --bg-1: oklch(0.21 0.05 255);
-        --glow-a: oklch(0.55 0.18 265 / 0.55);
-        --glow-b: oklch(0.62 0.14 195 / 0.45);
-        --glow-c: oklch(0.7 0.16 175 / 0.35);
-        --text: oklch(0.97 0.01 250);
-        --text-dim: oklch(0.82 0.02 250);
-        --text-faint: oklch(0.68 0.02 250);
-        --accent: oklch(0.82 0.16 185);
-        --accent-strong: oklch(0.88 0.17 180);
-        --accent-ink: oklch(0.2 0.05 220);
-        --glass-bg: oklch(0.99 0.02 250 / 0.06);
-        --glass-bg-2: oklch(0.99 0.02 250 / 0.09);
-        --glass-border: oklch(0.95 0.02 250 / 0.16);
-        --glass-border-hi: oklch(0.9 0.06 185 / 0.45);
-        --shadow: 0 24px 60px -20px oklch(0.05 0.05 265 / 0.7);
-        --inner: inset 0 1px 0 0 oklch(1 0 0 / 0.08);
-        --header-bg: oklch(0.18 0.04 265 / 0.6);
+        --bg-0: oklch(0.16 0.04 268);
+        --bg-1: oklch(0.21 0.05 250);
+        --glow-a: oklch(0.55 0.2 274 / 0.62);
+        --glow-b: oklch(0.62 0.15 205 / 0.5);
+        --glow-c: oklch(0.74 0.16 178 / 0.42);
+        --text: oklch(0.98 0.01 250);
+        --text-dim: oklch(0.87 0.02 250);
+        --text-faint: oklch(0.72 0.02 250);
+        --accent: oklch(0.84 0.16 188);
+        --accent-2: oklch(0.78 0.16 224);
+        --accent-strong: oklch(0.9 0.17 184);
+        --accent-ink: oklch(0.17 0.05 222);
+        --on-photo: oklch(0.99 0.01 200);
+        --on-photo-soft: oklch(0.92 0.015 220);
+        --glass-bg: oklch(0.99 0.02 230 / 0.08);
+        --glass-bg-2: oklch(0.99 0.02 230 / 0.14);
+        --glass-border: oklch(0.97 0.03 220 / 0.26);
+        --glass-border-hi: oklch(0.88 0.1 188 / 0.6);
+        --shadow: 0 28px 70px -26px oklch(0.04 0.05 268 / 0.85);
+        --shadow-sm: 0 12px 34px -18px oklch(0.04 0.05 268 / 0.7);
+        --inner: inset 0 1px 0 0 oklch(1 0 0 / 0.14);
+        --header-bg: oklch(0.16 0.04 268 / 0.6);
+        --img-fade: oklch(0.16 0.04 268);
+        --scrim-strong: oklch(0.1 0.04 268 / 0.78);
       }
 
-      /* ===== LIGHT — airy frosted glass over soft gradient ===== */
+      /* ===== LIGHT — airy frosted glass over soft aurora wash ===== */
       html[data-theme="light"] {
         color-scheme: light;
-        --bg-0: oklch(0.97 0.02 230);
-        --bg-1: oklch(0.93 0.03 215);
-        --glow-a: oklch(0.82 0.1 265 / 0.5);
-        --glow-b: oklch(0.86 0.09 200 / 0.55);
-        --glow-c: oklch(0.9 0.1 175 / 0.45);
-        --text: oklch(0.26 0.04 260);
-        --text-dim: oklch(0.38 0.03 260);
-        --text-faint: oklch(0.5 0.03 255);
-        --accent: oklch(0.55 0.13 200);
-        --accent-strong: oklch(0.48 0.14 205);
+        --bg-0: oklch(0.975 0.015 228);
+        --bg-1: oklch(0.93 0.03 208);
+        --glow-a: oklch(0.82 0.1 272 / 0.5);
+        --glow-b: oklch(0.86 0.09 202 / 0.55);
+        --glow-c: oklch(0.9 0.1 176 / 0.5);
+        --text: oklch(0.23 0.04 262);
+        --text-dim: oklch(0.36 0.03 258);
+        --text-faint: oklch(0.47 0.03 252);
+        --accent: oklch(0.55 0.13 210);
+        --accent-2: oklch(0.5 0.14 248);
+        --accent-strong: oklch(0.5 0.15 206);
         --accent-ink: oklch(0.99 0.01 200);
+        --on-photo: oklch(0.99 0.01 200);
+        --on-photo-soft: oklch(0.93 0.015 220);
         --glass-bg: oklch(1 0 0 / 0.55);
-        --glass-bg-2: oklch(1 0 0 / 0.7);
-        --glass-border: oklch(0.45 0.05 250 / 0.16);
-        --glass-border-hi: oklch(0.5 0.12 205 / 0.5);
-        --shadow: 0 24px 50px -22px oklch(0.4 0.06 250 / 0.4);
-        --inner: inset 0 1px 0 0 oklch(1 0 0 / 0.6);
-        --header-bg: oklch(0.98 0.02 230 / 0.7);
+        --glass-bg-2: oklch(1 0 0 / 0.72);
+        --glass-border: oklch(0.5 0.04 250 / 0.18);
+        --glass-border-hi: oklch(0.55 0.13 210 / 0.55);
+        --shadow: 0 28px 60px -28px oklch(0.45 0.06 250 / 0.4);
+        --shadow-sm: 0 12px 32px -20px oklch(0.45 0.06 250 / 0.32);
+        --inner: inset 0 1px 0 0 oklch(1 0 0 / 0.7);
+        --header-bg: oklch(0.975 0.015 228 / 0.74);
+        --img-fade: oklch(0.93 0.03 208);
+        --scrim-strong: oklch(0.18 0.05 258 / 0.62);
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
       }
 
       html {
         scroll-behavior: smooth;
       }
-
-      body {
-        font-family: var(--font-body);
-        background: var(--bg-0);
-        color: var(--text);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-        position: relative;
-        min-height: 100vh;
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
       }
 
-      /* ===== Aurora gradient mesh ===== */
-      .mesh {
+      body {
+        margin: 0;
+        background: var(--bg-0);
+        color: var(--text);
+        font-family: var(--font-body);
+        font-weight: 400;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+        position: relative;
+        transition: background 0.4s var(--ease), color 0.4s var(--ease);
+      }
+
+      /* layered gradient-mesh that lives behind everything */
+      body::before {
+        content: "";
         position: fixed;
         inset: 0;
         z-index: -2;
         background:
-          radial-gradient(60% 50% at 80% 0%, var(--glow-a), transparent 60%),
-          radial-gradient(55% 50% at 10% 15%, var(--glow-b), transparent 62%),
-          radial-gradient(70% 60% at 50% 100%, var(--glow-c), transparent 65%),
-          linear-gradient(160deg, var(--bg-1), var(--bg-0));
-        background-attachment: fixed;
-      }
-
-      .mesh::after {
-        content: "";
-        position: absolute;
-        inset: -20%;
-        background:
-          radial-gradient(40% 40% at 30% 70%, var(--glow-a), transparent 60%),
-          radial-gradient(45% 45% at 75% 40%, var(--glow-c), transparent 62%);
-        opacity: 0.7;
-        animation: drift 24s var(--ease) infinite alternate;
-        will-change: transform;
-      }
-
-      .grain {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
+          radial-gradient(48% 42% at 12% 8%, var(--glow-a), transparent 70%),
+          radial-gradient(52% 48% at 88% 18%, var(--glow-b), transparent 72%),
+          radial-gradient(60% 55% at 78% 96%, var(--glow-c), transparent 74%),
+          radial-gradient(50% 50% at 18% 88%, var(--glow-a), transparent 76%),
+          linear-gradient(160deg, var(--bg-0), var(--bg-1));
         pointer-events: none;
-        opacity: 0.045;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       }
 
-      @keyframes drift {
-        from {
-          transform: translate3d(-4%, -2%, 0) scale(1);
-        }
-        to {
-          transform: translate3d(5%, 3%, 0) scale(1.12);
-        }
-      }
-
-      .wrap {
-        width: min(100% - 2rem, var(--maxw));
-        margin-inline: auto;
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.015em;
       }
 
       a {
         color: inherit;
         text-decoration: none;
       }
+      img {
+        display: block;
+        max-width: 100%;
+      }
 
       :focus-visible {
         outline: 3px solid var(--accent-strong);
         outline-offset: 3px;
-        border-radius: 6px;
+        border-radius: 8px;
       }
 
-      .skip {
-        position: absolute;
-        inset-block-start: -100px;
-        inset-inline-start: 1rem;
-        background: var(--accent);
-        color: var(--accent-ink);
-        padding: 0.6rem 1rem;
-        border-radius: var(--r-sm);
-        z-index: 100;
+      .wrap {
+        width: 100%;
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: var(--pad);
+      }
+
+      .eyebrow {
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        color: var(--accent-strong);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .eyebrow::before {
+        content: "";
+        inline-size: 26px;
+        block-size: 2px;
+        background: currentColor;
+        display: inline-block;
+        flex: none;
+        border-radius: 2px;
+      }
+
+      /* ============ BUTTONS ============ */
+      .btn {
+        font-family: var(--font-body);
         font-weight: 700;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.9rem 1.6rem;
+        min-block-size: 48px;
+        border-radius: 100px;
+        border: 1.5px solid transparent;
+        cursor: pointer;
+        transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease),
+          background 0.3s var(--ease), border-color 0.3s var(--ease);
       }
-      .skip:focus {
-        inset-block-start: 1rem;
+      .btn svg {
+        transition: transform 0.3s var(--ease);
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: var(--accent-ink);
+        box-shadow: 0 14px 34px -14px var(--accent),
+          inset 0 1px 0 0 oklch(1 0 0 / 0.3);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 44px -16px var(--accent),
+          inset 0 1px 0 0 oklch(1 0 0 / 0.3);
+      }
+      /* RTL arrow points left */
+      .btn:hover svg {
+        transform: translateX(-5px);
+      }
+      .btn-glass {
+        background: var(--glass-bg-2);
+        color: var(--on-photo);
+        border-color: oklch(0.97 0.02 220 / 0.4);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .btn-glass:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-strong);
       }
 
-      /* ===== Glass primitive ===== */
+      /* ============ GLASS PRIMITIVE ============ */
       .glass {
         background: var(--glass-bg);
         border: 1px solid var(--glass-border);
-        -webkit-backdrop-filter: blur(16px) saturate(140%);
-        backdrop-filter: blur(16px) saturate(140%);
-        box-shadow: var(--shadow), var(--inner);
+        box-shadow: var(--shadow-sm), var(--inner);
+        backdrop-filter: blur(20px) saturate(1.3);
+        -webkit-backdrop-filter: blur(20px) saturate(1.3);
       }
 
-      /* ===== Header ===== */
-      .site-head {
+      /* ============ HEADER ============ */
+      .site-header {
         position: sticky;
         inset-block-start: 0;
         z-index: 50;
         background: var(--header-bg);
-        -webkit-backdrop-filter: blur(18px) saturate(150%);
-        backdrop-filter: blur(18px) saturate(150%);
+        backdrop-filter: blur(18px) saturate(1.4);
+        -webkit-backdrop-filter: blur(18px) saturate(1.4);
         border-block-end: 1px solid var(--glass-border);
+        transition: background 0.4s var(--ease);
       }
-      .head-inner {
+      .header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding-block: 0.85rem;
+        block-size: 72px;
       }
       .brand {
-        font-family: var(--font-display);
-        font-size: 1.4rem;
-        letter-spacing: 0.01em;
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
-      .brand .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--accent-strong);
-        box-shadow: 0 0 14px var(--accent);
+      /* small brand mark — header only */
+      .brand-mark {
+        inline-size: 34px;
+        block-size: 34px;
+        flex: none;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: var(--accent-ink);
+        box-shadow: 0 6px 18px -8px var(--accent), var(--inner);
+      }
+      .wordmark {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.4rem;
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+      }
+      .wordmark span {
+        color: var(--accent-strong);
       }
       .nav {
         display: none;
-        gap: 1.5rem;
+        gap: 1.7rem;
+        font-family: var(--font-body);
         font-weight: 600;
-        font-size: 0.97rem;
+        font-size: 0.98rem;
       }
       .nav a {
-        color: var(--text-dim);
         position: relative;
-        padding-block: 0.2rem;
+        color: var(--text-dim);
+        padding-block: 0.3rem;
         transition: color 0.25s var(--ease);
       }
       .nav a::after {
         content: "";
         position: absolute;
-        inset-block-end: -2px;
-        inset-inline: 0;
-        height: 2px;
-        background: var(--accent-strong);
-        transform: scaleX(0);
-        transform-origin: inline-end;
-        transition: transform 0.3s var(--ease);
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        inline-size: 0;
+        block-size: 2px;
+        background: var(--accent);
+        transition: inline-size 0.3s var(--ease);
       }
       .nav a:hover {
         color: var(--text);
       }
       .nav a:hover::after {
-        transform: scaleX(1);
-        transform-origin: inline-start;
+        inline-size: 100%;
       }
-      .head-actions {
+      .header-actions {
         display: flex;
         align-items: center;
-        gap: 0.6rem;
+        gap: 0.7rem;
       }
-      .icon-btn {
-        display: inline-grid;
+      .theme-toggle {
+        inline-size: 44px;
+        block-size: 44px;
+        display: grid;
         place-items: center;
-        width: 42px;
-        height: 42px;
         border-radius: 50%;
         border: 1px solid var(--glass-border);
-        background: var(--glass-bg);
+        background: var(--glass-bg-2);
         color: var(--text);
         cursor: pointer;
-        transition:
-          transform 0.3s var(--ease),
-          border-color 0.3s var(--ease),
-          box-shadow 0.3s var(--ease);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
       }
-      .icon-btn:hover {
-        transform: translateY(-2px);
-        border-color: var(--glass-border-hi);
-        box-shadow: 0 0 20px var(--glow-b);
+      .theme-toggle:hover {
+        transform: rotate(18deg);
+        border-color: var(--accent);
       }
-      .icon-btn svg {
-        width: 20px;
-        height: 20px;
-      }
-      .theme-toggle .moon {
+      .theme-toggle .icon-sun {
         display: none;
       }
-      html[data-theme="light"] .theme-toggle .sun {
-        display: none;
-      }
-      html[data-theme="light"] .theme-toggle .moon {
+      html[data-theme="light"] .theme-toggle .icon-sun {
         display: block;
       }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 0.85rem 1.5rem;
-        border-radius: 999px;
-        cursor: pointer;
-        border: 1px solid transparent;
-        transition:
-          transform 0.3s var(--ease),
-          box-shadow 0.3s var(--ease),
-          background 0.3s var(--ease);
+      html[data-theme="light"] .theme-toggle .icon-moon {
+        display: none;
       }
-      .btn svg {
-        width: 18px;
-        height: 18px;
+      .header-cta {
+        display: none;
       }
-      .btn-primary {
-        background: linear-gradient(120deg, var(--accent), var(--accent-strong));
-        color: var(--accent-ink);
-        box-shadow: 0 10px 30px -8px var(--glow-c);
-      }
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 16px 40px -8px var(--glow-c);
-      }
-      .btn-ghost {
-        background: var(--glass-bg);
-        border-color: var(--glass-border);
-        color: var(--text);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-      }
-      .btn-ghost:hover {
-        transform: translateY(-3px);
-        border-color: var(--glass-border-hi);
-        box-shadow: 0 0 24px var(--glow-b);
-      }
-      .arrow {
-        transition: transform 0.3s var(--ease);
-      }
-      /* RTL: arrow points to inline-start (left visually) */
-      .btn:hover .arrow {
-        transform: translateX(6px);
+      @media (min-width: 900px) {
+        .nav {
+          display: flex;
+        }
+        .header-cta {
+          display: inline-flex;
+        }
       }
 
-      /* ===== Section scaffold ===== */
-      section {
-        padding-block: clamp(3.5rem, 8vw, 6.5rem);
-      }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-weight: 700;
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
-        color: var(--accent-strong);
-        text-transform: uppercase;
-      }
-      .eyebrow::before {
-        content: "";
-        width: 26px;
-        height: 1px;
-        background: var(--accent-strong);
-      }
-      .sec-title {
-        font-family: var(--font-display);
-        font-size: clamp(1.7rem, 4.5vw, 2.8rem);
-        line-height: 1.15;
-        margin-block: 0.7rem 0.6rem;
-        font-weight: 400;
-      }
-      .sec-lead {
-        color: var(--text-dim);
-        max-width: 58ch;
-        font-size: 1.05rem;
-      }
-
-      /* ===== Hero ===== */
+      /* ============ HERO ============ */
       .hero {
-        padding-block: clamp(3rem, 9vw, 6rem) clamp(3.5rem, 8vw, 6rem);
         position: relative;
+        padding-block: clamp(3rem, 8vw, 6.5rem) clamp(4.5rem, 9vw, 7.5rem);
+        overflow: hidden;
+        isolation: isolate;
       }
       .hero-grid {
         display: grid;
         gap: clamp(2rem, 5vw, 3.5rem);
         align-items: center;
+        grid-template-columns: 1fr;
       }
-      .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        padding: 0.5rem 1rem;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--text-dim);
+      @media (min-width: 960px) {
+        .hero-grid {
+          grid-template-columns: 1.05fr 0.95fr;
+        }
       }
-      .hero-badge .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--accent-strong);
-        box-shadow: 0 0 10px var(--accent);
+      .hero-content {
+        max-inline-size: 640px;
       }
       .hero h1 {
-        font-family: var(--font-display);
-        font-weight: 400;
-        font-size: clamp(2.1rem, 7vw, 4rem);
-        line-height: 1.1;
-        margin-block: 1.1rem 1.2rem;
-        letter-spacing: -0.01em;
+        font-size: clamp(2.2rem, 6vw, 4.2rem);
+        line-height: 1.05;
+        color: var(--text);
+        text-wrap: balance;
+        margin-block: 1rem 1.15rem;
+        max-inline-size: 16ch;
       }
       .hero h1 .hl {
-        background: linear-gradient(110deg, var(--accent-strong), var(--accent));
+        background: linear-gradient(120deg, var(--accent-strong), var(--accent-2));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
+        white-space: nowrap;
       }
-      .hero p.sub {
+      .hero p {
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
         color: var(--text-dim);
-        font-size: clamp(1rem, 2.2vw, 1.18rem);
-        max-width: 62ch;
-        margin-block-end: 2rem;
+        max-inline-size: 54ch;
       }
       .hero-cta {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.85rem;
+        gap: 0.8rem;
+        margin-block-start: 1.9rem;
       }
-      .hero-media {
+      /* one small trust chip — court mentioned once only */
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-block-start: 1.5rem;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--text);
+        padding: 0.42rem 0.95rem 0.42rem 0.78rem;
+        border-radius: 100px;
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .hero-chip svg {
+        color: var(--accent-strong);
+        flex: none;
+      }
+
+      /* hero visual: defined glass panel offset over a softly faded carousel */
+      .hero-visual {
         position: relative;
-        border-radius: var(--r-lg);
+        isolation: isolate;
+      }
+      .hero-stage {
+        position: relative;
+        border-radius: var(--r-xl);
         overflow: hidden;
         aspect-ratio: 4 / 5;
-        box-shadow: var(--shadow);
+        max-block-size: 560px;
         border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow);
       }
-      .hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+      .hero-media,
+      .hero-media .embla,
+      .hero-media .embla__container,
+      .hero-media .embla__slide {
+        block-size: 100%;
       }
-      .hero-media .ovl {
+      .hero-media {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          to top,
-          var(--bg-0) -10%,
-          transparent 55%
-        );
-        opacity: 0.55;
+        z-index: -2;
       }
-      .hero-float {
-        position: absolute;
-        inset-block-end: 1rem;
-        inset-inline-start: 1rem;
-        inset-inline-end: 1rem;
-        padding: 0.9rem 1.1rem;
-        border-radius: var(--r-md);
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-      }
-      .hero-float .seal {
-        display: inline-grid;
-        place-items: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-        color: var(--accent-ink);
-        flex-shrink: 0;
-      }
-      .hero-float .seal svg {
-        width: 22px;
-        height: 22px;
-      }
-      .hero-float strong {
-        display: block;
-        font-size: 0.98rem;
-      }
-      .hero-float span {
-        font-size: 0.82rem;
-        color: var(--text-faint);
-      }
-
-      /* ===== Stats ===== */
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-      }
-      .stat {
-        padding: 1.4rem 1.2rem;
-        border-radius: var(--r-md);
-        text-align: center;
-        transition:
-          transform 0.35s var(--ease),
-          box-shadow 0.35s var(--ease),
-          border-color 0.35s var(--ease);
-      }
-      .stat:hover {
-        transform: translateY(-4px);
-        border-color: var(--glass-border-hi);
-        box-shadow: var(--shadow), 0 0 30px -6px var(--glow-b);
-      }
-      .stat .num {
-        font-family: var(--font-display);
-        font-size: clamp(1.5rem, 4vw, 2.1rem);
-        color: var(--accent-strong);
-        line-height: 1.1;
-      }
-      .stat .lbl {
-        font-size: 0.92rem;
-        color: var(--text-dim);
-        margin-block-start: 0.35rem;
-        font-weight: 600;
-      }
-
-      /* ===== Services ===== */
-      .cards {
-        display: grid;
-        gap: 1.3rem;
-        margin-block-start: 2.5rem;
-      }
-      .card {
-        border-radius: var(--r-lg);
+      .hero-media .embla {
         overflow: hidden;
+      }
+      .hero-media .embla__container {
         display: flex;
-        flex-direction: column;
-        transition:
-          transform 0.4s var(--ease),
-          box-shadow 0.4s var(--ease),
-          border-color 0.4s var(--ease);
       }
-      .card:hover {
-        transform: translateY(-6px);
-        border-color: var(--glass-border-hi);
-        box-shadow: var(--shadow), 0 0 40px -8px var(--glow-c);
-      }
-      .card-media {
+      .hero-media .embla__slide {
         position: relative;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
+        flex: 0 0 100%;
+        min-inline-size: 0;
       }
-      .card-media img {
-        width: 100%;
-        height: 100%;
+      .hero-media img {
+        inline-size: 100%;
+        block-size: 100%;
         object-fit: cover;
-        transition: transform 0.6s var(--ease);
+        transform: scale(1.04);
       }
-      .card:hover .card-media img {
-        transform: scale(1.07);
-      }
-      .card-media::after {
+      /* soften the hero image so the glass panel reads clearly */
+      .hero-stage::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, var(--bg-0), transparent 70%);
-        opacity: 0.5;
+        z-index: -1;
+        background: linear-gradient(
+            155deg,
+            oklch(0.5 0.16 250 / 0.45),
+            transparent 55%
+          ),
+          linear-gradient(to top, var(--scrim-strong), transparent 65%);
+        backdrop-filter: saturate(1.1);
       }
-      .card-num {
+      /* defined glass info panel, offset over the photo */
+      .hero-panel {
         position: absolute;
-        inset-block-start: 0.8rem;
-        inset-inline-start: 0.8rem;
-        font-family: var(--font-display);
-        font-size: 0.9rem;
-        padding: 0.3rem 0.7rem;
-        border-radius: 999px;
+        inset-block-end: clamp(1rem, 3vw, 1.6rem);
+        inset-inline: clamp(1rem, 3vw, 1.6rem);
+        padding: clamp(1.2rem, 3vw, 1.6rem);
+        border-radius: var(--r-lg);
         background: var(--glass-bg-2);
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-sm), var(--inner);
+        backdrop-filter: blur(22px) saturate(1.4);
+        -webkit-backdrop-filter: blur(22px) saturate(1.4);
+        z-index: 2;
+      }
+      .hero-panel .panel-label {
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
         color: var(--accent-strong);
       }
-      .card-body {
-        padding: 1.4rem 1.4rem 1.6rem;
+      .hero-panel .panel-row {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-block-start: 0.7rem;
+      }
+      .hero-panel .panel-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(1.7rem, 4vw, 2.2rem);
+        color: var(--on-photo);
+        line-height: 1;
+      }
+      .hero-panel .panel-txt {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.92rem;
+        color: var(--on-photo-soft);
+        line-height: 1.35;
+      }
+
+      /* ============ STATS STRIP ============ */
+      .stats {
+        position: relative;
+        z-index: 5;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--glass-border);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow), var(--inner);
+        backdrop-filter: blur(20px) saturate(1.3);
+        -webkit-backdrop-filter: blur(20px) saturate(1.3);
+      }
+      @media (min-width: 760px) {
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .stat {
+        background: var(--glass-bg-2);
+        padding: clamp(1.5rem, 3vw, 2.1rem) 1rem;
+        text-align: center;
         display: flex;
         flex-direction: column;
-        gap: 0.8rem;
-        flex: 1;
-      }
-      .card-body h3 {
-        font-family: var(--font-display);
-        font-weight: 400;
-        font-size: 1.35rem;
-      }
-      .card-body p {
-        color: var(--text-dim);
-        font-size: 0.98rem;
-      }
-      .feat-list {
-        list-style: none;
-        display: grid;
-        gap: 0.55rem;
-        margin-block-start: 0.3rem;
-      }
-      .feat-list li {
-        display: flex;
         align-items: center;
-        gap: 0.6rem;
+        justify-content: center;
+        transition: background 0.3s var(--ease);
+      }
+      .stat:hover {
+        background: var(--glass-bg);
+      }
+      .stat .num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(1.55rem, 3.6vw, 2.1rem);
+        background: linear-gradient(120deg, var(--accent-strong), var(--accent-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1.05;
+      }
+      .stat .lbl {
+        font-family: var(--font-body);
+        font-weight: 600;
         font-size: 0.92rem;
         color: var(--text-dim);
-      }
-      .feat-list svg {
-        width: 16px;
-        height: 16px;
-        color: var(--accent-strong);
-        flex-shrink: 0;
+        margin-block-start: 0.5rem;
       }
 
-      /* ===== Before/After ===== */
-      .ba-wrap {
-        display: grid;
-        gap: 1.2rem;
-        margin-block-start: 2.5rem;
+      /* ============ SECTION SHELL ============ */
+      .section {
+        padding-block: clamp(4.5rem, 10vw, 8rem);
       }
-      .ba {
-        position: relative;
-        border-radius: var(--r-lg);
-        overflow: hidden;
-        aspect-ratio: 4 / 3;
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--shadow);
-        transition: transform 0.4s var(--ease);
+      .section-head {
+        max-inline-size: 700px;
+        margin-block-end: clamp(2.4rem, 5vw, 3.4rem);
       }
-      .ba:hover {
-        transform: translateY(-5px);
-      }
-      .ba img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .ba .tag {
-        position: absolute;
-        inset-block-start: 1rem;
-        inset-inline-start: 1rem;
-        font-family: var(--font-display);
-        font-size: 0.95rem;
-        padding: 0.4rem 1rem;
-        border-radius: 999px;
-        background: var(--glass-bg-2);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
+      .section-head h2 {
+        font-size: clamp(1.95rem, 4.6vw, 3.1rem);
+        margin-block: 0.9rem 0.85rem;
+        text-wrap: balance;
         color: var(--text);
       }
-      .ba.after .tag {
-        color: var(--accent-strong);
-        border-color: var(--glass-border-hi);
+      .section-head p {
+        color: var(--text-faint);
+        font-size: 1.06rem;
+        max-inline-size: 54ch;
       }
 
-      /* ===== About ===== */
-      .about-grid {
+      /* ============ SERVICES ============ */
+      .svc-grid {
         display: grid;
-        gap: clamp(2rem, 5vw, 3.5rem);
-        align-items: center;
+        gap: 1.3rem;
+        grid-template-columns: 1fr;
       }
-      .about-media {
+      @media (min-width: 720px) {
+        .svc-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1040px) {
+        .svc-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .svc {
         position: relative;
         border-radius: var(--r-lg);
         overflow: hidden;
-        aspect-ratio: 4 / 5;
-        max-width: 420px;
-        margin-inline: auto;
+        min-block-size: 440px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        isolation: isolate;
         border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+          border-color 0.4s var(--ease);
+      }
+      .svc:hover {
+        transform: translateY(-6px);
         box-shadow: var(--shadow);
+        border-color: var(--glass-border-hi);
       }
-      .about-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-      .about-media .ring {
+      .svc-img {
         position: absolute;
         inset: 0;
+        z-index: -2;
+      }
+      .svc-img img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        transition: transform 0.7s var(--ease);
+      }
+      .svc:hover .svc-img img {
+        transform: scale(1.08);
+      }
+      .svc::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          to top,
+          var(--scrim-strong) 8%,
+          oklch(0.12 0.05 258 / 0.55) 52%,
+          oklch(0.12 0.05 258 / 0.1) 100%
+        );
+      }
+      /* legible frosted body sits on the photo */
+      .svc-body {
+        margin: clamp(0.8rem, 2vw, 1rem);
+        padding: clamp(1.25rem, 3vw, 1.6rem);
+        border-radius: var(--r);
+        color: var(--on-photo);
+        background: oklch(0.13 0.05 262 / 0.55);
+        border: 1px solid oklch(0.97 0.02 220 / 0.18);
+        box-shadow: var(--inner);
+        backdrop-filter: blur(16px) saturate(1.3);
+        -webkit-backdrop-filter: blur(16px) saturate(1.3);
+      }
+      .svc-num {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.95rem;
+        color: var(--accent-strong);
+      }
+      .svc-body h3 {
+        font-size: 1.45rem;
+        color: var(--on-photo);
+        margin-block: 0.4rem 0.85rem;
+      }
+      .svc-body > p {
+        color: var(--on-photo-soft);
+        font-size: 0.98rem;
+        margin: 0 0 1.1rem;
+      }
+      .svc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.55rem;
+      }
+      .svc-list li {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--on-photo);
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .svc-list svg {
+        flex: none;
+        color: var(--accent-strong);
+      }
+
+      /* ============ BEFORE / AFTER — CENTERPIECE ============ */
+      .ba .section-head {
+        text-align: center;
+        margin-inline: auto;
+      }
+      .ba .section-head .eyebrow {
+        justify-content: center;
+      }
+      .ba .section-head p {
+        margin-inline: auto;
+      }
+      .ba-stage {
+        max-inline-size: 1000px;
+        margin-inline: auto;
+      }
+      .ba-compare {
+        position: relative;
+        inline-size: 100%;
+        aspect-ratio: 16 / 10;
         border-radius: var(--r-lg);
-        box-shadow: inset 0 0 0 1px var(--glass-border-hi);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--glass-border);
+        --pos: 50%;
+        user-select: none;
+        touch-action: pan-y;
+      }
+      .ba-layer {
+        position: absolute;
+        inset: 0;
+      }
+      .ba-layer img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+      /* "after" sits on top, clipped. Physical positioning (RTL-safe):
+         before stays on the RIGHT, after is revealed from the LEFT as --pos grows. */
+      .ba-after {
+        clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+      }
+      .ba-badge {
+        position: absolute;
+        inset-block-start: 1rem;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        padding: 0.4rem 1rem;
+        border-radius: 100px;
+        background: oklch(0.1 0.04 262 / 0.72);
+        color: var(--on-photo);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 4;
         pointer-events: none;
+      }
+      .ba-badge.before {
+        right: 1rem;
+      }
+      .ba-badge.after {
+        left: 1rem;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: var(--accent-ink);
+      }
+      .ba-divider {
+        position: absolute;
+        inset-block: 0;
+        left: var(--pos);
+        inline-size: 3px;
+        background: oklch(0.99 0.01 200 / 0.92);
+        transform: translateX(-50%);
+        z-index: 3;
+        pointer-events: none;
+        box-shadow: 0 0 18px oklch(0.7 0.16 188 / 0.7);
+      }
+      .ba-handle {
+        position: absolute;
+        inset-block-start: 50%;
+        left: var(--pos);
+        transform: translate(-50%, -50%);
+        inline-size: 54px;
+        block-size: 54px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: var(--accent-ink);
+        display: grid;
+        place-items: center;
+        z-index: 3;
+        pointer-events: none;
+        box-shadow: 0 6px 22px oklch(0.04 0.05 262 / 0.6), var(--inner);
+      }
+      .ba-range {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline: 0;
+        transform: translateY(-50%);
+        inline-size: 100%;
+        block-size: 56px;
+        margin: 0;
+        z-index: 5;
+        cursor: ew-resize;
+        opacity: 0;
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        direction: ltr; /* keep range math LTR; value mapped to physical left */
+      }
+      .ba-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        inline-size: 56px;
+        block-size: 56px;
+        border-radius: 50%;
+      }
+      .ba-range::-moz-range-thumb {
+        inline-size: 56px;
+        block-size: 56px;
+        border: 0;
+        border-radius: 50%;
+      }
+      .ba-range:focus-visible {
+        opacity: 1;
+        outline-offset: -3px;
+      }
+      .ba-caption {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--text-faint);
+        text-align: center;
+        margin-block-start: 1.1rem;
+      }
+
+      /* projects gallery — Embla carousel (real embla-carousel lib) */
+      .embla--gallery {
+        margin-block-start: 1.9rem;
+      }
+      .embla--gallery .embla__viewport {
+        overflow: hidden;
+        border-radius: var(--r);
+      }
+      .embla--gallery .embla__container {
+        display: flex;
+        gap: 1.1rem;
+        touch-action: pan-y;
+      }
+      .embla--gallery .embla__slide {
+        position: relative;
+        flex: 0 0 82%;
+        min-inline-size: 0;
+        border-radius: var(--r);
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-sm);
+      }
+      @media (min-width: 720px) {
+        .embla--gallery .embla__slide {
+          flex-basis: 46%;
+        }
+      }
+      @media (min-width: 1040px) {
+        .embla--gallery .embla__slide {
+          flex-basis: 31.5%;
+        }
+      }
+      .embla--gallery .embla__slide img {
+        inline-size: 100%;
+        aspect-ratio: 16 / 11;
+        object-fit: cover;
+        transition: transform 0.7s var(--ease);
+      }
+      .embla--gallery .embla__slide:hover img {
+        transform: scale(1.06);
+      }
+      .embla--gallery .embla__slide span {
+        position: absolute;
+        inset-block-end: 0.8rem;
+        inset-inline-start: 0.8rem;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--on-photo);
+        padding: 0.35rem 0.85rem;
+        border-radius: 100px;
+        background: oklch(0.1 0.04 262 / 0.6);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+      .embla__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-block-start: 1.4rem;
+      }
+      .embla__btn {
+        inline-size: 46px;
+        block-size: 46px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--glass-border);
+        background: var(--glass-bg-2);
+        color: var(--text);
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+      }
+      .embla__btn:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .embla__dots {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .embla__dot {
+        inline-size: 9px;
+        block-size: 9px;
+        border-radius: 50%;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        background: var(--glass-border);
+        transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+      }
+      .embla__dot.is-selected {
+        background: var(--accent);
+        transform: scale(1.3);
+      }
+
+      /* ============ ABOUT ============ */
+      .about-grid {
+        display: grid;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: center;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 880px) {
+        .about-grid {
+          grid-template-columns: 0.85fr 1.15fr;
+        }
+      }
+      .about-portrait {
+        position: relative;
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--glass-border);
+      }
+      .about-portrait img {
+        inline-size: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        transition: transform 0.7s var(--ease);
+      }
+      .about-portrait:hover img {
+        transform: scale(1.05);
+      }
+      .about-portrait .tag {
+        position: absolute;
+        inset-block-end: 1rem;
+        inset-inline-start: 1rem;
+        background: var(--glass-bg-2);
+        color: var(--on-photo);
+        font-family: var(--font-display);
+        font-weight: 700;
+        padding: 0.6rem 1.1rem;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--inner);
+        backdrop-filter: blur(16px) saturate(1.3);
+        -webkit-backdrop-filter: blur(16px) saturate(1.3);
+      }
+      .about-portrait .tag small {
+        display: block;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.7rem;
+        color: var(--on-photo-soft);
+        margin-block-start: 0.15rem;
+      }
+      .about h2 {
+        font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+        margin-block: 0.9rem;
+        text-wrap: balance;
+        color: var(--text);
       }
       .about p {
         color: var(--text-dim);
         font-size: 1.08rem;
-        margin-block: 1.2rem 1.6rem;
-        max-width: 56ch;
+        max-inline-size: 54ch;
       }
-      .about-sign {
-        font-family: var(--font-display);
+      .about-points {
+        list-style: none;
+        margin: 1.8rem 0 0;
+        padding: 0;
+        display: grid;
+        gap: 0.9rem;
+      }
+      .about-points li {
+        display: flex;
+        gap: 0.8rem;
+        align-items: flex-start;
+        font-family: var(--font-body);
+        font-weight: 600;
+        color: var(--text);
+      }
+      .about-points svg {
+        flex: none;
         color: var(--accent-strong);
-        font-size: 1.3rem;
+        margin-block-start: 2px;
       }
 
-      /* ===== Final CTA ===== */
+      /* ============ FINAL CTA ============ */
       .cta-band {
-        border-radius: var(--r-lg);
-        padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
-        text-align: center;
         position: relative;
         overflow: hidden;
+        isolation: isolate;
       }
-      .cta-band::before {
+      .cta-band img {
+        position: absolute;
+        inset: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+      .cta-band::after {
         content: "";
         position: absolute;
         inset: 0;
-        background:
-          radial-gradient(50% 80% at 80% 0%, var(--glow-a), transparent 60%),
-          radial-gradient(50% 80% at 15% 100%, var(--glow-c), transparent 60%);
-        opacity: 0.9;
         z-index: -1;
+        background: linear-gradient(
+            155deg,
+            oklch(0.45 0.18 268 / 0.7),
+            transparent 60%
+          ),
+          linear-gradient(to top, var(--scrim-strong), oklch(0.1 0.05 262 / 0.78));
       }
-      .cta-band h2 {
-        font-family: var(--font-display);
-        font-weight: 400;
-        font-size: clamp(1.6rem, 5vw, 2.6rem);
-        line-height: 1.15;
-        margin-block-end: 0.8rem;
+      .cta-inner {
+        text-align: center;
+        padding-block: clamp(4rem, 10vw, 7rem);
+        color: var(--on-photo);
       }
-      .cta-band p {
-        color: var(--text-dim);
-        max-width: 50ch;
-        margin: 0 auto 2rem;
-        font-size: 1.05rem;
+      .cta-inner h2 {
+        font-size: clamp(2rem, 5.4vw, 3.5rem);
+        color: var(--on-photo);
+        max-inline-size: 20ch;
+        margin-inline: auto;
+        margin-block: 0.9rem 1.15rem;
+        text-wrap: balance;
       }
-      .cta-actions {
-        display: flex;
-        flex-wrap: wrap;
+      .cta-inner .eyebrow {
+        color: var(--accent-strong);
         justify-content: center;
-        gap: 0.85rem;
       }
       .cta-contact {
         display: flex;
         flex-wrap: wrap;
+        gap: 1.3rem;
         justify-content: center;
-        gap: 1.5rem;
-        margin-block-start: 2rem;
-        color: var(--text-dim);
+        margin-block-start: 1.9rem;
+        font-family: var(--font-body);
         font-weight: 600;
-        font-size: 0.95rem;
       }
-      .cta-contact a {
+      .cta-contact a,
+      .cta-contact span {
         display: inline-flex;
         align-items: center;
-        gap: 0.45rem;
+        gap: 0.5rem;
+        color: var(--on-photo-soft);
+      }
+      .cta-contact a {
         transition: color 0.25s var(--ease);
       }
       .cta-contact a:hover {
-        color: var(--accent-strong);
+        color: var(--on-photo);
       }
       .cta-contact svg {
-        width: 17px;
-        height: 17px;
         color: var(--accent-strong);
+        flex: none;
+      }
+      .cta-inner .btn {
+        margin-block-start: 2.1rem;
       }
 
-      /* ===== Footer ===== */
-      .site-foot {
+      /* ============ FOOTER ============ */
+      .site-footer {
         border-block-start: 1px solid var(--glass-border);
-        padding-block: 2.5rem;
-        margin-block-start: 2rem;
+        padding-block: clamp(2.5rem, 5vw, 3.5rem);
+        background: var(--glass-bg);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
       }
-      .foot-inner {
+      .footer-inner {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        text-align: center;
+        gap: 1.2rem;
+        align-items: flex-start;
       }
-      .foot-tag {
+      @media (min-width: 720px) {
+        .footer-inner {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+      .footer-tag {
         color: var(--text-faint);
-        font-size: 0.9rem;
-        max-width: 50ch;
+        font-size: 0.95rem;
+        max-inline-size: 46ch;
+        margin-block: 0.5rem 0;
       }
-      .foot-copy {
+      .footer-copy {
         color: var(--text-faint);
         font-size: 0.88rem;
       }
 
-      /* ===== Reveal animation ===== */
+      /* ============ REVEAL ANIM ============ */
       .reveal {
         opacity: 0;
-        transform: translateY(28px);
+        transform: translateY(26px);
         animation: rise 0.9s var(--ease) forwards;
-        animation-delay: var(--d, 0s);
       }
       @keyframes rise {
         to {
           opacity: 1;
-          transform: translateY(0);
+          transform: none;
         }
       }
-
-      /* ===== Responsive ===== */
-      @media (min-width: 768px) {
-        .nav {
-          display: flex;
-        }
-        .stats-grid {
-          grid-template-columns: repeat(4, 1fr);
-        }
-        .ba-wrap {
-          grid-template-columns: 1fr 1fr;
-        }
+      .d1 {
+        animation-delay: 0.08s;
       }
-      @media (min-width: 980px) {
-        .hero-grid {
-          grid-template-columns: 1.1fr 0.9fr;
-        }
-        .cards {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .about-grid {
-          grid-template-columns: 0.85fr 1.15fr;
-        }
+      .d2 {
+        animation-delay: 0.2s;
+      }
+      .d3 {
+        animation-delay: 0.32s;
+      }
+      .d4 {
+        animation-delay: 0.44s;
+      }
+      .d5 {
+        animation-delay: 0.56s;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -803,277 +1173,322 @@
           animation-duration: 0.001ms !important;
           animation-iteration-count: 1 !important;
           transition-duration: 0.001ms !important;
-          scroll-behavior: auto !important;
         }
         .reveal {
           opacity: 1;
           transform: none;
         }
-        .mesh::after {
-          animation: none;
+        .hero-media img {
+          transform: scale(1.02);
         }
       }
     </style>
   </head>
+
   <body>
-    <div class="mesh" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-
-    <a class="skip" href="#main">דלג לתוכן הראשי</a>
-
-    <!-- 1 · HEADER / NAV -->
-    <header class="site-head">
-      <div class="wrap head-inner">
-        <a class="brand" href="#main" aria-label="D.Meyer's — דף הבית">
-          <span class="dot" aria-hidden="true"></span>
-          D.Meyer's
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="D.Meyer's דף הבית">
+          <span class="brand-mark" aria-hidden="true">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </span>
+          <span class="wordmark">D<span>.</span>Meyer's</span>
         </a>
-
         <nav class="nav" aria-label="ניווט ראשי">
-          <a href="#main">בית</a>
+          <a href="#top">בית</a>
           <a href="#services">שירותים</a>
           <a href="#projects">פרויקטים</a>
           <a href="#about">אודות</a>
           <a href="#contact">צור קשר</a>
         </nav>
-
-        <div class="head-actions">
+        <div class="header-actions">
+          <a class="btn btn-primary header-cta" href="/contact">תיאום ייעוץ</a>
           <button
-            class="icon-btn theme-toggle"
-            id="theme-toggle"
+            class="theme-toggle"
+            id="themeToggle"
             type="button"
-            aria-label="החלף מצב תצוגה בהיר וכהה"
+            aria-label="החלפת מצב תצוגה בהיר/כהה"
           >
-            <svg class="sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8" />
-              <path
-                d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M19.4 4.6l-1.8 1.8M6.4 17.6l-1.8 1.8"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
+            <svg
+              class="icon-moon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
-            <svg class="moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg
+              class="icon-sun"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="4" />
               <path
-                d="M20 14.5A8 8 0 0 1 9.5 4 7 7 0 1 0 20 14.5Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linejoin="round"
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
               />
             </svg>
           </button>
-          <a class="btn btn-primary" href="/contact">תיאום פגישה</a>
         </div>
       </div>
     </header>
 
-    <main id="main">
-      <!-- 2 · HERO -->
-      <section class="hero">
+    <main id="top">
+      <!-- ===== HERO ===== -->
+      <section class="hero" aria-label="פתיח">
         <div class="wrap hero-grid">
-          <div class="hero-copy">
-            <span class="hero-badge glass reveal" style="--d: 0.05s">
-              <span class="dot" aria-hidden="true"></span>
-              מומחים לבדק בית מבנים, יועצי איטום ואפיון ציפויים לתעשייה
-            </span>
-            <h1 class="reveal" style="--d: 0.15s">
-              בדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה —
-              <span class="hl">חוות דעת מקצועיות הקבילות בבית המשפט.</span>
+          <div class="hero-content">
+            <span class="eyebrow reveal d1"
+              >בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה</span
+            >
+            <h1 class="reveal d2">
+              כל ליקוי, <span class="hl">לפני</span> שהוא עולה לכם ביוקר.
             </h1>
-            <p class="sub reveal" style="--d: 0.28s">
-              מהחברות המובילות בישראל בתחום בדק הבית, ייעוץ איטום ואפיון ציפויים
-              לתעשייה. חוות דעת המפרטות ליקויים בגיבוי התקן הישראלי, כולל צילום
-              והערכה כספית — קבילות בבתי המשפט, עם ליווי מקצועי מלא.
+            <p class="reveal d3">
+              23+ שנות ניסיון בבדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה.
+              בדיקות יסודיות, איתור ליקויים מדויק וחוות דעת מקצועיות מפורטות —
+              עם ליווי אישי עד לפתרון.
             </p>
-            <div class="hero-cta reveal" style="--d: 0.4s">
+            <div class="hero-cta reveal d4">
               <a class="btn btn-primary" href="/contact">
                 תיאום פגישת ייעוץ
-                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M19 12H5M11 6l-6 6 6 6"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="19" y1="12" x2="5" y2="12" />
+                  <polyline points="12 19 5 12 12 5" />
                 </svg>
               </a>
-              <a class="btn btn-ghost" href="/projects">הפרויקטים שלנו</a>
+              <a class="btn btn-glass" href="/projects">הפרויקטים שלנו</a>
+            </div>
+            <div class="hero-chip reveal d5">
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              חוות דעת קבילות משפטית
             </div>
           </div>
 
-          <figure class="hero-media glass reveal" style="--d: 0.32s">
-            <img
-              src="/new-design/hero-1.webp"
-              alt="עבודת איטום מקצועית על גג מבנה בישראל"
-              loading="eager"
-              width="800"
-              height="1000"
-            />
-            <div class="ovl" aria-hidden="true"></div>
-            <figcaption class="hero-float glass">
-              <span class="seal" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2l7 3v6c0 4.5-3 8.4-7 9.5C8 19.4 5 15.5 5 11V5l7-3Z"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M9 12l2 2 4-4"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span>
-                <strong>חוות דעת קבילות בבית המשפט</strong>
-                <span>23+ שנות ניסיון · פריסה ארצית</span>
-              </span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- 3 · TRUST / STATS -->
-      <section aria-label="נתוני אמון" style="padding-block-start: 0">
-        <div class="wrap">
-          <div class="stats-grid">
-            <div class="stat glass reveal" style="--d: 0.05s">
-              <div class="num">+23</div>
-              <div class="lbl">שנות ניסיון</div>
-            </div>
-            <div class="stat glass reveal" style="--d: 0.13s">
-              <div class="num">בית משפט</div>
-              <div class="lbl">חוות דעת קבילות</div>
-            </div>
-            <div class="stat glass reveal" style="--d: 0.21s">
-              <div class="num">ארצי</div>
-              <div class="lbl">פריסה ארצית</div>
-            </div>
-            <div class="stat glass reveal" style="--d: 0.29s">
-              <div class="num">+מאות</div>
-              <div class="lbl">פרויקטים</div>
+          <div class="hero-visual reveal d3">
+            <div class="hero-stage">
+              <div class="hero-media">
+                <div class="embla embla--hero" data-embla-hero>
+                  <div class="embla__container">
+                    <div class="embla__slide">
+                      <img
+                        src="/new-design/hero-1.webp"
+                        alt="עבודות איטום באתר בנייה בישראל"
+                        fetchpriority="high"
+                      />
+                    </div>
+                    <div class="embla__slide">
+                      <img
+                        src="/new-design/hero-2.webp"
+                        alt="בדק בית במבנה"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="embla__slide">
+                      <img
+                        src="/new-design/hero-3.webp"
+                        alt="ייעוץ ואפיון ציפויים לתעשייה"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="embla__slide">
+                      <img
+                        src="/new-design/hero-4.webp"
+                        alt="פרויקט איטום ושיקום מבנה"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-panel">
+                <span class="panel-label">ניסיון מוכח בשטח</span>
+                <div class="panel-row">
+                  <span class="panel-num">23+</span>
+                  <span class="panel-txt"
+                    >שנות מומחיות בבדק בית, איטום וציפויים — עם ליווי אישי עד
+                    לפתרון.</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 4 · SERVICES -->
-      <section id="services">
+      <!-- ===== STATS STRIP ===== -->
+      <section class="stats wrap" aria-label="נתוני אמון">
+        <div class="stats-grid">
+          <div class="stat reveal d1">
+            <div class="num">23+</div>
+            <div class="lbl">שנות ניסיון</div>
+          </div>
+          <div class="stat reveal d2">
+            <div class="num">מאות</div>
+            <div class="lbl">פרויקטים</div>
+          </div>
+          <div class="stat reveal d3">
+            <div class="num">ארצית</div>
+            <div class="lbl">פריסה</div>
+          </div>
+          <div class="stat reveal d4">
+            <div class="num">אישי</div>
+            <div class="lbl">ליווי</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SERVICES ===== -->
+      <section class="section" id="services" aria-labelledby="svc-title">
         <div class="wrap">
-          <span class="eyebrow reveal">השירותים שלנו</span>
-          <h2 class="sec-title reveal" style="--d: 0.08s">
-            מומחיות מקיפה לאורך כל חיי המבנה
-          </h2>
-          <p class="sec-lead reveal" style="--d: 0.14s">
-            שלושה תחומי ליבה, חוות דעת מגובות בתקן הישראלי וליווי מקצועי מלא — מהאבחון
-            ועד הפתרון.
-          </p>
+          <div class="section-head">
+            <span class="eyebrow">השירותים שלנו</span>
+            <h2 id="svc-title">מומחיות מקצה לקצה</h2>
+            <p>
+              ליווי מלא מהאבחון ועד הפתרון — בבדק בית, ייעוץ איטום ואפיון
+              ציפויים לתעשייה.
+            </p>
+          </div>
 
-          <div class="cards">
-            <article class="card glass reveal" style="--d: 0.1s">
-              <div class="card-media">
-                <img
-                  src="/new-design/feat-1.webp"
-                  alt="ייעוץ איטום מתקדם למבנים ותשתיות"
-                  loading="lazy"
-                  width="640"
-                  height="400"
-                />
-                <span class="card-num">01</span>
-              </div>
-              <div class="card-body">
-                <h3>ייעוץ איטום</h3>
-                <p>פתרונות איטום מתקדמים לכל סוגי המבנים והתשתיות.</p>
-                <ul class="feat-list">
-                  <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    תכנון וליווי
-                  </li>
-                  <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    גגות ומרתפים
-                  </li>
-                  <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    איטום בהזרקה ושיקום
-                  </li>
-                  <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    פיקוח צמוד
-                  </li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card glass reveal" style="--d: 0.2s">
-              <div class="card-media">
+          <div class="svc-grid">
+            <article class="svc reveal d1">
+              <div class="svc-img">
                 <img
                   src="/new-design/feat-3.webp"
-                  alt="בדק בית ובדיקת מבנים לזיהוי ליקויי בנייה"
+                  alt="בדיקת בדק בית לזיהוי ליקויי בנייה"
                   loading="lazy"
-                  width="640"
-                  height="400"
                 />
-                <span class="card-num">02</span>
               </div>
-              <div class="card-body">
+              <div class="svc-body">
+                <span class="svc-num">01</span>
                 <h3>בדק בית ומבנים</h3>
                 <p>בדיקות מקיפות לזיהוי ליקויי בנייה.</p>
-                <ul class="feat-list">
+                <ul class="svc-list">
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    לפני רכישה
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    דירה חדשה / יד שנייה
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    זיהוי ליקויים
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    איתור ליקויים
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    מומחה בסכסוכים משפטיים
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    בדיקות איכות
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                     דוחות מפורטים
                   </li>
                 </ul>
               </div>
             </article>
 
-            <article class="card glass reveal" style="--d: 0.3s">
-              <div class="card-media">
+            <article class="svc reveal d2">
+              <div class="svc-img">
+                <img
+                  src="/new-design/feat-1.webp"
+                  alt="עבודות ייעוץ ואיטום מבנים"
+                  loading="lazy"
+                />
+              </div>
+              <div class="svc-body">
+                <span class="svc-num">02</span>
+                <h3>ייעוץ איטום</h3>
+                <p>פתרונות איטום מתקדמים לכל המבנים.</p>
+                <ul class="svc-list">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    תכנון וליווי
+                  </li>
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    גגות ומרתפים
+                  </li>
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    הזרקה ושיקום
+                  </li>
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                    פיקוח
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="svc reveal d3">
+              <div class="svc-img">
                 <img
                   src="/new-design/feat-2.webp"
-                  alt="ייעוץ ואפיון ציפויים לרצפות ומבני פלדה"
+                  alt="אפיון ציפויים לרצפות ומבני פלדה לתעשייה"
                   loading="lazy"
-                  width="640"
-                  height="400"
                 />
-                <span class="card-num">03</span>
               </div>
-              <div class="card-body">
-                <h3>ייעוץ ציפויים</h3>
-                <p>ייעוץ לבחירת ציפויים לרצפות ומבני פלדה.</p>
-                <ul class="feat-list">
+              <div class="svc-body">
+                <span class="svc-num">03</span>
+                <h3>אפיון ציפויים לתעשייה</h3>
+                <p>ציפויים לרצפות ומבני פלדה.</p>
+                <ul class="svc-list">
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                     בחירת חומרים
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                     מבני פלדה
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                     בדיקות איכות
                   </li>
                   <li>
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                     פיקוח
                   </li>
                 </ul>
@@ -1083,144 +1498,346 @@
         </div>
       </section>
 
-      <!-- 5 · BEFORE / AFTER -->
-      <section id="projects">
+      <!-- ===== BEFORE / AFTER — CENTERPIECE ===== -->
+      <section class="section ba" id="projects" aria-labelledby="ba-title">
         <div class="wrap">
-          <span class="eyebrow reveal">תוצאות בשטח</span>
-          <h2 class="sec-title reveal" style="--d: 0.08s">לפני ואחרי</h2>
-          <p class="sec-lead reveal" style="--d: 0.14s">
-            מליקוי גלוי לפתרון מושלם — אבחון מדויק, תכנון נכון וביצוע מקצועי.
-          </p>
+          <div class="section-head">
+            <span class="eyebrow">הפרויקטים שלנו</span>
+            <h2 id="ba-title">לפני / אחרי — התוצאה מדברת</h2>
+            <p>
+              גררו את הידית כדי לחשוף את ההבדל בין מצב הליקוי המקורי לבין
+              התוצאה לאחר טיפול האיטום והשיקום.
+            </p>
+          </div>
 
-          <div class="ba-wrap">
-            <figure class="ba before reveal" style="--d: 0.1s">
-              <img
-                src="/new-design/before-1.webp"
-                alt="מצב המבנה לפני טיפול האיטום"
-                loading="lazy"
-                width="800"
-                height="600"
+          <div class="ba-stage">
+            <div class="ba-compare reveal d1" id="baCompare" style="--pos: 50%">
+              <div class="ba-layer ba-before">
+                <img
+                  src="/new-design/before-1.webp"
+                  alt="מצב לפני: ליקויי רטיבות ואיטום במבנה"
+                  loading="lazy"
+                />
+              </div>
+              <div class="ba-layer ba-after" id="baAfterLayer">
+                <img
+                  src="/new-design/after-1.webp"
+                  alt="מצב אחרי: לאחר ביצוע עבודות איטום ושיקום"
+                  loading="lazy"
+                />
+              </div>
+
+              <span class="ba-badge before">לפני</span>
+              <span class="ba-badge after">אחרי</span>
+
+              <div class="ba-divider" id="baDivider" aria-hidden="true"></div>
+              <div class="ba-handle" id="baHandle" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                  <polyline points="9 6 15 12 9 18" />
+                </svg>
+              </div>
+
+              <input
+                class="ba-range"
+                id="baRange"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                step="1"
+                aria-label="חשיפת לפני ואחרי — גררו לשליטה בחלוקה"
               />
-              <figcaption class="tag">לפני</figcaption>
-            </figure>
-            <figure class="ba after reveal" style="--d: 0.2s">
-              <img
-                src="/new-design/after-1.webp"
-                alt="מצב המבנה לאחר ביצוע פתרון האיטום"
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-              <figcaption class="tag">אחרי</figcaption>
-            </figure>
+            </div>
+            <p class="ba-caption">לפני / אחרי · ייעוץ איטום ושיקום מבנים</p>
+
+            <div class="embla embla--gallery reveal d2" data-embla-gallery>
+              <div class="embla__viewport">
+                <div class="embla__container">
+                  <div class="embla__slide">
+                    <img src="/new-design/proj-1.webp" alt="פרויקט איטום ושיקום מבנה" loading="lazy" />
+                    <span>פרויקט איטום</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/proj-2.webp" alt="פרויקט אפיון ציפויים לתעשייה" loading="lazy" />
+                    <span>אפיון ציפויים</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/hero-2.webp" alt="בדק בית במבנה מגורים" loading="lazy" />
+                    <span>בדק בית</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/hero-3.webp" alt="שיקום ואיטום מבנה" loading="lazy" />
+                    <span>שיקום מבנה</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/feat-1.webp" alt="ייעוץ איטום לגגות ומרתפים" loading="lazy" />
+                    <span>ייעוץ איטום</span>
+                  </div>
+                </div>
+              </div>
+              <div class="embla__controls">
+                <button class="embla__btn embla__prev" type="button" aria-label="הפרויקט הקודם">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 6 15 12 9 18" />
+                  </svg>
+                </button>
+                <div class="embla__dots" data-embla-dots></div>
+                <button class="embla__btn embla__next" type="button" aria-label="הפרויקט הבא">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 6 9 12 15 18" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 6 · ABOUT -->
-      <section id="about" class="about">
-        <div class="wrap about-grid">
-          <figure class="about-media reveal" style="--d: 0.05s">
-            <img
-              src="/new-design/dotan.jpg"
-              alt="דותן מאיר, מומחה בדק בית וייעוץ איטום"
-              loading="lazy"
-              width="420"
-              height="525"
-            />
-            <span class="ring" aria-hidden="true"></span>
-          </figure>
-          <div class="reveal" style="--d: 0.15s">
-            <span class="eyebrow">אודות</span>
-            <h2 class="sec-title">דותן מאיר</h2>
-            <p>
-              23+ שנות ניסיון בתעשיית הבנייה הישראלית, מומחה בדק בית, ייעוץ איטום
-              ואפיון ציפויים; חוות דעת הקבילות בבית המשפט.
-            </p>
-            <span class="about-sign">דותן מאיר · D.Meyer's</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 7 · FINAL CTA -->
-      <section id="contact" style="padding-block-start: 0">
+      <!-- ===== ABOUT ===== -->
+      <section class="section about" id="about" aria-labelledby="about-title">
         <div class="wrap">
-          <div class="cta-band glass reveal">
-            <h2>מוכנים לחוות דעת מקצועית שאפשר לסמוך עליה?</h2>
-            <p>
-              תיאום פגישת ייעוץ עם דותן מאיר — אבחון מדויק, דוח מפורט וליווי
-              מקצועי מלא, בכל רחבי הארץ.
-            </p>
-            <div class="cta-actions">
-              <a class="btn btn-primary" href="/contact">
-                תיאום פגישת ייעוץ
-                <svg class="arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M19 12H5M11 6l-6 6 6 6"
+          <div class="about-grid">
+            <div class="about-portrait reveal d1">
+              <img
+                src="/new-design/dotan.jpg"
+                alt="דותן מאיר — מומחה בדק בית ויועץ איטום"
+                loading="lazy"
+              />
+              <span class="tag"
+                >דותן מאיר
+                <small>בדק בית · ייעוץ איטום · ציפויים</small></span
+              >
+            </div>
+            <div class="reveal d2">
+              <span class="eyebrow">אודות</span>
+              <h2 id="about-title">23+ שנות מומחיות, מאחורי כל בדיקה</h2>
+              <p>
+                דותן מאיר — מעל 23 שנות ניסיון בתעשיית הבנייה הישראלית, מומחה
+                לבדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה. עבודה יסודית,
+                איתור ליקויים מדויק וליווי אישי עד לפתרון.
+              </p>
+              <ul class="about-points">
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  בדיקות יסודיות ואיתור ליקויים מדויק
+                </li>
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  מומחיות חוצת תחומים: בדק בית, איטום וציפויים
+                </li>
+                <li>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+                  פריסה ארצית עם ליווי אישי עד לפתרון
+                </li>
+              </ul>
+              <div class="hero-cta" style="margin-block-start: 2rem">
+                <a class="btn btn-primary" href="/contact">
+                  לתיאום פגישה
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
                     stroke="currentColor"
-                    stroke-width="2"
+                    stroke-width="2.2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <a class="btn btn-ghost" href="tel:0524270479">052-427-0479</a>
-            </div>
-            <div class="cta-contact">
-              <a href="tel:0524270479">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-                052-427-0479
-              </a>
-              <a href="mailto:d.meyers.cons@gmail.com">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-                d.meyers.cons@gmail.com
-              </a>
-              <span>
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:inline-block;vertical-align:-3px;width:17px;height:17px;color:var(--accent-strong)"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg>
-                פריסה ארצית
-              </span>
+                    aria-hidden="true"
+                  >
+                    <line x1="19" y1="12" x2="5" y2="12" />
+                    <polyline points="12 19 5 12 12 5" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ===== FINAL CTA ===== -->
+      <section class="cta-band" id="contact" aria-labelledby="cta-title">
+        <img
+          src="/new-design/hero-3.webp"
+          alt="פרויקט איטום מבנה בישראל"
+          loading="lazy"
+        />
+        <div class="wrap cta-inner">
+          <span class="eyebrow reveal d1">בואו נדבר</span>
+          <h2 id="cta-title" class="reveal d2">
+            מתכננים רכישה, בנייה או בדיקה? נשמח ללוות אתכם.
+          </h2>
+          <div class="cta-contact reveal d3">
+            <a href="tel:0524270479">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              052-427-0479
+            </a>
+            <a href="mailto:d.meyers.cons@gmail.com">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="22 6 12 13 2 6" />
+              </svg>
+              d.meyers.cons@gmail.com
+            </a>
+            <span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              פריסה ארצית
+            </span>
+          </div>
+          <a class="btn btn-primary reveal d4" href="/contact">
+            תיאום פגישת ייעוץ
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="19" y1="12" x2="5" y2="12" />
+              <polyline points="12 19 5 12 12 5" />
+            </svg>
+          </a>
         </div>
       </section>
     </main>
 
-    <!-- 8 · FOOTER -->
-    <footer class="site-foot">
-      <div class="wrap foot-inner">
-        <a class="brand" href="#main" aria-label="D.Meyer's">
-          <span class="dot" aria-hidden="true"></span>
-          D.Meyer's
-        </a>
-        <p class="foot-tag">
-          מומחים לבדק בית מבנים, יועצי איטום ואפיון ציפויים לתעשייה.
-        </p>
-        <p class="foot-copy">© 2026 D.Meyer's · כל הזכויות שמורות</p>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <a class="wordmark" href="#top">D<span>.</span>Meyer's</a>
+          <p class="footer-tag">
+            בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה
+          </p>
+        </div>
+        <p class="footer-copy">© 2026 D.Meyer's · כל הזכויות שמורות</p>
       </div>
     </footer>
 
     <script is:inline>
       (function () {
-        var KEY = "dmeyers-mock-theme";
-        var root = document.documentElement;
-        try {
-          var saved = localStorage.getItem(KEY);
-          if (saved === "light" || saved === "dark") {
-            root.setAttribute("data-theme", saved);
-          }
-        } catch (e) {}
-        var btn = document.getElementById("theme-toggle");
+        var key = "dmeyers-mock-theme";
+        var btn = document.getElementById("themeToggle");
         if (btn) {
           btn.addEventListener("click", function () {
-            var next =
-              root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-            root.setAttribute("data-theme", next);
+            var cur = document.documentElement.getAttribute("data-theme");
+            var next = cur === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
             try {
-              localStorage.setItem(KEY, next);
+              localStorage.setItem(key, next);
             } catch (e) {}
           });
         }
+
+        var range = document.getElementById("baRange");
+        var compare = document.getElementById("baCompare");
+        if (range && compare) {
+          var update = function () {
+            compare.style.setProperty("--pos", range.value + "%");
+          };
+          range.addEventListener("input", update);
+          update();
+        }
       })();
+    </script>
+
+    <script>
+      import EmblaCarousel from "embla-carousel";
+      import Autoplay from "embla-carousel-autoplay";
+
+      const hero = document.querySelector<HTMLElement>("[data-embla-hero]");
+      if (hero) {
+        EmblaCarousel(hero, { loop: true, direction: "rtl", duration: 30 }, [
+          Autoplay({ delay: 4500, stopOnInteraction: false }),
+        ]);
+      }
+
+      const gallery = document.querySelector<HTMLElement>("[data-embla-gallery]");
+      const viewport = gallery?.querySelector<HTMLElement>(".embla__viewport");
+      if (gallery && viewport) {
+        const embla = EmblaCarousel(viewport, {
+          loop: true,
+          direction: "rtl",
+          align: "start",
+        });
+        const prevBtn = gallery.querySelector(".embla__prev");
+        const nextBtn = gallery.querySelector(".embla__next");
+        const dotsNode = gallery.querySelector("[data-embla-dots]");
+        if (prevBtn) prevBtn.addEventListener("click", () => embla.scrollPrev());
+        if (nextBtn) nextBtn.addEventListener("click", () => embla.scrollNext());
+        let dots: Element[] = [];
+        if (dotsNode) {
+          dotsNode.innerHTML = embla
+            .scrollSnapList()
+            .map(
+              (_, i) =>
+                '<button class="embla__dot" type="button" aria-label="מעבר לפרויקט ' +
+                (i + 1) +
+                '"></button>'
+            )
+            .join("");
+          dots = Array.from(dotsNode.children);
+          dots.forEach((d, i) =>
+            d.addEventListener("click", () => embla.scrollTo(i))
+          );
+        }
+        const onSelect = () => {
+          const i = embla.selectedScrollSnap();
+          dots.forEach((d, n) => d.classList.toggle("is-selected", n === i));
+        };
+        embla.on("select", onSelect);
+        onSelect();
+      }
     </script>
   </body>
 </html>
