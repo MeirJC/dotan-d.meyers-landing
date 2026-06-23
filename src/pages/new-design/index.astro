@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>D.Meyer's — כיווני עיצוב (v3)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&family=Suez+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: oklch(0.16 0.02 265);
+        --bg2: oklch(0.21 0.025 265);
+        --line: oklch(0.34 0.02 265);
+        --tx: oklch(0.97 0.01 265);
+        --mut: oklch(0.72 0.015 265);
+        --acc: oklch(0.7 0.16 230);
+      }
+      * { box-sizing: border-box; margin: 0; }
+      body {
+        background: radial-gradient(120% 80% at 80% -10%, oklch(0.28 0.07 250 / 0.5), transparent 60%), var(--bg);
+        color: var(--tx);
+        font-family: "Assistant", sans-serif;
+        min-height: 100dvh;
+        padding: clamp(1.5rem, 5vw, 5rem);
+      }
+      header { max-width: 70rem; margin-inline: auto; margin-block-end: clamp(2rem, 5vw, 4rem); }
+      .kicker { color: var(--acc); font-weight: 800; letter-spacing: 0.1em; font-size: 0.85rem; }
+      h1 { font-family: "Suez One", serif; font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; margin-block: 0.5rem 1rem; }
+      header p { color: var(--mut); max-width: 46rem; font-size: clamp(1rem, 2.2vw, 1.2rem); line-height: 1.6; }
+      .grid {
+        max-width: 70rem; margin-inline: auto;
+        display: grid; gap: 1.25rem;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+      }
+      a.card {
+        display: block; text-decoration: none; color: inherit;
+        background: var(--bg2); border: 1px solid var(--line); border-radius: 1rem;
+        padding: 1.5rem; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+      a.card:hover { transform: translateY(-4px); border-color: var(--acc); box-shadow: 0 16px 40px oklch(0.1 0.02 265 / 0.5); }
+      a.card:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+      .num { font-family: "Suez One", serif; color: var(--acc); font-size: 1.5rem; }
+      .card h2 { font-size: 1.3rem; margin-block: 0.4rem 0.2rem; }
+      .card .en { color: var(--mut); font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; }
+      .card p { color: var(--mut); font-size: 0.95rem; line-height: 1.55; margin-block-start: 0.7rem; }
+      .card .go { margin-block-start: 1rem; color: var(--acc); font-weight: 700; font-size: 0.9rem; }
+      footer { max-width: 70rem; margin-inline: auto; margin-block-start: 3rem; color: var(--mut); font-size: 0.85rem; border-block-start: 1px solid var(--line); padding-block-start: 1.5rem; }
+      footer code { background: var(--bg2); padding: 0.15rem 0.45rem; border-radius: 0.35rem; border: 1px solid var(--line); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="kicker">D.MEYER'S · V3 DESIGN EXPLORATION</p>
+      <h1>כיווני עיצוב לבחירה</h1>
+      <p>
+        שש גישות עיצוב ייחודיות לאתר החדש — כל אחת עם מצב בהיר/כהה (כפתור מעבר בתוך הדף).
+        בחרו את הכיוון שהכי מדבר אליכם, וממנו נגזור את שפת העיצוב הסופית. כל הדפים הם מוקאפים זמניים ואינם חלק מהאתר החי.
+      </p>
+    </header>
+
+    <main class="grid">
+      <a class="card" href="/new-design/option-1-editorial-authority">
+        <span class="num">01</span>
+        <h2>רשות ומומחיות</h2>
+        <span class="en">Editorial Authority</span>
+        <p>מגזין מוקפד — טיפוגרפיית סריף, מרחב נשימה, קווי הפרדה דקים, תחושת יוקרה שקטה וסמכותית.</p>
+        <div class="go">צפייה ←</div>
+      </a>
+      <a class="card" href="/new-design/option-2-industrial-precision">
+        <span class="num">02</span>
+        <h2>דיוק הנדסי</h2>
+        <span class="en">Industrial Precision</span>
+        <p>שפה הנדסית/בלוטפרינט — רשת מדידה, גופן מונוספייס לנתונים, מדויק וטכני.</p>
+        <div class="go">צפייה ←</div>
+      </a>
+      <a class="card" href="/new-design/option-3-visual-showcase">
+        <span class="num">03</span>
+        <h2>תצוגה ויזואלית</h2>
+        <span class="en">Visual-First Showcase</span>
+        <p>קולנועי ומבוסס-תמונה — הירו במסך מלא, סליידר לפני/אחרי אינטראקטיבי במרכז.</p>
+        <div class="go">צפייה ←</div>
+      </a>
+      <a class="card" href="/new-design/option-4-warm-premium">
+        <span class="num">04</span>
+        <h2>אמון אנושי</h2>
+        <span class="en">Warm Premium</span>
+        <p>יוקרה חמה ונגישה — פלטה חמימה, צורות רכות, נוכחות אנושית והמלצה. פחות "מאיים".</p>
+        <div class="go">צפייה ←</div>
+      </a>
+      <a class="card" href="/new-design/option-5-brutalist-bold">
+        <span class="num">05</span>
+        <h2>נועזות</h2>
+        <span class="en">Brutalist Bold</span>
+        <p>ניגודיות גבוהה — טיפוגרפיה ענקית, גבולות עבים, אקצנט חשמלי אחד. בולט ובלתי נשכח.</p>
+        <div class="go">צפייה ←</div>
+      </a>
+      <a class="card" href="/new-design/option-6-aurora-depth">
+        <span class="num">06</span>
+        <h2>עומק</h2>
+        <span class="en">Aurora Depth</span>
+        <p>מודרני עם עומק — רקעי גרדיאנט, זכוכית מטושטשת (glassmorphism), זוהר ותחושת שכבות.</p>
+        <div class="go">צפייה ←</div>
+      </a>
+    </main>
+
+    <footer>
+      מוקאפים זמניים · <code>/new-design/</code> · noindex · ייבחר כיוון אחד שיהפוך ל-Design System ול-Creative Direction (Dossier 3a).
+    </footer>
+  </body>
+</html>

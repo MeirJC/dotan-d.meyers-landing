@@ -31,3 +31,6 @@ self-docs
 # dev-docs system — local session artifacts
 .claude/*.log
 .claude/settings.local.json
+
+# vercel
+.vercel

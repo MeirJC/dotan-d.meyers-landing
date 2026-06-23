@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>D.Meyer's — בדק בית, ייעוץ איטום ואפיון ציפויים | חוות דעת קבילות בבית המשפט</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Suez+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      (function () {
+        try {
+          var key = "dmeyers-mock-theme";
+          var saved = localStorage.getItem(key);
+          var theme = saved === "dark" || saved === "light" ? saved : "light";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      :root {
+        --font-display: "Suez One", "Heebo", system-ui, sans-serif;
+        --font-body: "Heebo", system-ui, sans-serif;
+        --border-w: 3px;
+        --shadow-off: 8px;
+        --maxw: 1280px;
+      }
+
+      html[data-theme="light"] {
+        --bg: oklch(96.5% 0.006 95);
+        --bg-2: oklch(99% 0.004 95);
+        --ink: oklch(18% 0.01 280);
+        --ink-soft: oklch(38% 0.01 280);
+        --line: oklch(18% 0.01 280);
+        --accent: oklch(72% 0.2 138);
+        --accent-ink: oklch(18% 0.04 138);
+        --card: oklch(99% 0.004 95);
+        --shadow-color: oklch(18% 0.01 280);
+        --invert: oklch(18% 0.01 280);
+        --invert-ink: oklch(96.5% 0.006 95);
+      }
+
+      html[data-theme="dark"] {
+        --bg: oklch(16% 0.012 280);
+        --bg-2: oklch(21% 0.014 280);
+        --ink: oklch(95% 0.006 95);
+        --ink-soft: oklch(74% 0.01 95);
+        --line: oklch(95% 0.006 95);
+        --accent: oklch(78% 0.21 138);
+        --accent-ink: oklch(16% 0.05 138);
+        --card: oklch(21% 0.014 280);
+        --shadow-color: oklch(78% 0.21 138);
+        --invert: oklch(95% 0.006 95);
+        --invert-ink: oklch(16% 0.012 280);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg);
+        background-image:
+          linear-gradient(var(--bg-2) 0.5px, transparent 0.5px),
+          linear-gradient(90deg, var(--bg-2) 0.5px, transparent 0.5px);
+        background-size: 34px 34px;
+        color: var(--ink);
+        font-family: var(--font-body);
+        font-weight: 500;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-display);
+        font-weight: 900;
+        line-height: 0.98;
+        letter-spacing: -0.01em;
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: var(--maxw);
+        margin-inline: auto;
+        padding-inline: clamp(1rem, 4vw, 3rem);
+      }
+
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .skip {
+        position: absolute;
+        inset-block-start: -100px;
+        inset-inline-start: 1rem;
+        background: var(--accent);
+        color: var(--accent-ink);
+        padding: 0.6rem 1rem;
+        border: var(--border-w) solid var(--line);
+        font-weight: 800;
+        z-index: 200;
+      }
+      .skip:focus {
+        inset-block-start: 1rem;
+      }
+
+      /* ---------- Header ---------- */
+      .site-header {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 100;
+        background: var(--bg);
+        border-block-end: var(--border-w) solid var(--line);
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 68px;
+      }
+      .wordmark {
+        font-family: var(--font-display);
+        font-size: clamp(1.35rem, 3vw, 1.7rem);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .wordmark .dot {
+        display: inline-block;
+        inline-size: 0.7rem;
+        block-size: 0.7rem;
+        background: var(--accent);
+        border: 2px solid var(--line);
+      }
+      .nav-desktop {
+        display: none;
+        align-items: center;
+        gap: clamp(0.6rem, 1.6vw, 1.6rem);
+      }
+      .nav-desktop a {
+        font-weight: 700;
+        font-size: 0.98rem;
+        padding-block: 0.25rem;
+        border-block-end: 3px solid transparent;
+        transition: border-color 0.18s ease;
+      }
+      .nav-desktop a:hover {
+        border-block-end-color: var(--accent);
+      }
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 1rem;
+        line-height: 1;
+        padding: 0.85rem 1.3rem;
+        border: var(--border-w) solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+        cursor: pointer;
+        box-shadow: calc(var(--shadow-off) * -1) var(--shadow-off) 0 0 var(--shadow-color);
+        transition:
+          transform 0.14s ease,
+          box-shadow 0.14s ease;
+      }
+      .btn:hover {
+        transform: translate(4px, -4px);
+        box-shadow: calc(var(--shadow-off) * -1.5) calc(var(--shadow-off) * 1.5) 0 0 var(--shadow-color);
+      }
+      .btn:active {
+        transform: translate(0, 0);
+        box-shadow: 0 0 0 0 var(--shadow-color);
+      }
+      .btn-accent {
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+      .btn-invert {
+        background: var(--invert);
+        color: var(--invert-ink);
+      }
+      .btn svg {
+        inline-size: 1.1em;
+        block-size: 1.1em;
+      }
+      .btn .arrow {
+        transition: transform 0.18s ease;
+      }
+      .btn:hover .arrow {
+        transform: translateX(-4px);
+      }
+
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        inline-size: 46px;
+        block-size: 46px;
+        padding: 0;
+        border: var(--border-w) solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+        cursor: pointer;
+        box-shadow: -4px 4px 0 0 var(--shadow-color);
+        transition:
+          transform 0.14s ease,
+          box-shadow 0.14s ease;
+      }
+      .theme-toggle:hover {
+        transform: translate(2px, -2px);
+        box-shadow: -6px 6px 0 0 var(--shadow-color);
+      }
+      .theme-toggle svg {
+        inline-size: 22px;
+        block-size: 22px;
+      }
+      .theme-toggle .moon {
+        display: none;
+      }
+      html[data-theme="dark"] .theme-toggle .sun {
+        display: none;
+      }
+      html[data-theme="dark"] .theme-toggle .moon {
+        display: block;
+      }
+
+      .nav-mobile {
+        display: block;
+      }
+      .nav-mobile summary {
+        list-style: none;
+        cursor: pointer;
+      }
+      .nav-mobile summary::-webkit-details-marker {
+        display: none;
+      }
+      .nav-mobile summary .theme-toggle,
+      .burger {
+        pointer-events: none;
+      }
+      .burger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        inline-size: 46px;
+        block-size: 46px;
+        border: var(--border-w) solid var(--line);
+        background: var(--accent);
+        color: var(--accent-ink);
+        box-shadow: -4px 4px 0 0 var(--shadow-color);
+      }
+      .burger svg {
+        inline-size: 24px;
+        block-size: 24px;
+      }
+      .mobile-panel {
+        position: absolute;
+        inset-inline: 0;
+        inset-block-start: 100%;
+        background: var(--bg);
+        border-block-end: var(--border-w) solid var(--line);
+        padding: 1rem clamp(1rem, 4vw, 3rem) 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+      .mobile-panel a {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.5rem;
+        padding: 0.6rem 0;
+        border-block-end: 2px solid var(--bg-2);
+      }
+      .mobile-panel a:last-child {
+        border-block-end: none;
+      }
+
+      /* ---------- Marquee ---------- */
+      .marquee {
+        background: var(--invert);
+        color: var(--invert-ink);
+        border-block-end: var(--border-w) solid var(--line);
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-track {
+        display: inline-flex;
+        gap: 2.5rem;
+        padding-block: 0.7rem;
+        animation: marquee 28s linear infinite;
+        will-change: transform;
+      }
+      .marquee-track span {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      .marquee-track span::after {
+        content: "";
+        inline-size: 9px;
+        block-size: 9px;
+        background: var(--accent);
+        border: 1.5px solid var(--invert-ink);
+        display: inline-block;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(50%);
+        }
+      }
+
+      /* ---------- Reveal ---------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        animation: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      }
+      .reveal-2 {
+        animation-delay: 0.1s;
+      }
+      .reveal-3 {
+        animation-delay: 0.2s;
+      }
+      .reveal-4 {
+        animation-delay: 0.3s;
+      }
+      .reveal-5 {
+        animation-delay: 0.4s;
+      }
+      .reveal-6 {
+        animation-delay: 0.5s;
+      }
+      @keyframes reveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---------- Hero ---------- */
+      .hero {
+        padding-block: clamp(2.5rem, 6vw, 5rem);
+        position: relative;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.5rem, 4vw, 2.5rem);
+        align-items: start;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        background: var(--accent);
+        color: var(--accent-ink);
+        border: var(--border-w) solid var(--line);
+        padding: 0.4rem 0.9rem;
+        margin-block-end: 1.2rem;
+      }
+      .hero h1 {
+        font-size: clamp(2.7rem, 9vw, 6rem);
+        margin-block-end: 1.4rem;
+      }
+      .hero h1 .hl {
+        background: var(--accent);
+        color: var(--accent-ink);
+        padding-inline: 0.12em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+      .hero p.sub {
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
+        color: var(--ink-soft);
+        max-width: 56ch;
+        margin-block: 0 2rem;
+        font-weight: 500;
+      }
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+      .hero-media {
+        position: relative;
+        border: var(--border-w) solid var(--line);
+        box-shadow: -12px 12px 0 0 var(--shadow-color);
+        background: var(--accent);
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+      }
+      .hero-media img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.08);
+        mix-blend-mode: luminosity;
+      }
+      .hero-media .badge {
+        position: absolute;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        background: var(--invert);
+        color: var(--invert-ink);
+        font-family: var(--font-display);
+        font-weight: 900;
+        padding: 0.7rem 1.1rem;
+        font-size: 0.95rem;
+        border-block-start: var(--border-w) solid var(--line);
+        border-inline-end: var(--border-w) solid var(--line);
+      }
+
+      /* ---------- Stats ---------- */
+      .stats {
+        border-block: var(--border-w) solid var(--line);
+        background: var(--invert);
+        color: var(--invert-ink);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .stat {
+        padding: clamp(1.3rem, 3vw, 2.2rem) clamp(1rem, 3vw, 2rem);
+        border-inline-start: var(--border-w) solid var(--invert-ink);
+        border-block-start: var(--border-w) solid var(--invert-ink);
+      }
+      .stat:nth-child(odd) {
+        border-inline-start: none;
+      }
+      .stat:nth-child(-n + 2) {
+        border-block-start: none;
+      }
+      .stat .num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        line-height: 1;
+        color: var(--accent);
+        display: block;
+      }
+      .stat .lbl {
+        font-weight: 700;
+        font-size: clamp(0.85rem, 1.6vw, 1rem);
+        margin-block-start: 0.5rem;
+        display: block;
+      }
+
+      /* ---------- Section heads ---------- */
+      .section {
+        padding-block: clamp(3rem, 7vw, 6rem);
+      }
+      .section-head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-block-end: clamp(1.8rem, 4vw, 3rem);
+      }
+      .kicker {
+        font-weight: 800;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-block-end: 0.8rem;
+      }
+      .kicker::before {
+        content: "";
+        inline-size: 28px;
+        block-size: 3px;
+        background: var(--accent);
+      }
+      .section-head h2 {
+        font-size: clamp(2rem, 5.5vw, 3.6rem);
+      }
+
+      /* ---------- Services ---------- */
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.5rem, 3vw, 2rem);
+      }
+      .card {
+        background: var(--card);
+        border: var(--border-w) solid var(--line);
+        box-shadow: -8px 8px 0 0 var(--shadow-color);
+        padding: clamp(1.4rem, 3vw, 2rem);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+      .card:hover {
+        transform: translate(4px, -4px);
+        box-shadow: -12px 12px 0 0 var(--shadow-color);
+      }
+      .card-num {
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 3.4rem;
+        line-height: 0.8;
+        color: var(--accent);
+        -webkit-text-stroke: 2px var(--line);
+      }
+      .card-ico {
+        inline-size: 52px;
+        block-size: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: var(--border-w) solid var(--line);
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+      .card-ico svg {
+        inline-size: 28px;
+        block-size: 28px;
+      }
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card h3 {
+        font-size: 1.5rem;
+        font-weight: 900;
+        font-family: var(--font-display);
+      }
+      .card p {
+        margin: 0;
+        color: var(--ink-soft);
+      }
+      .card ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.5rem;
+        margin-block-start: auto;
+      }
+      .card li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding-block-start: 0.5rem;
+        border-block-start: 2px solid var(--bg-2);
+      }
+      .card li svg {
+        inline-size: 16px;
+        block-size: 16px;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      /* ---------- Before / After ---------- */
+      .ba-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.2rem, 3vw, 1.8rem);
+      }
+      .ba {
+        position: relative;
+        border: var(--border-w) solid var(--line);
+        box-shadow: -8px 8px 0 0 var(--shadow-color);
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        background: var(--bg-2);
+      }
+      .ba img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        filter: grayscale(0.4) contrast(1.05);
+      }
+      .ba .tag {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.05rem;
+        padding: 0.55rem 1.1rem;
+        border-block-end: var(--border-w) solid var(--line);
+        border-inline-end: var(--border-w) solid var(--line);
+      }
+      .ba.before .tag {
+        background: var(--invert);
+        color: var(--invert-ink);
+      }
+      .ba.after .tag {
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+
+      /* ---------- About ---------- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        align-items: center;
+      }
+      .about-portrait {
+        position: relative;
+        border: var(--border-w) solid var(--line);
+        box-shadow: -12px 12px 0 0 var(--shadow-color);
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background: var(--accent);
+        max-width: 420px;
+      }
+      .about-portrait img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        filter: grayscale(1) contrast(1.05);
+      }
+      .about-content h2 {
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        margin-block-end: 1.2rem;
+      }
+      .about-content p {
+        color: var(--ink-soft);
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        max-width: 54ch;
+        margin-block: 0 1.5rem;
+      }
+      .about-sig {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.3rem;
+        border: var(--border-w) solid var(--line);
+        background: var(--accent);
+        color: var(--accent-ink);
+        padding: 0.6rem 1.2rem;
+        box-shadow: -6px 6px 0 0 var(--shadow-color);
+      }
+
+      /* ---------- CTA band ---------- */
+      .cta-band {
+        background: var(--accent);
+        color: var(--accent-ink);
+        border-block: var(--border-w) solid var(--line);
+      }
+      .cta-inner {
+        padding-block: clamp(2.5rem, 6vw, 4.5rem);
+        text-align: center;
+      }
+      .cta-inner h2 {
+        font-size: clamp(2.2rem, 7vw, 4.5rem);
+        color: var(--accent-ink);
+        margin-block-end: 1.5rem;
+      }
+      .cta-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem 1.6rem;
+        justify-content: center;
+        align-items: center;
+        margin-block-start: 1.8rem;
+        font-weight: 800;
+      }
+      .cta-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-block-end: 3px solid var(--accent-ink);
+        padding-block-end: 2px;
+      }
+      .cta-contact svg {
+        inline-size: 1.1em;
+        block-size: 1.1em;
+      }
+
+      /* ---------- Footer ---------- */
+      .site-footer {
+        background: var(--invert);
+        color: var(--invert-ink);
+        border-block-start: var(--border-w) solid var(--line);
+        padding-block: clamp(2rem, 4vw, 3rem);
+      }
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .footer-inner .wordmark {
+        color: var(--invert-ink);
+      }
+      .footer-tag {
+        color: var(--invert-ink);
+        opacity: 0.85;
+        max-width: 50ch;
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+      .footer-bottom {
+        font-weight: 700;
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (min-width: 768px) {
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .stat:nth-child(odd) {
+          border-inline-start: var(--border-w) solid var(--invert-ink);
+        }
+        .stat:nth-child(1) {
+          border-inline-start: none;
+        }
+        .stat {
+          border-block-start: none;
+        }
+        .ba-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-inner {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      @media (min-width: 960px) {
+        .nav-desktop {
+          display: flex;
+        }
+        .nav-mobile {
+          display: none;
+        }
+        .hero-grid {
+          grid-template-columns: 1.25fr 1fr;
+          gap: clamp(2rem, 5vw, 4rem);
+        }
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .about-grid {
+          grid-template-columns: 0.85fr 1.15fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+          animation: none;
+        }
+        .marquee-track {
+          animation: none;
+        }
+        .btn,
+        .theme-toggle,
+        .card,
+        .arrow {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">דלג לתוכן הראשי</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="wordmark" href="#main" aria-label="D.Meyer's — דף הבית">
+          <span class="dot" aria-hidden="true"></span>D.Meyer's
+        </a>
+
+        <nav class="nav-desktop" aria-label="ניווט ראשי">
+          <a href="#main">בית</a>
+          <a href="#services">שירותים</a>
+          <a href="#projects">פרויקטים</a>
+          <a href="#about">אודות</a>
+          <a href="#contact">צור קשר</a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            id="themeToggle"
+            aria-label="החלף בין מצב בהיר לכהה"
+          >
+            <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19" stroke-linecap="round" />
+            </svg>
+            <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <details class="nav-mobile">
+            <summary aria-label="פתח תפריט">
+              <span class="burger" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6">
+                  <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+                </svg>
+              </span>
+            </summary>
+            <nav class="mobile-panel" aria-label="ניווט נייד">
+              <a href="#main">בית</a>
+              <a href="#services">שירותים</a>
+              <a href="#projects">פרויקטים</a>
+              <a href="#about">אודות</a>
+              <a href="#contact">צור קשר</a>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>חוות דעת קבילות בבית המשפט</span>
+        <span>23+ שנות ניסיון</span>
+        <span>פריסה ארצית</span>
+        <span>בדק בית מבנים</span>
+        <span>ייעוץ איטום</span>
+        <span>אפיון ציפויים לתעשייה</span>
+        <span>חוות דעת קבילות בבית המשפט</span>
+        <span>23+ שנות ניסיון</span>
+        <span>פריסה ארצית</span>
+        <span>בדק בית מבנים</span>
+        <span>ייעוץ איטום</span>
+        <span>אפיון ציפויים לתעשייה</span>
+      </div>
+    </div>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-grid">
+          <div>
+            <span class="eyebrow reveal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true" style="inline-size: 1em; block-size: 1em">
+                <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke-linejoin="round" />
+              </svg>
+              מומחים לבדק בית · ייעוץ איטום · אפיון ציפויים
+            </span>
+            <h1 id="hero-title" class="reveal reveal-2">
+              בדק בית, ייעוץ איטום ואפיון ציפויים —
+              <span class="hl">חוות דעת הקבילות בבית המשפט.</span>
+            </h1>
+            <p class="sub reveal reveal-3">
+              מהחברות המובילות בישראל בתחום בדק הבית, ייעוץ איטום ואפיון ציפויים
+              לתעשייה. חוות דעת המפרטות ליקויים בגיבוי התקן הישראלי, כולל צילום
+              והערכה כספית — קבילות בבתי המשפט, עם ליווי מקצועי מלא.
+            </p>
+            <div class="hero-cta reveal reveal-4">
+              <a class="btn btn-accent" href="/contact">
+                תיאום פגישת ייעוץ
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
+                  <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a class="btn" href="/projects">הפרויקטים שלנו</a>
+            </div>
+          </div>
+
+          <div class="hero-media reveal reveal-3">
+            <img src="/new-design/hero-1.webp" alt="פרויקט איטום ובדק בית של D.Meyer's" width="800" height="1000" loading="eager" />
+            <span class="badge">23+ שנות מומחיות</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats" aria-label="נתוני אמון">
+        <div class="wrap">
+          <div class="stats-grid">
+            <div class="stat reveal">
+              <span class="num">23+</span>
+              <span class="lbl">שנות ניסיון</span>
+            </div>
+            <div class="stat reveal reveal-2">
+              <span class="num">⚖</span>
+              <span class="lbl">חוות דעת קבילות בבית המשפט</span>
+            </div>
+            <div class="stat reveal reveal-3">
+              <span class="num">★</span>
+              <span class="lbl">פריסה ארצית</span>
+            </div>
+            <div class="stat reveal reveal-4">
+              <span class="num">100+</span>
+              <span class="lbl">מאות פרויקטים</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="section" id="services" aria-labelledby="services-title">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">השירותים שלנו</p>
+              <h2 id="services-title">שלושה תחומי מומחיות,<br />סטנדרט אחד.</h2>
+            </div>
+          </div>
+
+          <div class="cards">
+            <article class="card reveal">
+              <div class="card-top">
+                <span class="card-num">01</span>
+                <span class="card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M12 2.5C8 7 5 10.5 5 14a7 7 0 0 0 14 0c0-3.5-3-7-7-11.5z" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3>ייעוץ איטום</h3>
+              <p>פתרונות איטום מתקדמים לכל סוגי המבנים והתשתיות.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>תכנון וליווי</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>גגות ומרתפים</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>איטום בהזרקה ושיקום</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>פיקוח צמוד</li>
+              </ul>
+            </article>
+
+            <article class="card reveal reveal-2">
+              <div class="card-top">
+                <span class="card-num">02</span>
+                <span class="card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M3 11l9-7 9 7" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5 10v9h14v-9" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M10 19v-5h4v5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3>בדק בית ומבנים</h3>
+              <p>בדיקות מקיפות לזיהוי ליקויי בנייה.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>לפני רכישה</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>זיהוי ליקויים</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>מומחה בסכסוכים משפטיים</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>דוחות מפורטים</li>
+              </ul>
+            </article>
+
+            <article class="card reveal reveal-3">
+              <div class="card-top">
+                <span class="card-num">03</span>
+                <span class="card-ico" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <rect x="3" y="4" width="18" height="16" rx="1" stroke-linejoin="round" />
+                    <path d="M7 9h10M7 13h6" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3>ייעוץ ציפויים</h3>
+              <p>ייעוץ לבחירת ציפויים לרצפות ומבני פלדה.</p>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>בחירת חומרים</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>מבני פלדה</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>בדיקות איכות</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" /></svg>פיקוח</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BEFORE / AFTER -->
+      <section class="section" id="projects" aria-labelledby="ba-title" style="padding-block-start: 0">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="kicker">לפני / אחרי</p>
+              <h2 id="ba-title">התוצאה מדברת<br />בעד עצמה.</h2>
+            </div>
+            <a class="btn" href="/projects">
+              כל הפרויקטים
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
+                <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="ba-grid">
+            <figure class="ba before reveal" style="margin: 0">
+              <span class="tag">לפני</span>
+              <img src="/new-design/before-1.webp" alt="מצב המבנה לפני טיפול איטום" width="800" height="600" loading="lazy" />
+            </figure>
+            <figure class="ba after reveal reveal-2" style="margin: 0">
+              <span class="tag">אחרי</span>
+              <img src="/new-design/after-1.webp" alt="המבנה לאחר ביצוע איטום מקצועי" width="800" height="600" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about" aria-labelledby="about-title" style="padding-block-start: 0">
+        <div class="wrap about-grid">
+          <div class="about-portrait reveal">
+            <img src="/new-design/dotan.jpg" alt="דותן מאיר — מומחה בדק בית וייעוץ איטום" width="500" height="500" loading="lazy" />
+          </div>
+          <div class="about-content">
+            <p class="kicker">אודות</p>
+            <h2 id="about-title">דותן מאיר.<br />23+ שנים בשטח.</h2>
+            <p>
+              23+ שנות ניסיון בתעשיית הבנייה הישראלית, מומחה בדק בית, ייעוץ איטום
+              ואפיון ציפויים. חוות הדעת שאני מספק מפורטות, מגובות בתקן הישראלי
+              וקבילות בבית המשפט — כלי אמין שעומד למבחן גם בסכסוכים משפטיים.
+            </p>
+            <span class="about-sig">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true" style="inline-size: 1.3em; block-size: 1.3em">
+                <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" stroke-linejoin="round" />
+                <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              מומחה מוסמך · חוות דעת קבילות
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BAND -->
+      <section class="cta-band" id="contact" aria-labelledby="cta-title">
+        <div class="wrap cta-inner">
+          <p class="kicker" style="justify-content: center; color: var(--accent-ink)">בואו נתחיל</p>
+          <h2 id="cta-title">צריכים חוות דעת<br />שמחזיקה בבית המשפט?</h2>
+          <a class="btn btn-invert" href="/contact">
+            תיאום פגישת ייעוץ
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true">
+              <path d="M19 12H5M11 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <div class="cta-contact">
+            <a href="tel:0524270479">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                <path d="M5 4h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" stroke-linejoin="round" />
+              </svg>
+              052-427-0479
+            </a>
+            <a href="mailto:d.meyers.cons@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="1" stroke-linejoin="round" />
+                <path d="M3 6l9 7 9-7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              d.meyers.cons@gmail.com
+            </a>
+            <span aria-hidden="true">·</span>
+            <span>פריסה ארצית</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <span class="wordmark"><span class="dot" aria-hidden="true"></span>D.Meyer's</span>
+          <p class="footer-tag">
+            מומחים לבדק בית מבנים, יועצי איטום ואפיון ציפויים לתעשייה.
+          </p>
+        </div>
+        <p class="footer-bottom">© 2026 D.Meyer's · כל הזכויות שמורות</p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var key = "dmeyers-mock-theme";
+        var btn = document.getElementById("themeToggle");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var cur = document.documentElement.getAttribute("data-theme");
+          var next = cur === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem(key, next);
+          } catch (e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

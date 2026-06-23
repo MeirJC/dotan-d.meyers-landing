@@ -11,7 +11,8 @@ updated: 2026-06-23
   Pending: browser QA (islands + Lighthouse parity), then merge `feat/astro-7-upgrade` → `v3`.
 - **On Astro 7.0.0** (+ @astrojs/react 6, @astrojs/mdx 7). `pnpm audit`: 0 vulns. Dev server: http://localhost:4321.
 - **Branch:** working on `feat/astro-7-upgrade` (off `v3`). Live site stays on `main`.
-- **Next dossier:** design-direction exploration (4 `/new-design/` mocks) → then Dossier 2 (data-model) → 3a.
+- **Design exploration:** 6 `/new-design/` mocks built (each light/dark) — awaiting owner+Dotan pick → seeds creative-direction + design-system (3a). Gallery: `/new-design/`.
+- **Vercel preview:** fixed (pnpm 9→11 via packageManager + Corepack on Preview); production untouched.
 - **Blockers:** chrome-devtools MCP offline this session → browser QA deferred to owner / next session.
 
 ## v3 program (roadmap)
