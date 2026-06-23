@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>D.Meyer's — בדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה</title>
+    <title>D.Meyer's — בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Suez+One&family=Heebo:wght@300;400;500;700;900&family=Assistant:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Suez+One&family=Heebo:wght@300;400;500;600;700;900&family=Assistant:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -27,47 +27,51 @@
     <style>
       /* ============ TOKENS ============ */
       html[data-theme="dark"] {
-        --bg: oklch(0.16 0.012 250);
-        --bg-2: oklch(0.2 0.015 250);
+        --bg: oklch(0.15 0.012 250);
+        --bg-2: oklch(0.19 0.015 250);
         --surface: oklch(0.23 0.018 250);
         --surface-2: oklch(0.27 0.02 250);
-        --border: oklch(0.34 0.02 250 / 0.6);
+        --border: oklch(0.36 0.02 250 / 0.55);
         --ink: oklch(0.97 0.005 250);
-        --ink-soft: oklch(0.82 0.01 250);
-        --ink-mute: oklch(0.66 0.012 250);
-        --accent: oklch(0.72 0.17 52);
-        --accent-2: oklch(0.78 0.13 58);
+        --ink-soft: oklch(0.84 0.01 250);
+        --ink-mute: oklch(0.68 0.012 250);
+        --accent: oklch(0.74 0.16 52);
+        --accent-2: oklch(0.8 0.13 60);
         --accent-ink: oklch(0.18 0.05 52);
-        --teal: oklch(0.7 0.1 200);
-        --scrim-1: oklch(0.1 0.01 250 / 0.18);
-        --scrim-2: oklch(0.08 0.01 250 / 0.92);
-        --card-glow: oklch(0.72 0.17 52 / 0.16);
-        --shadow: 0 24px 60px -20px oklch(0.05 0.02 250 / 0.8);
+        --on-photo: oklch(0.99 0.01 90);
+        --on-photo-soft: oklch(0.93 0.008 250);
+        --scrim-top: oklch(0.07 0.012 250 / 0.95);
+        --scrim-mid: oklch(0.08 0.012 250 / 0.55);
+        --card-glow: oklch(0.74 0.16 52 / 0.18);
+        --shadow: 0 24px 60px -24px oklch(0.04 0.02 250 / 0.85);
+        --shadow-sm: 0 10px 30px -16px oklch(0.04 0.02 250 / 0.7);
       }
       html[data-theme="light"] {
-        --bg: oklch(0.98 0.006 80);
-        --bg-2: oklch(0.95 0.008 80);
+        --bg: oklch(0.985 0.005 80);
+        --bg-2: oklch(0.955 0.008 80);
         --surface: oklch(1 0 0);
         --surface-2: oklch(0.97 0.006 80);
-        --border: oklch(0.83 0.012 80 / 0.9);
-        --ink: oklch(0.22 0.02 250);
-        --ink-soft: oklch(0.36 0.02 250);
-        --ink-mute: oklch(0.48 0.018 250);
-        --accent: oklch(0.62 0.18 48);
-        --accent-2: oklch(0.58 0.18 44);
+        --border: oklch(0.82 0.012 80 / 0.95);
+        --ink: oklch(0.21 0.02 250);
+        --ink-soft: oklch(0.35 0.02 250);
+        --ink-mute: oklch(0.47 0.018 250);
+        --accent: oklch(0.58 0.17 46);
+        --accent-2: oklch(0.54 0.17 42);
         --accent-ink: oklch(0.99 0.01 80);
-        --teal: oklch(0.52 0.1 205);
-        --scrim-1: oklch(0.15 0.01 250 / 0.1);
-        --scrim-2: oklch(0.12 0.01 250 / 0.78);
-        --card-glow: oklch(0.62 0.18 48 / 0.12);
-        --shadow: 0 24px 56px -24px oklch(0.5 0.04 80 / 0.45);
+        --on-photo: oklch(0.99 0.01 90);
+        --on-photo-soft: oklch(0.94 0.008 250);
+        --scrim-top: oklch(0.08 0.012 250 / 0.92);
+        --scrim-mid: oklch(0.1 0.012 250 / 0.5);
+        --card-glow: oklch(0.58 0.17 46 / 0.14);
+        --shadow: 0 24px 56px -26px oklch(0.45 0.04 80 / 0.5);
+        --shadow-sm: 0 10px 28px -18px oklch(0.45 0.04 80 / 0.4);
       }
 
       :root {
         --maxw: 1240px;
-        --pad: clamp(1.1rem, 4vw, 3rem);
-        --r: 18px;
-        --r-lg: 26px;
+        --pad: clamp(1.15rem, 4vw, 3rem);
+        --r: 16px;
+        --r-lg: 24px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -94,6 +98,7 @@
         font-weight: 400;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
         overflow-x: hidden;
         transition: background 0.4s var(--ease), color 0.4s var(--ease);
       }
@@ -103,7 +108,7 @@
       h3 {
         font-family: "Suez One", serif;
         font-weight: 400;
-        line-height: 1.1;
+        line-height: 1.08;
         margin: 0;
         letter-spacing: -0.01em;
       }
@@ -133,9 +138,8 @@
       .eyebrow {
         font-family: "Assistant", sans-serif;
         font-weight: 700;
-        font-size: 0.82rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
         color: var(--accent);
         display: inline-flex;
         align-items: center;
@@ -145,8 +149,9 @@
         content: "";
         inline-size: 26px;
         block-size: 2px;
-        background: var(--accent);
+        background: currentColor;
         display: inline-block;
+        flex: none;
       }
 
       /* ============ BUTTONS ============ */
@@ -156,8 +161,10 @@
         font-size: 1rem;
         display: inline-flex;
         align-items: center;
-        gap: 0.6rem;
-        padding: 0.95rem 1.7rem;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.9rem 1.6rem;
+        min-block-size: 48px;
         border-radius: 100px;
         border: 1.5px solid transparent;
         cursor: pointer;
@@ -170,26 +177,35 @@
       .btn-primary {
         background: linear-gradient(135deg, var(--accent), var(--accent-2));
         color: var(--accent-ink);
-        box-shadow: 0 10px 30px -10px var(--accent);
+        box-shadow: 0 10px 30px -12px var(--accent);
       }
       .btn-primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 18px 40px -12px var(--accent);
+        box-shadow: 0 18px 40px -14px var(--accent);
       }
       /* RTL arrow points left */
       .btn:hover svg {
         transform: translateX(-5px);
       }
       .btn-ghost {
-        background: transparent;
-        color: var(--ink);
-        border-color: var(--border);
-        backdrop-filter: blur(8px);
+        background: oklch(0.5 0.02 250 / 0.18);
+        color: var(--on-photo);
+        border-color: oklch(0.95 0.01 250 / 0.35);
+        backdrop-filter: blur(10px);
       }
       .btn-ghost:hover {
         transform: translateY(-3px);
-        border-color: var(--accent);
-        background: oklch(0.5 0.02 250 / 0.12);
+        border-color: var(--accent-2);
+        background: oklch(0.5 0.02 250 / 0.3);
+      }
+      .btn-solid {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: transparent;
+      }
+      .btn-solid:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-sm);
       }
 
       /* ============ HEADER ============ */
@@ -197,13 +213,13 @@
         position: sticky;
         inset-block-start: 0;
         z-index: 50;
-        background: oklch(0.16 0.012 250 / 0.6);
+        background: oklch(0.15 0.012 250 / 0.62);
         backdrop-filter: blur(16px);
         border-block-end: 1px solid var(--border);
         transition: background 0.4s var(--ease);
       }
       html[data-theme="light"] .site-header {
-        background: oklch(0.98 0.006 80 / 0.72);
+        background: oklch(0.985 0.005 80 / 0.76);
       }
       .header-inner {
         display: flex;
@@ -216,13 +232,14 @@
         font-family: "Suez One", serif;
         font-size: 1.5rem;
         letter-spacing: -0.02em;
+        white-space: nowrap;
       }
       .wordmark span {
         color: var(--accent);
       }
       .nav {
         display: none;
-        gap: 1.8rem;
+        gap: 1.7rem;
         font-family: "Assistant", sans-serif;
         font-weight: 600;
         font-size: 0.98rem;
@@ -283,7 +300,7 @@
       .header-cta {
         display: none;
       }
-      @media (min-width: 880px) {
+      @media (min-width: 900px) {
         .nav {
           display: flex;
         }
@@ -295,7 +312,7 @@
       /* ============ HERO ============ */
       .hero {
         position: relative;
-        min-block-size: clamp(560px, 92svh, 920px);
+        min-block-size: clamp(580px, 94svh, 940px);
         display: flex;
         align-items: flex-end;
         overflow: hidden;
@@ -306,19 +323,28 @@
         inset: 0;
         z-index: -2;
       }
+      /* hero background = Embla carousel of jobsite photos */
+      .hero-media .embla,
+      .hero-media .embla__container,
+      .hero-media .embla__slide {
+        block-size: 100%;
+      }
+      .hero-media .embla {
+        overflow: hidden;
+      }
+      .hero-media .embla__container {
+        display: flex;
+      }
+      .hero-media .embla__slide {
+        position: relative;
+        flex: 0 0 100%;
+        min-inline-size: 0;
+      }
       .hero-media img {
         inline-size: 100%;
         block-size: 100%;
         object-fit: cover;
-        animation: kenburns 22s var(--ease) infinite alternate;
-      }
-      @keyframes kenburns {
-        from {
-          transform: scale(1.04) translate(0, 0);
-        }
-        to {
-          transform: scale(1.16) translate(1.5%, -2%);
-        }
+        transform: scale(1.06);
       }
       .hero-scrim {
         position: absolute;
@@ -326,66 +352,71 @@
         z-index: -1;
         background: linear-gradient(
             to top,
-            var(--scrim-2) 4%,
-            var(--scrim-1) 55%,
-            transparent 88%
+            var(--scrim-top) 2%,
+            var(--scrim-mid) 48%,
+            transparent 82%
           ),
           linear-gradient(
             to inline-start,
-            transparent 30%,
-            oklch(0.08 0.01 250 / 0.5) 100%
+            transparent 38%,
+            oklch(0.06 0.012 250 / 0.55) 100%
           );
       }
       .hero-content {
-        padding-block: clamp(2.5rem, 7vw, 5.5rem);
-        max-inline-size: 820px;
+        padding-block: clamp(2.6rem, 7vw, 5.5rem);
+        max-inline-size: 760px;
       }
       .hero h1 {
-        font-size: clamp(2.2rem, 7vw, 5rem);
-        color: oklch(0.99 0.01 80);
-        text-shadow: 0 4px 30px oklch(0.05 0.02 250 / 0.6);
-        margin-block: 1rem 1.2rem;
+        /* tighter, controlled wrap; balance prevents orphan accent line */
+        font-size: clamp(2.15rem, 6vw, 4.4rem);
+        line-height: 1.06;
+        color: var(--on-photo);
+        text-wrap: balance;
+        text-shadow: 0 4px 30px oklch(0.04 0.02 250 / 0.65);
+        margin-block: 1rem 1.15rem;
+        max-inline-size: 16ch;
       }
       .hero h1 .hl {
         color: var(--accent-2);
+        white-space: nowrap;
       }
       .hero p {
-        font-size: clamp(1rem, 1.6vw, 1.2rem);
-        color: oklch(0.92 0.01 250);
-        max-inline-size: 60ch;
-        text-shadow: 0 2px 16px oklch(0.05 0.02 250 / 0.7);
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        color: var(--on-photo-soft);
+        max-inline-size: 56ch;
+        text-shadow: 0 2px 16px oklch(0.04 0.02 250 / 0.75);
       }
       .hero .eyebrow {
         color: var(--accent-2);
       }
-      .hero .eyebrow::before {
-        background: var(--accent-2);
-      }
       .hero-cta {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.9rem;
-        margin-block-start: 2rem;
+        gap: 0.8rem;
+        margin-block-start: 1.9rem;
       }
-      .hero-tags {
-        display: flex;
-        flex-wrap: wrap;
+      /* one small trust chip — court mentioned once only */
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
         gap: 0.5rem;
-        margin-block-start: 2rem;
-      }
-      .hero-tags span {
+        margin-block-start: 1.5rem;
         font-family: "Assistant", sans-serif;
         font-weight: 600;
         font-size: 0.82rem;
-        color: oklch(0.95 0.01 250);
-        padding: 0.4rem 0.9rem;
+        color: var(--on-photo);
+        padding: 0.4rem 0.9rem 0.4rem 0.75rem;
         border-radius: 100px;
-        border: 1px solid oklch(0.9 0.01 250 / 0.3);
-        background: oklch(0.2 0.01 250 / 0.35);
-        backdrop-filter: blur(6px);
+        border: 1px solid oklch(0.9 0.01 250 / 0.32);
+        background: oklch(0.18 0.012 250 / 0.42);
+        backdrop-filter: blur(8px);
+      }
+      .hero-chip svg {
+        color: var(--accent-2);
+        flex: none;
       }
 
-      /* ============ STATS ============ */
+      /* ============ STATS STRIP ============ */
       .stats {
         background: var(--bg-2);
         border-block-end: 1px solid var(--border);
@@ -395,9 +426,10 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1px;
         background: var(--border);
+        border: 1px solid var(--border);
         border-radius: var(--r-lg);
         overflow: hidden;
-        margin-block: -3.5rem 0;
+        margin-block: -3.25rem 0;
         position: relative;
         z-index: 5;
         box-shadow: var(--shadow);
@@ -409,8 +441,12 @@
       }
       .stat {
         background: var(--surface);
-        padding: clamp(1.4rem, 3vw, 2.2rem) 1.2rem;
+        padding: clamp(1.5rem, 3vw, 2.1rem) 1rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         transition: background 0.3s var(--ease);
       }
       .stat:hover {
@@ -418,7 +454,7 @@
       }
       .stat .num {
         font-family: "Suez One", serif;
-        font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+        font-size: clamp(1.6rem, 3.6vw, 2.2rem);
         color: var(--accent);
         line-height: 1;
       }
@@ -432,26 +468,27 @@
 
       /* ============ SECTION SHELL ============ */
       .section {
-        padding-block: clamp(4rem, 10vw, 8rem);
+        padding-block: clamp(4.5rem, 10vw, 8rem);
       }
       .section-head {
-        max-inline-size: 720px;
-        margin-block-end: clamp(2.2rem, 5vw, 3.5rem);
+        max-inline-size: 700px;
+        margin-block-end: clamp(2.4rem, 5vw, 3.4rem);
       }
       .section-head h2 {
-        font-size: clamp(1.9rem, 5vw, 3.3rem);
-        margin-block: 1rem 0.9rem;
+        font-size: clamp(1.95rem, 4.6vw, 3.1rem);
+        margin-block: 0.9rem 0.85rem;
+        text-wrap: balance;
       }
       .section-head p {
         color: var(--ink-mute);
-        font-size: 1.08rem;
-        max-inline-size: 56ch;
+        font-size: 1.06rem;
+        max-inline-size: 54ch;
       }
 
       /* ============ SERVICES ============ */
       .svc-grid {
         display: grid;
-        gap: 1.4rem;
+        gap: 1.3rem;
         grid-template-columns: 1fr;
       }
       @media (min-width: 720px) {
@@ -468,7 +505,7 @@
         position: relative;
         border-radius: var(--r-lg);
         overflow: hidden;
-        min-block-size: 420px;
+        min-block-size: 430px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -501,28 +538,27 @@
         z-index: -1;
         background: linear-gradient(
           to top,
-          var(--scrim-2) 12%,
-          oklch(0.1 0.01 250 / 0.5) 50%,
-          oklch(0.1 0.01 250 / 0.1) 100%
+          var(--scrim-top) 10%,
+          oklch(0.08 0.012 250 / 0.5) 52%,
+          oklch(0.08 0.012 250 / 0.08) 100%
         );
       }
       .svc-body {
-        padding: clamp(1.4rem, 3vw, 1.9rem);
-        color: oklch(0.98 0.01 80);
+        padding: clamp(1.5rem, 3vw, 1.9rem);
+        color: var(--on-photo);
       }
       .svc-num {
         font-family: "Suez One", serif;
         font-size: 0.95rem;
         color: var(--accent-2);
-        opacity: 0.9;
       }
       .svc-body h3 {
         font-size: 1.5rem;
-        color: oklch(0.99 0.01 80);
-        margin-block: 0.4rem 0.9rem;
+        color: var(--on-photo);
+        margin-block: 0.4rem 0.85rem;
       }
       .svc-body > p {
-        color: oklch(0.9 0.01 250);
+        color: var(--on-photo-soft);
         font-size: 0.98rem;
         margin: 0 0 1.1rem;
       }
@@ -537,7 +573,7 @@
         font-family: "Assistant", sans-serif;
         font-weight: 600;
         font-size: 0.9rem;
-        color: oklch(0.96 0.01 250);
+        color: var(--on-photo);
         display: flex;
         align-items: center;
         gap: 0.55rem;
@@ -547,7 +583,7 @@
         color: var(--accent-2);
       }
 
-      /* ============ BEFORE / AFTER ============ */
+      /* ============ BEFORE / AFTER — CENTERPIECE ============ */
       .ba {
         background: var(--bg-2);
         position: relative;
@@ -556,16 +592,31 @@
       .ba::before {
         content: "";
         position: absolute;
-        inset-block-start: -20%;
-        inset-inline-end: -10%;
-        inline-size: 50vw;
-        block-size: 50vw;
+        inset-block-start: -25%;
+        inset-inline-end: -12%;
+        inline-size: 55vw;
+        block-size: 55vw;
         background: radial-gradient(circle, var(--card-glow), transparent 70%);
         z-index: 0;
+        pointer-events: none;
       }
       .ba .wrap {
         position: relative;
         z-index: 1;
+      }
+      .ba .section-head {
+        text-align: center;
+        margin-inline: auto;
+      }
+      .ba .section-head .eyebrow {
+        justify-content: center;
+      }
+      .ba .section-head p {
+        margin-inline: auto;
+      }
+      .ba-stage {
+        max-inline-size: 1000px;
+        margin-inline: auto;
       }
       .ba-compare {
         position: relative;
@@ -588,9 +639,10 @@
         block-size: 100%;
         object-fit: cover;
       }
-      /* "after" sits on top, clipped from the start (RTL: reveal from inline-start) */
+      /* "after" sits on top, clipped. Physical positioning (RTL-safe):
+         before stays on the RIGHT, after is revealed from the LEFT as --pos grows. */
       .ba-after {
-        clip-path: inset(0 0 0 calc(100% - var(--pos)));
+        clip-path: inset(0 calc(100% - var(--pos)) 0 0);
       }
       .ba-badge {
         position: absolute;
@@ -598,42 +650,41 @@
         font-family: "Assistant", sans-serif;
         font-weight: 700;
         font-size: 0.82rem;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.06em;
         padding: 0.4rem 1rem;
         border-radius: 100px;
-        background: oklch(0.1 0.01 250 / 0.7);
-        color: oklch(0.98 0.01 80);
+        background: oklch(0.08 0.012 250 / 0.72);
+        color: var(--on-photo);
         backdrop-filter: blur(6px);
         z-index: 4;
         pointer-events: none;
       }
       .ba-badge.before {
-        inset-inline-start: 1rem;
+        right: 1rem;
       }
       .ba-badge.after {
-        inset-inline-end: 1rem;
+        left: 1rem;
         background: var(--accent);
         color: var(--accent-ink);
       }
-      /* divider line + handle, positioned in RTL space */
       .ba-divider {
         position: absolute;
         inset-block: 0;
-        inset-inline-end: var(--pos);
+        left: var(--pos);
         inline-size: 3px;
-        background: oklch(0.99 0.01 80 / 0.9);
-        transform: translateX(50%);
+        background: oklch(0.99 0.01 90 / 0.92);
+        transform: translateX(-50%);
         z-index: 3;
         pointer-events: none;
-        box-shadow: 0 0 16px oklch(0.05 0.02 250 / 0.6);
+        box-shadow: 0 0 16px oklch(0.04 0.02 250 / 0.65);
       }
       .ba-handle {
         position: absolute;
         inset-block-start: 50%;
-        inset-inline-end: var(--pos);
-        transform: translate(50%, -50%);
-        inline-size: 52px;
-        block-size: 52px;
+        left: var(--pos);
+        transform: translate(-50%, -50%);
+        inline-size: 54px;
+        block-size: 54px;
         border-radius: 50%;
         background: var(--accent);
         color: var(--accent-ink);
@@ -641,9 +692,8 @@
         place-items: center;
         z-index: 3;
         pointer-events: none;
-        box-shadow: 0 6px 20px oklch(0.05 0.02 250 / 0.55);
+        box-shadow: 0 6px 22px oklch(0.04 0.02 250 / 0.6);
       }
-      /* the actual control */
       .ba-range {
         position: absolute;
         inset-block-start: 50%;
@@ -658,7 +708,7 @@
         -webkit-appearance: none;
         appearance: none;
         background: transparent;
-        direction: ltr; /* keep range math LTR; we map value to inline-end */
+        direction: ltr; /* keep range math LTR; value mapped to inline-end */
       }
       .ba-range::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -684,6 +734,102 @@
         color: var(--ink-mute);
         text-align: center;
         margin-block-start: 1.1rem;
+      }
+      /* projects gallery — Embla carousel (uses the project's embla-carousel lib) */
+      .embla--gallery {
+        margin-block-start: 1.9rem;
+      }
+      .embla--gallery .embla__viewport {
+        overflow: hidden;
+        border-radius: var(--r);
+      }
+      .embla--gallery .embla__container {
+        display: flex;
+        gap: 1.1rem;
+        touch-action: pan-y;
+      }
+      .embla--gallery .embla__slide {
+        position: relative;
+        flex: 0 0 82%;
+        min-inline-size: 0;
+        border-radius: var(--r);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+      }
+      @media (min-width: 720px) {
+        .embla--gallery .embla__slide {
+          flex-basis: 46%;
+        }
+      }
+      @media (min-width: 1040px) {
+        .embla--gallery .embla__slide {
+          flex-basis: 31.5%;
+        }
+      }
+      .embla--gallery .embla__slide img {
+        inline-size: 100%;
+        aspect-ratio: 16 / 11;
+        object-fit: cover;
+        transition: transform 0.7s var(--ease);
+      }
+      .embla--gallery .embla__slide:hover img {
+        transform: scale(1.06);
+      }
+      .embla--gallery .embla__slide span {
+        position: absolute;
+        inset-block-end: 0.8rem;
+        inset-inline-start: 0.8rem;
+        font-family: "Assistant", sans-serif;
+        font-weight: 700;
+        font-size: 0.82rem;
+        color: var(--on-photo);
+        padding: 0.35rem 0.85rem;
+        border-radius: 100px;
+        background: oklch(0.08 0.012 250 / 0.6);
+        backdrop-filter: blur(6px);
+      }
+      .embla__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-block-start: 1.4rem;
+      }
+      .embla__btn {
+        inline-size: 46px;
+        block-size: 46px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+          background 0.3s var(--ease);
+      }
+      .embla__btn:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .embla__dots {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .embla__dot {
+        inline-size: 9px;
+        block-size: 9px;
+        border-radius: 50%;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        background: var(--border);
+        transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+      }
+      .embla__dot.is-selected {
+        background: var(--accent);
+        transform: scale(1.25);
       }
 
       /* ============ ABOUT ============ */
@@ -731,15 +877,16 @@
         font-family: "Assistant", sans-serif;
         font-weight: 600;
         font-size: 0.7rem;
-        opacity: 0.85;
+        opacity: 0.9;
       }
       .about h2 {
-        font-size: clamp(1.9rem, 5vw, 3rem);
-        margin-block: 1rem;
+        font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+        margin-block: 0.9rem;
+        text-wrap: balance;
       }
       .about p {
         color: var(--ink-soft);
-        font-size: 1.1rem;
+        font-size: 1.08rem;
         max-inline-size: 54ch;
       }
       .about-points {
@@ -784,35 +931,34 @@
         z-index: -1;
         background: linear-gradient(
           to top,
-          var(--scrim-2),
-          oklch(0.08 0.01 250 / 0.78)
+          var(--scrim-top),
+          oklch(0.07 0.012 250 / 0.8)
         );
       }
       .cta-inner {
         text-align: center;
         padding-block: clamp(4rem, 10vw, 7rem);
-        color: oklch(0.99 0.01 80);
+        color: var(--on-photo);
       }
       .cta-inner h2 {
-        font-size: clamp(2rem, 6vw, 4rem);
-        color: oklch(0.99 0.01 80);
-        max-inline-size: 18ch;
+        font-size: clamp(2rem, 5.4vw, 3.6rem);
+        color: var(--on-photo);
+        max-inline-size: 20ch;
         margin-inline: auto;
-        margin-block: 1rem 1.2rem;
-        text-shadow: 0 4px 24px oklch(0.05 0.02 250 / 0.6);
+        margin-block: 0.9rem 1.15rem;
+        text-wrap: balance;
+        text-shadow: 0 4px 24px oklch(0.04 0.02 250 / 0.65);
       }
       .cta-inner .eyebrow {
         color: var(--accent-2);
-      }
-      .cta-inner .eyebrow::before {
-        background: var(--accent-2);
+        justify-content: center;
       }
       .cta-contact {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.4rem;
+        gap: 1.3rem;
         justify-content: center;
-        margin-block-start: 2rem;
+        margin-block-start: 1.9rem;
         font-family: "Assistant", sans-serif;
         font-weight: 600;
       }
@@ -821,13 +967,20 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        color: oklch(0.96 0.01 250);
+        color: var(--on-photo-soft);
+      }
+      .cta-contact a {
+        transition: color 0.25s var(--ease);
+      }
+      .cta-contact a:hover {
+        color: var(--on-photo);
       }
       .cta-contact svg {
         color: var(--accent-2);
+        flex: none;
       }
       .cta-inner .btn {
-        margin-block-start: 2.2rem;
+        margin-block-start: 2.1rem;
       }
 
       /* ============ FOOTER ============ */
@@ -856,6 +1009,7 @@
         color: var(--ink-mute);
         font-size: 0.95rem;
         max-inline-size: 46ch;
+        margin-block: 0.5rem 0;
       }
       .footer-copy {
         color: var(--ink-mute);
@@ -875,19 +1029,19 @@
         }
       }
       .d1 {
-        animation-delay: 0.1s;
+        animation-delay: 0.08s;
       }
       .d2 {
-        animation-delay: 0.25s;
+        animation-delay: 0.2s;
       }
       .d3 {
-        animation-delay: 0.4s;
+        animation-delay: 0.32s;
       }
       .d4 {
-        animation-delay: 0.55s;
+        animation-delay: 0.44s;
       }
       .d5 {
-        animation-delay: 0.7s;
+        animation-delay: 0.56s;
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -924,9 +1078,7 @@
           <a href="#contact">צור קשר</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-primary header-cta" href="/contact"
-            >תיאום ייעוץ</a
-          >
+          <a class="btn btn-primary header-cta" href="/contact">תיאום ייעוץ</a>
           <button
             class="theme-toggle"
             id="themeToggle"
@@ -973,23 +1125,39 @@
       <!-- ===== HERO ===== -->
       <section class="hero" aria-label="פתיח">
         <div class="hero-media">
-          <img
-            src="/new-design/hero-1.webp"
-            alt="עבודות איטום ובדק בית באתר בנייה בישראל"
-            fetchpriority="high"
-          />
+          <div class="embla embla--hero" data-embla-hero>
+            <div class="embla__container">
+              <div class="embla__slide">
+                <img
+                  src="/new-design/hero-1.webp"
+                  alt="עבודות איטום באתר בנייה בישראל"
+                  fetchpriority="high"
+                />
+              </div>
+              <div class="embla__slide">
+                <img src="/new-design/hero-2.webp" alt="בדק בית במבנה" loading="lazy" />
+              </div>
+              <div class="embla__slide">
+                <img src="/new-design/hero-3.webp" alt="ייעוץ ואפיון ציפויים לתעשייה" loading="lazy" />
+              </div>
+              <div class="embla__slide">
+                <img src="/new-design/hero-4.webp" alt="פרויקט איטום ושיקום מבנה" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
         <div class="hero-scrim" aria-hidden="true"></div>
         <div class="wrap hero-content">
-          <span class="eyebrow reveal d1">D.Meyer's · יועצי איטום ובדק בית</span>
+          <span class="eyebrow reveal d1"
+            >בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה</span
+          >
           <h1 class="reveal d2">
-            בדק בית, ייעוץ איטום ואפיון ציפויים
-            <span class="hl">לתעשייה</span>
+            כל ליקוי, <span class="hl">לפני</span> שהוא עולה לכם ביוקר.
           </h1>
           <p class="reveal d3">
-            מהחברות המובילות בישראל בתחום בדק הבית, ייעוץ איטום ואפיון ציפויים
-            לתעשייה. חוות דעת המפרטות ליקויים בגיבוי התקן הישראלי, כולל צילום
-            והערכה כספית — קבילות בבתי המשפט, עם ליווי מקצועי מלא.
+            23+ שנות ניסיון בבדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה.
+            בדיקות יסודיות, איתור ליקויים מדויק וחוות דעת מקצועיות מפורטות —
+            עם ליווי אישי עד לפתרון.
           </p>
           <div class="hero-cta reveal d4">
             <a class="btn btn-primary" href="/contact">
@@ -1011,33 +1179,44 @@
             </a>
             <a class="btn btn-ghost" href="/projects">הפרויקטים שלנו</a>
           </div>
-          <div class="hero-tags reveal d5">
-            <span>חוות דעת קבילות בבית המשפט</span>
-            <span>פריסה ארצית</span>
-            <span>גיבוי התקן הישראלי</span>
+          <div class="hero-chip reveal d5">
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            חוות דעת קבילות משפטית
           </div>
         </div>
       </section>
 
-      <!-- ===== STATS ===== -->
+      <!-- ===== STATS STRIP ===== -->
       <section class="stats" aria-label="נתוני אמון">
         <div class="wrap">
           <div class="stats-grid">
             <div class="stat reveal d1">
-              <div class="num">+23</div>
+              <div class="num">23+</div>
               <div class="lbl">שנות ניסיון</div>
             </div>
             <div class="stat reveal d2">
-              <div class="num">קבילות</div>
-              <div class="lbl">חוות דעת בבית המשפט</div>
+              <div class="num">מאות</div>
+              <div class="lbl">פרויקטים</div>
             </div>
             <div class="stat reveal d3">
               <div class="num">ארצית</div>
               <div class="lbl">פריסה בכל הארץ</div>
             </div>
             <div class="stat reveal d4">
-              <div class="num">מאות</div>
-              <div class="lbl">פרויקטים</div>
+              <div class="num">אישי</div>
+              <div class="lbl">ליווי עד לפתרון</div>
             </div>
           </div>
         </div>
@@ -1048,15 +1227,96 @@
         <div class="wrap">
           <div class="section-head">
             <span class="eyebrow">השירותים שלנו</span>
-            <h2 id="svc-title">מומחיות שמכוסה מקצה לקצה</h2>
+            <h2 id="svc-title">מומחיות מקצה לקצה</h2>
             <p>
-              ליווי מלא מהאבחון ועד חוות הדעת — בתחומי האיטום, בדק הבית ואפיון
-              הציפויים לתעשייה.
+              ליווי מלא מהאבחון ועד הפתרון — בבדק בית, ייעוץ איטום ואפיון
+              ציפויים לתעשייה.
             </p>
           </div>
 
           <div class="svc-grid">
             <article class="svc reveal d1">
+              <div class="svc-img">
+                <img
+                  src="/new-design/feat-3.webp"
+                  alt="בדיקת בדק בית לזיהוי ליקויי בנייה"
+                  loading="lazy"
+                />
+              </div>
+              <div class="svc-body">
+                <span class="svc-num">01</span>
+                <h3>בדק בית ומבנים</h3>
+                <p>בדיקות מקיפות לזיהוי ליקויי בנייה.</p>
+                <ul class="svc-list">
+                  <li>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    דירה חדשה / יד שנייה
+                  </li>
+                  <li>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    איתור ליקויים
+                  </li>
+                  <li>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    בדיקות איכות
+                  </li>
+                  <li>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    דוחות מפורטים
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="svc reveal d2">
               <div class="svc-img">
                 <img
                   src="/new-design/feat-1.webp"
@@ -1065,9 +1325,9 @@
                 />
               </div>
               <div class="svc-body">
-                <span class="svc-num">01</span>
+                <span class="svc-num">02</span>
                 <h3>ייעוץ איטום</h3>
-                <p>פתרונות איטום מתקדמים לכל סוגי המבנים והתשתיות.</p>
+                <p>פתרונות איטום מתקדמים לכל המבנים.</p>
                 <ul class="svc-list">
                   <li>
                     <svg
@@ -1115,7 +1375,7 @@
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    איטום בהזרקה ושיקום
+                    הזרקה ושיקום
                   </li>
                   <li>
                     <svg
@@ -1131,88 +1391,7 @@
                     >
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    פיקוח צמוד
-                  </li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="svc reveal d2">
-              <div class="svc-img">
-                <img
-                  src="/new-design/feat-3.webp"
-                  alt="בדיקת בדק בית לזיהוי ליקויי בנייה"
-                  loading="lazy"
-                />
-              </div>
-              <div class="svc-body">
-                <span class="svc-num">02</span>
-                <h3>בדק בית ומבנים</h3>
-                <p>בדיקות מקיפות לזיהוי ליקויי בנייה.</p>
-                <ul class="svc-list">
-                  <li>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    לפני רכישה
-                  </li>
-                  <li>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    זיהוי ליקויים
-                  </li>
-                  <li>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    מומחה בסכסוכים משפטיים
-                  </li>
-                  <li>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    דוחות מפורטים
+                    פיקוח
                   </li>
                 </ul>
               </div>
@@ -1222,14 +1401,14 @@
               <div class="svc-img">
                 <img
                   src="/new-design/feat-2.webp"
-                  alt="ייעוץ אפיון ציפויים לרצפות ומבני פלדה"
+                  alt="אפיון ציפויים לרצפות ומבני פלדה לתעשייה"
                   loading="lazy"
                 />
               </div>
               <div class="svc-body">
                 <span class="svc-num">03</span>
-                <h3>ייעוץ ציפויים</h3>
-                <p>ייעוץ לבחירת ציפויים לרצפות ומבני פלדה.</p>
+                <h3>אפיון ציפויים לתעשייה</h3>
+                <p>ציפויים לרצפות ומבני פלדה.</p>
                 <ul class="svc-list">
                   <li>
                     <svg
@@ -1302,71 +1481,109 @@
         </div>
       </section>
 
-      <!-- ===== BEFORE / AFTER ===== -->
+      <!-- ===== BEFORE / AFTER — CENTERPIECE ===== -->
       <section class="section ba" id="projects" aria-labelledby="ba-title">
         <div class="wrap">
           <div class="section-head">
-            <span class="eyebrow">הוכחת תוצאות</span>
+            <span class="eyebrow">הפרויקטים שלנו</span>
             <h2 id="ba-title">לפני / אחרי — התוצאה מדברת</h2>
             <p>
-              גררו את הידית כדי לחשוף את ההבדל בין מצב הליקוי המקורי לבין התוצאה
-              לאחר טיפול האיטום והשיקום.
+              גררו את הידית כדי לחשוף את ההבדל בין מצב הליקוי המקורי לבין
+              התוצאה לאחר טיפול האיטום והשיקום.
             </p>
           </div>
 
-          <div
-            class="ba-compare reveal d1"
-            id="baCompare"
-            style="--pos: 50%"
-          >
-            <div class="ba-layer ba-before">
-              <img
-                src="/new-design/before-1.webp"
-                alt="מצב לפני: ליקויי רטיבות ואיטום במבנה"
-                loading="lazy"
+          <div class="ba-stage">
+            <div class="ba-compare reveal d1" id="baCompare" style="--pos: 50%">
+              <div class="ba-layer ba-before">
+                <img
+                  src="/new-design/before-1.webp"
+                  alt="מצב לפני: ליקויי רטיבות ואיטום במבנה"
+                  loading="lazy"
+                />
+              </div>
+              <div class="ba-layer ba-after" id="baAfterLayer">
+                <img
+                  src="/new-design/after-1.webp"
+                  alt="מצב אחרי: לאחר ביצוע עבודות איטום ושיקום"
+                  loading="lazy"
+                />
+              </div>
+
+              <span class="ba-badge before">לפני</span>
+              <span class="ba-badge after">אחרי</span>
+
+              <div class="ba-divider" id="baDivider" aria-hidden="true"></div>
+              <div class="ba-handle" id="baHandle" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                  <polyline points="9 6 15 12 9 18" />
+                </svg>
+              </div>
+
+              <input
+                class="ba-range"
+                id="baRange"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                step="1"
+                aria-label="חשיפת לפני ואחרי — גררו לשליטה בחלוקה"
               />
             </div>
-            <div class="ba-layer ba-after" id="baAfterLayer">
-              <img
-                src="/new-design/after-1.webp"
-                alt="מצב אחרי: לאחר ביצוע עבודות איטום ושיקום"
-                loading="lazy"
-              />
+            <p class="ba-caption">לפני / אחרי · ייעוץ איטום ושיקום מבנים</p>
+
+            <div class="embla embla--gallery reveal d2" data-embla-gallery>
+              <div class="embla__viewport">
+                <div class="embla__container">
+                  <div class="embla__slide">
+                    <img src="/new-design/proj-1.webp" alt="פרויקט איטום ושיקום מבנה" loading="lazy" />
+                    <span>פרויקט איטום</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/proj-2.webp" alt="פרויקט אפיון ציפויים לתעשייה" loading="lazy" />
+                    <span>אפיון ציפויים</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/hero-2.webp" alt="בדק בית במבנה מגורים" loading="lazy" />
+                    <span>בדק בית</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/hero-3.webp" alt="שיקום ואיטום מבנה" loading="lazy" />
+                    <span>שיקום מבנה</span>
+                  </div>
+                  <div class="embla__slide">
+                    <img src="/new-design/feat-1.webp" alt="ייעוץ איטום לגגות ומרתפים" loading="lazy" />
+                    <span>ייעוץ איטום</span>
+                  </div>
+                </div>
+              </div>
+              <div class="embla__controls">
+                <button class="embla__btn embla__prev" type="button" aria-label="הפרויקט הקודם">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 6 15 12 9 18" />
+                  </svg>
+                </button>
+                <div class="embla__dots" data-embla-dots></div>
+                <button class="embla__btn embla__next" type="button" aria-label="הפרויקט הבא">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 6 9 12 15 18" />
+                  </svg>
+                </button>
+              </div>
             </div>
-
-            <span class="ba-badge before">לפני</span>
-            <span class="ba-badge after">אחרי</span>
-
-            <div class="ba-divider" id="baDivider" aria-hidden="true"></div>
-            <div class="ba-handle" id="baHandle" aria-hidden="true">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="15 18 9 12 15 6" />
-                <polyline points="9 6 15 12 9 18" />
-              </svg>
-            </div>
-
-            <input
-              class="ba-range"
-              id="baRange"
-              type="range"
-              min="0"
-              max="100"
-              value="50"
-              step="1"
-              aria-label="חשיפת לפני ואחרי — גררו לשליטה בחלוקה"
-            />
           </div>
-          <p class="ba-caption">לפני / אחרי · ייעוץ איטום ושיקום מבנים</p>
         </div>
       </section>
 
@@ -1382,16 +1599,16 @@
               />
               <span class="tag"
                 >דותן מאיר
-                <small>מומחה בדק בית ויועץ איטום</small></span
+                <small>בדק בית · ייעוץ איטום · ציפויים</small></span
               >
             </div>
             <div class="reveal d2">
               <span class="eyebrow">אודות</span>
-              <h2 id="about-title">23 שנות מומחיות, מאחורי כל חוות דעת</h2>
+              <h2 id="about-title">23+ שנות מומחיות, מאחורי כל בדיקה</h2>
               <p>
                 דותן מאיר — מעל 23 שנות ניסיון בתעשיית הבנייה הישראלית, מומחה
-                בדק בית, ייעוץ איטום ואפיון ציפויים. חוות הדעת שלו מפורטות,
-                מגובות בתקן הישראלי וקבילות בבית המשפט.
+                לבדק בית, ייעוץ איטום ואפיון ציפויים לתעשייה. עבודה יסודית,
+                איתור ליקויים מדויק וליווי אישי עד לפתרון.
               </p>
               <ul class="about-points">
                 <li>
@@ -1406,9 +1623,9 @@
                     stroke-linejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  חוות דעת קבילות בבית המשפט, בגיבוי התקן הישראלי
+                  בדיקות יסודיות ואיתור ליקויים מדויק
                 </li>
                 <li>
                   <svg
@@ -1422,9 +1639,9 @@
                     stroke-linejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  מומחיות חוצת תחומים: איטום, בדק בית ואפיון ציפויים
+                  מומחיות חוצת תחומים: בדק בית, איטום וציפויים
                 </li>
                 <li>
                   <svg
@@ -1438,9 +1655,9 @@
                     stroke-linejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  פריסה ארצית עם ליווי מקצועי מלא לאורך כל הדרך
+                  פריסה ארצית עם ליווי אישי עד לפתרון
                 </li>
               </ul>
               <div class="hero-cta" style="margin-block-start: 2rem">
@@ -1477,7 +1694,7 @@
         <div class="wrap cta-inner">
           <span class="eyebrow reveal d1">בואו נדבר</span>
           <h2 id="cta-title" class="reveal d2">
-            מתכננים רכישה, בנייה או חוות דעת? נשמח ללוות אתכם.
+            מתכננים רכישה, בנייה או בדיקה? נשמח ללוות אתכם.
           </h2>
           <div class="cta-contact reveal d3">
             <a href="tel:0524270479">
@@ -1559,7 +1776,7 @@
         <div>
           <a class="wordmark" href="#top">D<span>.</span>Meyer's</a>
           <p class="footer-tag">
-            מומחים לבדק בית מבנים, יועצי איטום ואפיון ציפויים לתעשייה.
+            בדק בית · ייעוץ איטום · אפיון ציפויים לתעשייה
           </p>
         </div>
         <p class="footer-copy">© 2026 D.Meyer's · כל הזכויות שמורות</p>
@@ -1591,6 +1808,55 @@
           update();
         }
       })();
+    </script>
+
+    <script>
+      import EmblaCarousel from "embla-carousel";
+      import Autoplay from "embla-carousel-autoplay";
+
+      const hero = document.querySelector<HTMLElement>("[data-embla-hero]");
+      if (hero) {
+        EmblaCarousel(hero, { loop: true, direction: "rtl", duration: 30 }, [
+          Autoplay({ delay: 4500, stopOnInteraction: false }),
+        ]);
+      }
+
+      const gallery = document.querySelector<HTMLElement>("[data-embla-gallery]");
+      const viewport = gallery?.querySelector<HTMLElement>(".embla__viewport");
+      if (gallery && viewport) {
+        const embla = EmblaCarousel(viewport, {
+          loop: true,
+          direction: "rtl",
+          align: "start",
+        });
+        const prevBtn = gallery.querySelector(".embla__prev");
+        const nextBtn = gallery.querySelector(".embla__next");
+        const dotsNode = gallery.querySelector("[data-embla-dots]");
+        if (prevBtn) prevBtn.addEventListener("click", () => embla.scrollPrev());
+        if (nextBtn) nextBtn.addEventListener("click", () => embla.scrollNext());
+        let dots: Element[] = [];
+        if (dotsNode) {
+          dotsNode.innerHTML = embla
+            .scrollSnapList()
+            .map(
+              (_, i) =>
+                '<button class="embla__dot" type="button" aria-label="מעבר לפרויקט ' +
+                (i + 1) +
+                '"></button>'
+            )
+            .join("");
+          dots = Array.from(dotsNode.children);
+          dots.forEach((d, i) =>
+            d.addEventListener("click", () => embla.scrollTo(i))
+          );
+        }
+        const onSelect = () => {
+          const i = embla.selectedScrollSnap();
+          dots.forEach((d, n) => d.classList.toggle("is-selected", n === i));
+        };
+        embla.on("select", onSelect);
+        onSelect();
+      }
     </script>
   </body>
 </html>

@@ -34,3 +34,6 @@ self-docs
 
 # vercel
 .vercel
+
+# browser-automation artifacts (screenshots/logs)
+.playwright-mcp
