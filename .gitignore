@@ -28,5 +28,6 @@ copy/
 copyWithPath.sh
 self-docs
 
-# project documentation (local only)
-PROJECT-SPEC.md
+# dev-docs system — local session artifacts
+.claude/session.log
+.claude/settings.local.json

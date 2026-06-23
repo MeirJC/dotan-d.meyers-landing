@@ -1,48 +1,27 @@
-# Astro Starter Kit: Basics
+# D.Meyer's — dmeyers.pro
+
+Hebrew (RTL) lead-generation portfolio/landing site for **Dotan Meyer (דותן מאיר)** — certified
+waterproofing consultant (יועץ איטום) and home-inspection expert (בדק בית) in Israel.
+Built with Astro, React islands, and Tailwind CSS v4.
+
+## Project context & docs
+
+This repo uses a tiered docs system. Start here:
+
+- **`CLAUDE.md`** — always-on project steering (stack, conventions, definition of done).
+- **`docs/INDEX.md`** — router to the steering docs; open only what your task needs.
+- **`docs/STATUS.md`** — current focus, roadmap, and the active dossier.
+
+> **Currently in the v3 rebuild** on branch `v3` (design overhaul + Astro 7 + SEO/AIO). The live
+> site runs from `main`; v3 ships to `main` once, at the end.
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template basics
+pnpm install     # install dependencies
+pnpm dev         # dev server at localhost:4321
+pnpm build       # production build to ./dist
+pnpm preview     # preview the build
+pnpm format      # prettier write
+pnpm knip        # find unused files/deps/exports
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
