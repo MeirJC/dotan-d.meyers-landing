@@ -7,20 +7,21 @@ updated: 2026-06-23
 > Timezone for all dates in these docs: **Asia/Jerusalem (IDT/IST)**.
 
 ## Now
-- **Active spec:** none yet — Dossier 0 (Foundation) bootstrapping in progress.
-- **Focus:** stand up the Dev-Docs System, baseline, and v3 governance. Next: Dossier 1 (Astro 7 upgrade).
-- **Branch:** `v3` (long-lived integration branch). Live site stays on `main`.
-- **Blockers:** none.
+- **Active spec:** `specs/001-astro-7-upgrade` — **upgrade done**, build/check/audit all clean.
+  Pending: browser QA (islands + Lighthouse parity), then merge `feat/astro-7-upgrade` → `v3`.
+- **On Astro 7.0.0** (+ @astrojs/react 6, @astrojs/mdx 7). `pnpm audit`: 0 vulns. Dev server: http://localhost:4321.
+- **Branch:** working on `feat/astro-7-upgrade` (off `v3`). Live site stays on `main`.
+- **Next dossier:** design-direction exploration (4 `/new-design/` mocks) → then Dossier 2 (data-model) → 3a.
+- **Blockers:** chrome-devtools MCP offline this session → browser QA deferred to owner / next session.
 
 ## v3 program (roadmap)
 
 Branch model: `v3` base → one feature branch per dossier → merge to `v3` → single `v3 → main` at the end.
 Each dossier runs the spec loop and opens with its own date-current research.
 
-- [~] **Dossier 0 — Foundation & governance**
-  Create `v3`; Dev-Docs System + power-ups; remove stale docs; baseline audit; discovery research saved.
-- [ ] **Dossier 1 — Platform upgrade**
-  Astro 6.4.3 → 7 (`npx @astrojs/upgrade`); dep updates; JSX-whitespace RTL QA; adopt queued rendering + AI dev tooling.
+- [x] **Dossier 0 — Foundation & governance** — Dev-Docs System + power-ups, baseline + discovery research, v3 branch pushed.
+- [~] **Dossier 1 — Platform upgrade**
+  Astro 6.4.3 → 7 (`pnpm dlx @astrojs/upgrade`); resolves 2 Astro CVEs; JSX-whitespace RTL QA; adopt queued rendering + AI dev tooling.
 - [ ] **Dossier 2 — Data-model modernization**
   Future-ready schemas (projects / services / testimonials / locations / certificates slot). Shaped right before design.
 - [ ] **Dossier 3a — Design system**

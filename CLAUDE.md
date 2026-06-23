@@ -28,7 +28,7 @@ pnpm knip             # unused files/deps/exports
 
 | Layer | Tech | Version | Notes |
 |-------|------|---------|-------|
-| Framework | Astro | 6.4.3 (→ 7 in Dossier 1) | Static, no adapter |
+| Framework | Astro | 7.0.0 | Static, no adapter |
 | UI islands | React | 19 | `client:visible`/`client:idle`, not `client:load` |
 | Styling | Tailwind CSS | v4 | `@tailwindcss/vite`; tokens via `@theme` in globals.css |
 | Color | OKLCH tokens | — | `src/styles/globals.css` — dark default + `.light` theme |
@@ -72,7 +72,8 @@ src/utils/        # readingTime.ts
 
 ## Definition of done
 
-- Code matches `docs/structure.md` conventions; `pnpm build` is clean.
+- Code matches `docs/structure.md` conventions.
+- **`pnpm build` AND `pnpm exec astro check` are clean — zero errors, warnings, AND hints.** Fix the root cause with best-practice code; do not suppress.
 - A verification step ran and passed (build / Lighthouse / browser screenshot for UI).
 - Affected steering docs, `docs/INDEX.md` status, and `docs/STATUS.md` updated in the same change.
 - If a durable rule changed, this file updated too. Commit code + doc updates together.

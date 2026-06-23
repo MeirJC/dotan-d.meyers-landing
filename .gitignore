@@ -29,5 +29,5 @@ copyWithPath.sh
 self-docs
 
 # dev-docs system — local session artifacts
-.claude/session.log
+.claude/*.log
 .claude/settings.local.json

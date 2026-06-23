@@ -110,4 +110,4 @@ const schemas = generatePageSchema({
 />
 
 {/* Structured Data - Multiple schemas for comprehensive SEO */}
-{schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+{schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}

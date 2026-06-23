@@ -19,3 +19,5 @@ One row per decision. Dates are Asia/Jerusalem.
 | 8 | **Skip `llms.txt`/`ai.txt`** for AIO/GEO | 2026-06-23 | 2026 research: ~97% unused, Google confirms ignored; strong normal SEO == GEO | — |
 | 9 | Motion via native CSS scroll-driven animations + native `@view-transition`; avoid GSAP/Lenis/heavy JS | 2026-06-23 | 0 KB, off-main-thread, protects perf budget | Less imperative control |
 | 10 | WhatsApp Business: deferred, proposal kept off-repo (owner's Desktop); design reserves a CTA slot | 2026-06-23 | Needs owner commitment + setup beyond the site | Conversion lever delayed |
+| 11 | Migrate pnpm settings to `pnpm-workspace.yaml` (`allowBuilds` sharp/esbuild + `yaml` override); add `engines.node >=22.12.0` | 2026-06-23 | pnpm 11 ignores the package.json `pnpm` field; sharp needs its native build; keep the yaml CVE patched | One extra config file |
+| 12 | Standard: code must pass `pnpm build` + `astro check` with **0 errors/warnings/hints**; fix root cause, don't suppress | 2026-06-23 | Owner directive — best-practice, optimal code; no warning debt | Slightly more rigor per change |

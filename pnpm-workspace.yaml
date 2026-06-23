@@ -1,0 +1,13 @@
+# pnpm 11 settings (the package.json `pnpm` field is no longer read).
+# These packages need their native/postinstall build scripts to function:
+#   sharp   — native image processing used by Astro <Image> at build time
+#   esbuild — native binary in the Vite/Rolldown toolchain
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# Migrated from the deprecated package.json `pnpm.overrides`.
+# yaml: pin to a patched version — pulls the fix through the @astrojs/check (dev) toolchain
+# (advisory GHSA-48c2-rrv3-qjmp). Dev-only/transitive, not shipped to production.
+overrides:
+  yaml: "^2.9.0"
