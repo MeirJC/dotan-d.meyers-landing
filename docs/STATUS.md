@@ -7,13 +7,22 @@ updated: 2026-06-23
 > Timezone for all dates in these docs: **Asia/Jerusalem (IDT/IST)**.
 
 ## Now
-- **Active spec:** `specs/001-astro-7-upgrade` — **upgrade done**, build/check/audit all clean.
-  Pending: browser QA (islands + Lighthouse parity), then merge `feat/astro-7-upgrade` → `v3`.
-- **On Astro 7.0.0** (+ @astrojs/react 6, @astrojs/mdx 7). `pnpm audit`: 0 vulns. Dev server: http://localhost:4321.
-- **Branch:** working on `feat/astro-7-upgrade` (off `v3`). Live site stays on `main`.
-- **Design exploration:** 6 `/new-design/` mocks built (each light/dark) — awaiting owner+Dotan pick → seeds creative-direction + design-system (3a). Gallery: `/new-design/`.
-- **Vercel preview:** fixed (pnpm 9→11 via packageManager + Corepack on Preview); production untouched.
-- **Blockers:** chrome-devtools MCP offline this session → browser QA deferred to owner / next session.
+- **Branch:** `feat/astro-7-upgrade` (off `v3`); both pushed to origin. Live site on `main` untouched.
+- **Astro 7 upgrade — DONE** (astro 7.0.0 + @astrojs/react 6 + @astrojs/mdx 7; build/`astro check` 0/0/0; `pnpm audit` 0 vulns). *Pending:* browser QA (island hydration + Lighthouse parity), then merge `feat/astro-7-upgrade` → `v3`.
+- **Design exploration — DONE.** 6 distinct `/new-design/` mocks (each light/dark + before/after slider + Embla gallery, browser-verified desktop+mobile). Gallery: `/new-design/`. Concepts:
+  1 Dossier(editorial) · 2 Blueprint(industrial) · 3 Beneath-the-Surface(flagship) · 4 Home&Trust(warm) · 5 No-Compromise(bold/cobalt) · 6 Depth(aurora glass).
+- **⏳ WAITING ON:** Dotan to pick a creative direction (a whole option, or a mix). That choice unblocks Dossier 3a.
+- **Principle (decision #15):** v3 *evolves & re-skins* existing components (FeatureCard services, ProjectCard, ContactForm, OKLCH tokens) — not a blind rebuild. Mocks = direction-finding only.
+- **Vercel preview:** fixed (pnpm pinned to 11 via packageManager + Corepack on Preview env only; production untouched).
+
+## ▶ Resume here next session
+1. Read `CLAUDE.md` → `docs/INDEX.md` → this file (the SessionStart hook prompts this automatically).
+2. Confirm branch: `git checkout feat/astro-7-upgrade` (or `v3`).
+3. Then either:
+   - **Direction chosen:** "Start Dossier 3a — build the creative-direction doc + design system from `/new-design/option-N` (Dotan picked it)." Then Dossier 2 (data-model) and 3b (rebuild reusing existing components, restyled).
+   - **Finish Dossier 1:** "Run the Astro 7 browser QA (islands + Lighthouse), then merge `feat/astro-7-upgrade` → `v3`."
+   - **Tweak a mock:** "Fix `/new-design/option-N` — <what>."
+4. Run `pnpm dev` if you want the local preview (dev server is not persistent across sessions).
 
 ## v3 program (roadmap)
 
